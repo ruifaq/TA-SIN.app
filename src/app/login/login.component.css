@@ -1,0 +1,17 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body{
+  background-color: rgb(219, 224, 224);
+}
+
+mat-card {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    top: 350px;
+    
+  }
+  
+  mat-form-field {
+    display: block;
+  }

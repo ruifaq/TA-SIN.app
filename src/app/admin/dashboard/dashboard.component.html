@@ -1,0 +1,28 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Sistem Informasi Nilai Harian</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="">Dashboard</a>
+      <a mat-list-item routerLink="./guru">Guru</a>
+      <a mat-list-item routerLink="./siswa">Siswa</a>
+      <a mat-list-item routerLink="./kelas">Kelas</a>
+      <a mat-list-item routerLink="./mapel">Mata Pelajaran</a>
+      <a mat-list-item routerLink="./tema">Tema</a>
+      <a mat-list-item routerLink="./laporan">Laporan</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Dashboard</span>
+      <span class="bio">halo, admin</span>
+        <mat-icon aria-label="Side nav toggle icon" class="logout">logout</mat-icon>
+      
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

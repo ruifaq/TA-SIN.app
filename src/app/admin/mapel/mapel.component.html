@@ -1,0 +1,85 @@
+<div class="padding">
+    <h1>Mata Pelajaran</h1>
+
+    <!-- <h3>NIP/Nama</h3> -->
+
+    <!-- <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+                   placeholder="Ex. pat@example.com">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+    </form> -->
+
+    <mat-form-field appearance="outline" class="field">
+        <mat-label>Mata Pelajaran</mat-label>
+        <input matInput placeholder="Masukkan Mata Pelajaran">
+    </mat-form-field>
+
+    <section>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary">Cari</button>
+            <button mat-raised-button color="primary">Tambah Mata Pelajaran</button>
+        </div>
+    </section>
+    <mat-divider></mat-divider>
+
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="mapel">
+            <th mat-header-cell *matHeaderCellDef> Mata Pelajaran </th>
+            <td mat-cell *matCellDef="let element"> {{element.mapel}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="kkm">
+            <th mat-header-cell *matHeaderCellDef> KKM </th>
+            <td mat-cell *matCellDef="let element"> {{element.kkm}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="kelas">
+            <th mat-header-cell *matHeaderCellDef> Kelas </th>
+            <td mat-cell *matCellDef="let element"> {{element.kelas}}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="tema">
+            <th mat-header-cell *matHeaderCellDef> Tema </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element">
+                <a>
+                    <mat-icon aria-label="Side nav toggle icon" class="logout" color="primary">edit</mat-icon>
+                </a>
+
+                <mat-icon aria-label="Side nav toggle icon" class="logout" color="warn">delete</mat-icon>
+
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+</div>
