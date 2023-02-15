@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add',
@@ -15,7 +16,7 @@ export class AddComponent {
     'Non Aktif'
   ];
 
-  constructor(private _fb: FormBuilder) {
+  constructor(private _fb: FormBuilder, public dialogref:MatDialogRef<AddComponent>) {
     this.addGuruForm = this._fb.group({
       nip: '',
       nama: '',
@@ -31,6 +32,7 @@ export class AddComponent {
   simpan(){
     if (this.addGuruForm.valid) {
       console.log(this.addGuruForm.value);
+      this.dialogref.close();
     }
   }
 

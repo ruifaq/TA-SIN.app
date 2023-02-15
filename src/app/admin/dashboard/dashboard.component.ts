@@ -16,6 +16,10 @@ export class DashboardComponent {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver) {
+    
+  }
+
+  // myimage:string = "assets/images/tut-wuri.png";
 
 }

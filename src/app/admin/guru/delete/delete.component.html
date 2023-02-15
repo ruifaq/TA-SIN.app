@@ -1,11 +1,12 @@
-<div mat-dialog-title>
-    <h1>Edit Guru</h1>
-</div>
+
 <div mat-dialog-content class="content">
- 
-      
+    <img [src]="myimage" class="ihapus">
+
+    <h1>Apakah anda yakin ingin menghapus data?</h1>
 </div>
-<div mat-dialog-actions>
-    <button mat-raised-button color="primary">Batal</button>
-    <button mat-raised-button color="primary">Simpan</button>
+
+
+<div mat-dialog-actions class="action">
+    <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
+    <button mat-raised-button color="warn" class="btn-flex" type="submit" >Hapus</button>
 </div>

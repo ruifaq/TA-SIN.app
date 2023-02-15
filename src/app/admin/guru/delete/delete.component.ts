@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class DeleteComponent {
 
+  myimage:string = "assets/images/icon-delete.png";
+
 }

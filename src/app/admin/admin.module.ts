@@ -29,6 +29,7 @@ import { EditComponent } from './guru/edit/edit.component';
 import { DeleteComponent } from './guru/delete/delete.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 const routes: Routes = [
   {
@@ -97,7 +98,8 @@ const routes: Routes = [
     MatSelectModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatPaginatorModule
   ]
 })
 export class AdminModule { }

@@ -1,61 +1,72 @@
 <div mat-dialog-title>
     <h1>Edit Guru</h1>
 </div>
-<div mat-dialog-content class="content">
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>NIP</mat-label>
-            <input matInput>
-          </mat-form-field>
+
+<form [formGroup]="editGuruForm" (ngSubmit)="simpan()">
+    <div mat-dialog-content class="content">
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>NIP</mat-label>
+                <input matInput formControlName="nip" required>
+                <mat-error>Masukkan NIP terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Nama</mat-label>
+                <input matInput type="text" formControlName="nama" required>
+                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" required>
+                <mat-error>Masukkan username terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Password</mat-label> 
+                <input matInput  formControlName="password" required>
+                <mat-error>Masukkan password terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Alamat</mat-label>
+                <input matInput type="text" formControlName="alamat" required>
+                <mat-error>Masukkan alamat terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Jabatan</mat-label>
+                <input matInput type="text" formControlName="jabatan" required>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>No. Hp</mat-label>
+                <input matInput type="text" formControlName="hp" required>
+                <mat-error>Masukkan No. Hp terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field" >
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="status" required>
+                    <mat-option value="Aktif">Aktif</mat-option>
+                    <mat-option value="Non Aktif">Non Aktif</mat-option>
+                </mat-select>
+                <mat-error>Pilih status erlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+
     </div>
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>Nama</mat-label>
-            <input matInput>
-          </mat-form-field>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit" >Simpan</button>
     </div>
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>Username</mat-label>
-            <input matInput>
-          </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>Password</mat-label>
-            <input matInput>
-          </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>Alamat</mat-label>
-            <input matInput>
-          </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>Jabatan</mat-label>
-            <input matInput>
-          </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>No. Hp</mat-label>
-            <input matInput>
-          </mat-form-field>
-    </div>
-    <div>
-        <mat-form-field appearance="outline" class="field">
-            <mat-label>Status</mat-label>
-            <mat-select>
-                <mat-option value="Aktif">Aktif</mat-option>
-                <mat-option value="Non Aktif">Non Aktif</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </div>
-      
-</div>
-<div mat-dialog-actions>
-    <button mat-raised-button color="primary">Batal</button>
-    <button mat-raised-button color="primary">Simpan</button>
-</div>
+</form>

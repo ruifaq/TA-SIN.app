@@ -1,9 +1,9 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Sistem Informasi Nilai Harian</mat-toolbar>
+    <mat-toolbar class="toolbar-logo"> <img src="assets/images/tut-wuri.png" class="img"></mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="">Dashboard</a>
+      <a mat-list-item routerLink="./guru">Dashboard</a>
       <a mat-list-item routerLink="./guru">Guru</a>
       <a mat-list-item routerLink="./siswa">Siswa</a>
       <a mat-list-item routerLink="./kelas">Kelas</a>
@@ -17,10 +17,18 @@
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Dashboard</span>
-      <span class="bio">halo, admin</span>
-        <mat-icon aria-label="Side nav toggle icon" class="logout">logout</mat-icon>
-      
+      <span>Sistem Informasi Nilai Harian</span>
+      <button mat-icon-button color="basic">
+        <h3>| Halo, Admin</h3>
+      </button>
+      <span class="example-spacer"></span>
+      <div class="example-flex-container">
+        <button mat-icon-button color="basic" routerLink="">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </div>
+
+
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
