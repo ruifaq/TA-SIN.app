@@ -9,30 +9,56 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddComponent {
 
-  addGuruForm: FormGroup;
+  // addGuruForm: FormGroup;
 
   status: string[] = [
     'Aktif',
     'Non Aktif'
   ];
 
-  constructor(private _fb: FormBuilder, public dialogref:MatDialogRef<AddComponent>) {
-    this.addGuruForm = this._fb.group({
-      nip: '',
-      nama: '',
-      username: '',
-      password: '',
-      alamat: '',
-      jabatan: '',
-      hp: '',
-      status: ''
-    })
+  addGuruArr: any[] = [];
+  guru: any = {
+    nip: '',
+    nama: '',
+    username: '',
+    password: '',
+    alamat: '',
+    jabatan: '',
+    hp: '',
+    status: ''
+  };
+
+  constructor(private _fb: FormBuilder, public dialogref: MatDialogRef<AddComponent>) {
+    // this.addGuruForm = this._fb.group({
+    //   nip: '',
+    //   nama: '',
+    //   username: '',
+    //   password: '',
+    //   alamat: '',
+    //   jabatan: '',
+    //   hp: '',
+    //   status: ''
+    // })
   }
 
-  simpan(){
-    if (this.addGuruForm.valid) {
-      console.log(this.addGuruForm.value);
-      this.dialogref.close();
+  // simpan(){
+  //   if (this.addGuruForm.valid) {
+  //     console.log(this.addGuruForm.value);
+  //     this.dialogref.close();
+  //   }
+  // }
+
+  simpanData(data: any) {
+    debugger
+    this.addGuruArr.push(this.guru);
+    this.dialogref.close();
+    localStorage.setItem('guru', JSON.stringify(this.addGuruArr))
+  }
+
+  ngOnInit(): void {
+    const localData = localStorage.getItem('guru');
+    if(localData != null){
+      this.addGuruArr = JSON.parse(localData)
     }
   }
 
