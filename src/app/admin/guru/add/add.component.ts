@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { ApiService } from 'src/app/shared/api.service';
+import { GuruModule } from '../guru.module';
 
 @Component({
   selector: 'app-add',
@@ -9,57 +11,47 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class AddComponent {
 
-  // addGuruForm: FormGroup;
 
+  guruModuleObj: GuruModule = new GuruModule;
   status: string[] = [
     'Aktif',
     'Non Aktif'
   ];
 
-  addGuruArr: any[] = [];
-  guru: any = {
-    nip: '',
-    nama: '',
-    username: '',
-    password: '',
-    alamat: '',
-    jabatan: '',
-    hp: '',
-    status: ''
-  };
+  public dataGuruForm!: FormGroup;
 
-  constructor(private _fb: FormBuilder, public dialogref: MatDialogRef<AddComponent>) {
-    // this.addGuruForm = this._fb.group({
-    //   nip: '',
-    //   nama: '',
-    //   username: '',
-    //   password: '',
-    //   alamat: '',
-    //   jabatan: '',
-    //   hp: '',
-    //   status: ''
-    // })
-  }
 
-  // simpan(){
-  //   if (this.addGuruForm.valid) {
-  //     console.log(this.addGuruForm.value);
-  //     this.dialogref.close();
-  //   }
-  // }
 
-  simpanData(data: any) {
-    debugger
-    this.addGuruArr.push(this.guru);
-    this.dialogref.close();
-    localStorage.setItem('guru', JSON.stringify(this.addGuruArr))
+  constructor(private _fb: FormBuilder, 
+    public dialogref: MatDialogRef<AddComponent>, 
+    private api: ApiService, 
+    private _formBuilder: FormBuilder
+    ) {
   }
 
   ngOnInit(): void {
-    const localData = localStorage.getItem('guru');
-    if(localData != null){
-      this.addGuruArr = JSON.parse(localData)
-    }
+    this.dataGuruForm = this._formBuilder.group({
+      nip: ["", Validators.required],
+      nama: ["", Validators.required],
+      username: ["", Validators.required],
+      pass: ["", Validators.required],
+      alamat: ["", Validators.required],
+      jabatan: ["", Validators.required],
+      hp: ["", Validators.required],
+      status: ["", Validators.required]
+
+    })
   }
+
+  simpan() {
+    this.api.tambahData(this.dataGuruForm.value)
+      .subscribe(res => {
+        console.log(res);
+        this.dialogref.close();
+        window.location.reload()
+      })
+  }
+
+
 
 }

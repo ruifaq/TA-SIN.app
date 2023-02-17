@@ -2,7 +2,7 @@
     <h1>Edit Guru</h1>
 </div>
 
-<form [formGroup]="editGuruForm" (ngSubmit)="simpan()">
+<form [formGroup]="dataGuruForm">
     <div mat-dialog-content class="content">
         <div>
             <mat-form-field appearance="outline" class="field">
@@ -28,7 +28,7 @@
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Password</mat-label> 
-                <input matInput  formControlName="password" required>
+                <input matInput  formControlName="pass" required>
                 <mat-error>Masukkan password terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
@@ -67,6 +67,6 @@
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
-        <button mat-raised-button color="primary" class="btn-flex" type="submit" >Simpan</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
     </div>
 </form>

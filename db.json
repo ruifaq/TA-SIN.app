@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "nip": "20001353144",
+      "nama": "Wulan S. Pd",
+      "username": "wulan",
+      "pass": "et3tet3t3tttg3t",
+      "alamat": "bantul",
+      "jabatan": "guru",
+      "hp": "0972324422",
+      "status": "Non Aktif",
+      "id": 5
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  },
+  "kelas": [
+    {
+      "id": 1,
+      "kelas": "some comment",
+      "jumlah_siswa": 1,
+      "wali_kelas": "Wulan S. Pd",
+      "tahun_ajaran": "2022/2023"
+    }
+  ]
+}

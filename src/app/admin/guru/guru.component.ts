@@ -1,23 +1,27 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/api.service';
 import { AddComponent } from './add/add.component';
 import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
+import { GuruModule } from './guru.module';
 
 export interface PeriodicElement {
   nip: string;
-  position: number;
   nama: string;
   username: string;
-  pass:string;
-  alamat:string;
-  jabatan:string;
-  hp:string;
-  status:string;
+  pass: string;
+  alamat: string;
+  jabatan: string;
+  hp: string;
+  status: string;
 }
-
 
 // const ELEMENT_DATA: PeriodicElement[] = [
 //   {position: 1, nip: '198503302003121002', nama: 'Wulan S.Pd', username: 'wulan', pass: '123', alamat: 'Yogyakarta', jabatan: 'Wali Kelas', hp: '09123456789', status: 'Aktif'},
@@ -40,45 +44,75 @@ export interface PeriodicElement {
   templateUrl: './guru.component.html',
   styleUrls: ['./guru.component.css']
 })
-export class GuruComponent {
-
-  addGuruArr: any[] = [];
-  guru: any = {
-    nip: '',
-    nama: '',
-    username: '',
-    password: '',
-    alamat: '',
-    jabatan: '',
-    hp: '',
-    status: ''
-  };
-
-  displayedColumns: string[] = ['position', 'nip', 'nama', 'username', 'pass', 'alamat', 'jabatan', 'hp', 'status', 'action'];
+export class GuruComponent implements OnInit {
+  public dataSource !: MatTableDataSource<GuruModule>;
+  public gurus !: any;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  displayedColumns: string[] = ['nip', 'nama', 'username', 'pass', 'alamat', 'jabatan', 'hp', 'status', 'action'];
   // dataSource = ELEMENT_DATA;
 
   // emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   // matcher = new MyErrorStateMatcher();
 
-  constructor(private _dialog: MatDialog){}
+  formValue !: FormGroup;
+  guruModuleObj: GuruModule = new GuruModule();
 
- 
+  constructor(
+    private _dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private router: Router,
 
-  add(){
+
+
+  ) { }
+
+  add() {
     this._dialog.open(AddComponent)
   }
-  edit(){
-    this._dialog.open(EditComponent)
+  edit(data: any) {
+
+
+    this._dialog.open(EditComponent, { data });
   }
-  delete(){
-    this._dialog.open(DeleteComponent)
+  delete(data: any) {
+
+    this._dialog.open(DeleteComponent, { data })
   }
 
+
   ngOnInit(): void {
-    const localData = localStorage.getItem('guru');
-    if(localData != null){
-      this.addGuruArr = JSON.parse(localData)
-    }
+    this.formValue = this.formBuilder.group({
+      nip: [''],
+      nama: [''],
+      username: [''],
+      pass: [''],
+      alamat: [''],
+      jabatan: [''],
+      hp: [''],
+      status: [''],
+    })
+
+    this.getDataGuru();
+  }
+
+  getDataGuru() {
+    this.api.ambilDataGuru()
+      .subscribe(res => {
+        this.gurus = res;
+        console.log();
+        this.dataSource = new MatTableDataSource(this.gurus);
+
+      })
+  }
+
+  hapusDataGuru(id: number) {
+    this._dialog.open(DeleteComponent)
+    this.api.hapusDataGuru(id).subscribe(res => {
+      console.log(res);
+   
+    })
   }
 
 }

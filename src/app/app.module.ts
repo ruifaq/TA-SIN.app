@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,16 +13,20 @@ import {MatCardModule} from '@angular/material/card';
 import { MaterialDesign } from './material/material';
 import { AdminComponent } from './admin/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
+
+@Injectable({
+  providedIn: 'root'
+})
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
- 
     LoginComponent,
+
   
   ],
   imports: [
@@ -33,7 +37,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatCardModule,
     MaterialDesign,
     HttpClientModule,
-    NgbModule,
+    MatFormFieldModule
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

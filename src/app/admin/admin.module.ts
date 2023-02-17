@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule, Routes } from '@angular/router';
@@ -24,12 +24,14 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { AddComponent } from './guru/add/add.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EditComponent } from './guru/edit/edit.component';
-import { DeleteComponent } from './guru/delete/delete.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+
+
+
 
 const routes: Routes = [
   {
@@ -52,6 +54,9 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'edit/:id', component: EditComponent
+      },
+      {
         path: 'siswa', component: SiswaComponent,
       },
       {
@@ -68,6 +73,10 @@ const routes: Routes = [
   }
 ]
 
+@Injectable({
+  providedIn: 'root'
+})
+
 @NgModule({
   declarations: [
     SiswaComponent,
@@ -80,7 +89,8 @@ const routes: Routes = [
     LaporanComponent,
     AddComponent,
     EditComponent,
-    DeleteComponent
+
+
   ],
   imports: [
     CommonModule,
@@ -99,7 +109,7 @@ const routes: Routes = [
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ]
 })
 export class AdminModule { }
