@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MaterialDesign } from '../material/material';
 
 import { SiswaComponent } from './siswa/siswa.component';
-import { AdminComponent } from './admin/admin.component';
+
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -29,32 +29,20 @@ import { EditComponent } from './guru/edit/edit.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
-
-
+import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: DashboardComponent,
+    path: '',component: DashboardComponent,
     children: [
       {
-        path: 'dashboard',
-        component: DashboardComponent,
+        path: 'dashboard-admin', component: DashboardAdminComponent,
       },
       {
         path: 'kelas', component: KelasComponent,
       },
       {
         path: 'guru', component: GuruComponent,
-        children: [
-          {
-            path: 'add', component: AddComponent,
-          }
-        ]
-      },
-      {
-        path: 'edit/:id', component: EditComponent
       },
       {
         path: 'siswa', component: SiswaComponent,
@@ -70,6 +58,7 @@ const routes: Routes = [
       },
 
     ]
+    
   }
 ]
 
@@ -89,6 +78,7 @@ const routes: Routes = [
     LaporanComponent,
     AddComponent,
     EditComponent,
+    DashboardAdminComponent,
 
 
   ],

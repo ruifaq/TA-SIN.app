@@ -11,19 +11,6 @@ const routes: Routes = [
     loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule)
   },
   {
-    path:'dashboard',
-    loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule)
-  },
-  {
-    path:'guru',
-    loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule)
-  },
-  {
-    path:'siswa',
-    loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule)
-  },
-
-  {
     path:'login',component:LoginComponent
   },
   {

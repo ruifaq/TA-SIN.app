@@ -49,3 +49,28 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+mat-grid-tile {
+  background: lightblue;
+}
+
+a {
+  color: rgb(0, 0, 0);
+  position: relative;
+  text-decoration: none;
+}
+
+a::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background-color: gray;
+  bottom: 0;
+  left: 0;
+}
+
+a:hover{
+  background-color: lightgray;
+}
+

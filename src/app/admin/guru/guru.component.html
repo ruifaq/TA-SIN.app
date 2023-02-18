@@ -3,31 +3,13 @@
 <div class="padding">
     <h1>Guru</h1>
 
-    <!-- <h3>NIP/Nama</h3> -->
-
-    <!-- <form class="example-form">
-        <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                   placeholder="Ex. pat@example.com">
-            <mat-hint>Errors appear instantly!</mat-hint>
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-    </form> -->
-
     <mat-form-field appearance="outline" class="field">
-        <mat-label>NIP/Nama</mat-label>
-        <input matInput placeholder="Masukkan NIP/Nama">
+        <mat-label>Pencarian</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Contoh. Rui Faqri" #input>
     </mat-form-field>
 
     <section>
         <div class="example-button-row">
-            <button mat-raised-button color="primary">Cari</button>
             <button mat-raised-button color="primary" (click)="add()">Tambah Data</button>
         </div>
     </section>
@@ -37,7 +19,7 @@
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
-              
+
         <!-- Name Column -->
         <ng-container matColumnDef="nip">
             <th mat-header-cell *matHeaderCellDef> NIP </th>
@@ -88,10 +70,10 @@
                     <button mat-icon-button color="primary" (click)="edit(element)">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <button mat-icon-button color="warn" (click)="delete(element)"> 
-                        
+                    <button mat-icon-button color="warn" (click)="delete(element)">
+
                         <!-- (click)="hapusDataGuru(element.id) => untuk hapus langsung -->
-                        
+
                         <mat-icon>delete</mat-icon>
                     </button>
                 </div>
@@ -101,9 +83,15 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Tidak ada data sesuai pencarian "{{input.value}}"</td>
+        </tr>
+
     </table>
 
-    <!-- <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page">
-    </mat-paginator> -->
-
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Pilih page dari Guru"
+        class="mat-elevation-z8"></mat-paginator>
+       
 </div>
+

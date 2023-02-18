@@ -8,8 +8,74 @@
       "alamat": "bantul",
       "jabatan": "guru",
       "hp": "0972324422",
-      "status": "Non Aktif",
+      "status": "Aktif",
       "id": 5
+    },
+    {
+      "nip": "200135314355",
+      "nama": "joko",
+      "username": "joko123",
+      "pass": "35q353trq3tq3t",
+      "alamat": "bantul",
+      "jabatan": "guru",
+      "hp": "0972324422",
+      "status": "Aktif",
+      "id": 6
+    },
+    {
+      "nip": "199056425355",
+      "nama": "jefri",
+      "username": "jefri424",
+      "pass": "eggerrree2",
+      "alamat": "jogja",
+      "jabatan": "guru",
+      "hp": "0898352424245",
+      "status": "Aktif",
+      "id": 7
+    },
+    {
+      "nip": "199835336256",
+      "nama": "mika",
+      "username": "mika243535",
+      "pass": "ertegtrst353er",
+      "alamat": "jogja",
+      "jabatan": "guru",
+      "hp": "081335463535",
+      "status": "Aktif",
+      "id": 8
+    },
+    {
+      "nip": "20006868674635",
+      "nama": "rudi",
+      "username": "rudi342425",
+      "pass": "e634t3eq33",
+      "alamat": "jogja",
+      "jabatan": "guru",
+      "hp": "0823645342425",
+      "status": "Aktif",
+      "id": 9
+    },
+    {
+      "nip": "1999646364346",
+      "nama": "david",
+      "username": "david2425353",
+      "pass": "3464yr64",
+      "alamat": "klaten",
+      "jabatan": "guru",
+      "hp": "087846352526",
+      "status": "Non Aktif",
+      "id": 10
+    },
+    {
+      "nip": "2000746453424",
+      "nama": "ismail",
+      "username": "ismail5645",
+      "pass": "rgtrrw4w6rrr",
+      "alamat": "bantul",
+      "jabatan": "guru",
+      "hp": "0898464534",
+      "status": "Aktif",
+      "id": 11
     }
   ],
   "comments": [],

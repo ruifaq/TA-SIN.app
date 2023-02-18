@@ -11,6 +11,7 @@ import { AddComponent } from './add/add.component';
 import { DeleteComponent } from './delete/delete.component';
 import { EditComponent } from './edit/edit.component';
 import { GuruModule } from './guru.module';
+import { ToastrService } from 'ngx-toastr';
 
 export interface PeriodicElement {
   nip: string;
@@ -63,10 +64,9 @@ export class GuruComponent implements OnInit {
     private formBuilder: FormBuilder,
     private api: ApiService,
     private router: Router,
-
-
-
-  ) { }
+    private toastr: ToastrService,
+    
+  ) {}
 
   add() {
     this._dialog.open(AddComponent)
@@ -95,6 +95,7 @@ export class GuruComponent implements OnInit {
     })
 
     this.getDataGuru();
+  
   }
 
   getDataGuru() {
@@ -103,16 +104,28 @@ export class GuruComponent implements OnInit {
         this.gurus = res;
         console.log();
         this.dataSource = new MatTableDataSource(this.gurus);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
 
       })
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
   hapusDataGuru(id: number) {
+   
     this._dialog.open(DeleteComponent)
     this.api.hapusDataGuru(id).subscribe(res => {
-      console.log(res);
+      this.toastr.success('Berhasil Hapus Data')
    
     })
   }
+  
 
 }

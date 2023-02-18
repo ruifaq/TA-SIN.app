@@ -4,6 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
 import { GuruModule } from '../guru.module';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-delete',
@@ -24,6 +25,7 @@ export class DeleteComponent {
     private api: ApiService,
     private _formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
+    private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
 
   ) { }
@@ -46,9 +48,11 @@ export class DeleteComponent {
 
   hapusDataGuru() {
     this.api.hapusDataGuru(this.data.id).subscribe(res => {
-      console.log(res);
-      this.dialogref.close();
-      window.location.reload()
+      this.toastr.success('Berhasil Menghapus Data!!!', 'Data Guru');
+        this.dialogref.close();
+        setTimeout(() => {
+          window.location.reload();
+        }, 5500);
     })
   }
 }

@@ -3,8 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
-import { GuruModule } from '../guru.module';
-import { Observable, Subscription, interval } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit',
@@ -28,7 +27,7 @@ export class EditComponent {
     private api: ApiService,
     private _formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
-
+    private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any
 
 
@@ -48,16 +47,20 @@ export class EditComponent {
 
     })
 
-    this.dataGuruForm.patchValue(this.data)
+    this.dataGuruForm.patchValue(this.data);
   }
 
   simpan() {
+
     this.api.ubahDataGuru(this.data.id, this.dataGuruForm.value).subscribe(res => {
-      console.log(res);
+      this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Guru');
       this.dialogref.close();
-      window.location.reload()
+      setTimeout(() => {
+        window.location.reload();
+      }, 5500);
     },
     )
   }
+
 
 }

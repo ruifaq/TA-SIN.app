@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { GuruModule } from '../guru.module';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-add',
@@ -22,11 +24,12 @@ export class AddComponent {
 
 
 
-  constructor(private _fb: FormBuilder, 
-    public dialogref: MatDialogRef<AddComponent>, 
-    private api: ApiService, 
-    private _formBuilder: FormBuilder
-    ) {
+  constructor(private _fb: FormBuilder,
+    public dialogref: MatDialogRef<AddComponent>,
+    private api: ApiService,
+    private _formBuilder: FormBuilder,
+    private toastr: ToastrService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -46,9 +49,11 @@ export class AddComponent {
   simpan() {
     this.api.tambahData(this.dataGuruForm.value)
       .subscribe(res => {
-        console.log(res);
+        this.toastr.success('Berhasil Menambah Data!!!', 'Data Guru');
         this.dialogref.close();
-        window.location.reload()
+        setTimeout(() => {
+          window.location.reload();
+        }, 5500);
       })
   }
 

@@ -11,9 +11,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 import {MatCardModule} from '@angular/material/card';
 import { MaterialDesign } from './material/material';
-import { AdminComponent } from './admin/admin/admin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @Injectable({
@@ -24,7 +24,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 @NgModule({
   declarations: [
     AppComponent,
-    AdminComponent,
     LoginComponent,
 
   
@@ -37,8 +36,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatCardModule,
     MaterialDesign,
     HttpClientModule,
-    MatFormFieldModule
-    
+    MatFormFieldModule,
+    ToastrModule.forRoot()
 
   ],
   providers: [],
