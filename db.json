@@ -1,17 +1,6 @@
 {
   "posts": [
     {
-      "nip": "20001353144",
-      "nama": "Wulan S. Pd",
-      "username": "wulan",
-      "pass": "et3tet3t3tttg3t",
-      "alamat": "bantul",
-      "jabatan": "guru",
-      "hp": "0972324422",
-      "status": "Aktif",
-      "id": 5
-    },
-    {
       "nip": "200135314355",
       "nama": "joko",
       "username": "joko123",
@@ -63,7 +52,7 @@
       "alamat": "klaten",
       "jabatan": "guru",
       "hp": "087846352526",
-      "status": "Non Aktif",
+      "status": "Aktif",
       "id": 10
     },
     {
@@ -76,6 +65,28 @@
       "hp": "0898464534",
       "status": "Aktif",
       "id": 11
+    },
+    {
+      "nip": "2001363453435",
+      "nama": "rui",
+      "username": "admin",
+      "pass": "admin",
+      "alamat": "jogja",
+      "jabatan": "admin",
+      "hp": "081343287446",
+      "status": "Aktif",
+      "id": 12
+    },
+    {
+      "nip": "200056345242",
+      "nama": "Toni",
+      "username": "toni",
+      "pass": "12345",
+      "alamat": "jogja",
+      "jabatan": "guru",
+      "hp": "081354535324",
+      "status": "Aktif",
+      "id": 13
     }
   ],
   "comments": [],
@@ -89,6 +100,18 @@
       "jumlah_siswa": 1,
       "wali_kelas": "Wulan S. Pd",
       "tahun_ajaran": "2022/2023"
+    }
+  ],
+  "user": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "admin"
+    },
+    {
+      "id": 2,
+      "username": "guru",
+      "password": "guru"
     }
   ]
 }

@@ -42,7 +42,10 @@
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Jabatan</mat-label>
-                <input matInput type="text" formControlName="jabatan" required>
+                <mat-select formControlName="jabatan" required>
+                    <mat-option value="Guru">Guru</mat-option>
+                    <mat-option value="Admin">Admin</mat-option>
+                </mat-select>
                 <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
         </div>

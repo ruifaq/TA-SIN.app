@@ -94,11 +94,11 @@ export class GuruComponent implements OnInit {
       status: [''],
     })
 
-    this.getDataGuru();
+    this.getDataGuru(); //untuk menampilkan wajib input ini
   
   }
 
-  getDataGuru() {
+  getDataGuru() { //untuk ambil data bisa dibuat kek gini
     this.api.ambilDataGuru()
       .subscribe(res => {
         this.gurus = res;

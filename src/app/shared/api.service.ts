@@ -13,6 +13,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
   guruUrl = 'http://localhost:3000/posts'
+  userUrl = 'http://localhost:3000/user'
 
   tambahData(guruModuleObj: GuruModule) {
     return this.http.post<GuruModule>("http://localhost:3000/posts", guruModuleObj)
@@ -22,15 +23,19 @@ export class ApiService {
     return this.http.get<GuruModule>(this.guruUrl);
   }
 
+  loginCode(code: any){
+    return this.http.get<any>(this.guruUrl);
+  }
+
   ubahDataGuru(id: number, data: any) {
-    return this.http.put<GuruModule>(this.guruUrl + '/' + id, data)
+    return this.http.put<GuruModule>(this.guruUrl + '/' + id, data);
   }
 
   hapusDataGuru(id: number) {
-    return this.http.delete<GuruModule>(this.guruUrl + '/' + id)
+    return this.http.delete<GuruModule>(this.guruUrl + '/' + id);
   }
 
   ambilDataEditId(id: number){
-    return this.http.get<GuruModule>(this.guruUrl)
+    return this.http.get<GuruModule>(this.guruUrl);
   }
 }

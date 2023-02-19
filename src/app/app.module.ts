@@ -8,12 +8,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LoginComponent } from './login/login.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
 import {MatCardModule} from '@angular/material/card';
 import { MaterialDesign } from './material/material';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @Injectable({
@@ -37,7 +37,9 @@ import { ToastrModule } from 'ngx-toastr';
     MaterialDesign,
     HttpClientModule,
     MatFormFieldModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],
