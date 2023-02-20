@@ -19,28 +19,30 @@
     </form> -->
 
     <mat-form-field appearance="outline" class="field">
-        <mat-label>NIS/Nama</mat-label>
-        <input matInput placeholder="Masukkan NIS/Nama">
+        <mat-label>Pencarian</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Contoh. Rui Faqri" #input>
     </mat-form-field>
+
+    <!-- <mat-form-field appearance="outline" class="field">
+        <mat-select required>
+            <mat-option  *ngFor="let siswa of kelas" [value]="siswa.nis">{{siswa.nama}}</mat-option>
+        </mat-select>
+        <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+    </mat-form-field> -->
 
     <section>
         <div class="example-button-row">
-            <button mat-raised-button color="primary">Cari</button>
-            <button mat-raised-button color="primary">Tambah Siswa</button>
+            <button mat-raised-button color="primary" (click)="add()">Tambah Siswa</button>
         </div>
     </section>
     <mat-divider></mat-divider>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSiswa" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
-        <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="nis">
@@ -70,19 +72,25 @@
             <td mat-cell *matCellDef="let element">{{element.kelas}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="tahun_ajaran">
+        <ng-container matColumnDef="ta">
             <th mat-header-cell *matHeaderCellDef> Tahun Ajaran </th>
-            <td mat-cell *matCellDef="let element"> {{element.tahun_ajaran}}</td>
+            <td mat-cell *matCellDef="let element"> {{element.ta}}</td>
         </ng-container>
 
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element">
-                <a>
-                    <mat-icon aria-label="Side nav toggle icon" class="logout" color="primary">edit</mat-icon>
-                </a>
+                <div>
+                    <button mat-icon-button color="primary" (click)="edit(element)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(element)">
 
-                <mat-icon aria-label="Side nav toggle icon" class="logout" color="warn">delete</mat-icon>
+                        <!-- (click)="hapusDataGuru(element.id) => untuk hapus langsung -->
+
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
 
             </td>
         </ng-container>
@@ -91,5 +99,6 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Pilih page dari Guru"
+        class="mat-elevation-z8"></mat-paginator>
 </div>

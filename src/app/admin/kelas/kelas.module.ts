@@ -1,6 +1,5 @@
-import { Injectable, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterModule, Routes } from '@angular/router';
 
 
@@ -20,16 +19,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { DeleteComponent } from './delete/delete.component';
-
 
 
 @NgModule({
-    declarations: [
-    DeleteComponent
-  ],
-    imports: [
-      CommonModule,
+  declarations: [],
+  imports: [
+    CommonModule,
+    CommonModule,
       LayoutModule,
       MatToolbarModule,
       MatButtonModule,
@@ -44,16 +40,11 @@ import { DeleteComponent } from './delete/delete.component';
       MatFormFieldModule,
       MatInputModule,
       MatPaginatorModule,
-    ]
-  })
-
-export class GuruModule {
-    nip!: string;
-    nama!: string ;
-    username!: string ;
-    pass!: string ;
-    alamat!: string ;
-    jabatan!: string ;
-    hp!: string ;
-    status!: string ;
+  ]
+})
+export class KelasModule { 
+  kelas!: string;
+  jumlah_siswa!: string ;
+  wali_kelas!: string ;
+  ta!: string ;
 }

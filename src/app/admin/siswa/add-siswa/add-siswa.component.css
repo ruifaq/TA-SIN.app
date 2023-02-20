@@ -1,0 +1,17 @@
+.content {
+    padding-top: 20px;
+    width: 1000px
+}
+
+.field {
+    width: 100%
+}
+
+.action{
+    padding: 0 25px 20px;
+}
+
+.btn-flex{
+    flex: 1;
+}
+

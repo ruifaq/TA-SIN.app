@@ -95,11 +95,46 @@
   },
   "kelas": [
     {
-      "id": 1,
-      "kelas": "some comment",
-      "jumlah_siswa": 1,
+      "kelas": "1",
+      "jumlah_siswa": "20",
       "wali_kelas": "Wulan S. Pd",
-      "tahun_ajaran": "2022/2023"
+      "ta": "2022/2023 Genap",
+      "id": 1
+    },
+    {
+      "kelas": "2",
+      "jumlah_siswa": "17",
+      "wali_kelas": "Tono M. Pd",
+      "ta": "2022/2023 Genap",
+      "id": 2
+    },
+    {
+      "kelas": "3",
+      "jumlah_siswa": "34",
+      "wali_kelas": "Joko S. Ag",
+      "ta": "2022/2023 Genap",
+      "id": 3
+    },
+    {
+      "kelas": "4",
+      "jumlah_siswa": "25",
+      "wali_kelas": "Tuti S. Sos",
+      "ta": "2022/2023 Genap",
+      "id": 4
+    },
+    {
+      "kelas": "5",
+      "jumlah_siswa": "15",
+      "wali_kelas": "Drs. Hasan",
+      "ta": "2022/2023 Genap",
+      "id": 5
+    },
+    {
+      "kelas": "6",
+      "jumlah_siswa": "28",
+      "wali_kelas": "Yono S. Pd. Sd",
+      "ta": "2022/2023 Genap",
+      "id": 6
     }
   ],
   "user": [
@@ -112,6 +147,62 @@
       "id": 2,
       "username": "guru",
       "password": "guru"
+    }
+  ],
+  "siswa": [
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "alamat": "jogja",
+      "hp": "081324356455",
+      "kelas": "1",
+      "ta": "2022/2023 Genap",
+      "id": 1
+    },
+    {
+      "nis": "1001",
+      "nama": "yuni",
+      "alamat": "jogja",
+      "hp": "081343285453",
+      "kelas": "2",
+      "ta": "2022/2023 Genap",
+      "id": 2
+    },
+    {
+      "nis": "1002",
+      "nama": "doni",
+      "alamat": "jogja",
+      "hp": "081343289873",
+      "kelas": "3",
+      "ta": "2022/2023 Genap",
+      "id": 3
+    },
+    {
+      "nis": "1003",
+      "nama": "tono",
+      "alamat": "jogja",
+      "hp": "081343284532",
+      "kelas": "4",
+      "ta": "2022/2023 Genap",
+      "id": 4
+    },
+    {
+      "nis": "1004",
+      "nama": "yudha",
+      "alamat": "jogja",
+      "hp": "081343285642",
+      "kelas": "5",
+      "ta": "2022/2023 Genap",
+      "id": 5
+    },
+    {
+      "nis": "2006",
+      "nama": "nadia",
+      "alamat": "jogja",
+      "hp": "081343286742",
+      "kelas": "6",
+      "ta": "2022/2023 Genap",
+      "id": 6
     }
   ]
 }

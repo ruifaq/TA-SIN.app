@@ -2,24 +2,21 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
-import { GuruModule } from '../guru.module';
+import { SiswaModule } from '../siswa.module';
 import { ToastrService } from 'ngx-toastr';
 
-
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-add-siswa',
+  templateUrl: './add-siswa.component.html',
+  styleUrls: ['./add-siswa.component.css']
 })
-export class AddComponent {
+export class AddSiswaComponent {
 
-
-  guruModuleObj: GuruModule = new GuruModule;
-
-  public dataGuruForm!: FormGroup;
+  siswaModuleObj: SiswaModule = new SiswaModule;
+  public dataSiswaForm!: FormGroup;
 
   constructor(private _fb: FormBuilder,
-    public dialogref: MatDialogRef<AddComponent>,
+    public dialogref: MatDialogRef<AddSiswaComponent>,
     private api: ApiService,
     private _formBuilder: FormBuilder,
     private toastr: ToastrService,
@@ -27,21 +24,19 @@ export class AddComponent {
   }
 
   ngOnInit(): void {
-    this.dataGuruForm = this._formBuilder.group({
-      nip: ["", Validators.required],
+    this.dataSiswaForm = this._formBuilder.group({
+      nis: ["", Validators.required],
       nama: ["", Validators.required],
-      username: ["", Validators.required],
-      pass: ["", Validators.required],
       alamat: ["", Validators.required],
-      jabatan: ["", Validators.required],
       hp: ["", Validators.required],
-      status: ["", Validators.required]
+      kelas: ["", Validators.required],
+      ta: ["", Validators.required],
 
     })
   }
 
   simpan() {
-    this.api.tambahData(this.dataGuruForm.value)
+    this.api.tambahDataSiswa(this.dataSiswaForm.value)
       .subscribe(res => {
         this.toastr.success('Berhasil Menambah Data!!!', 'Data Siswa');
         this.dialogref.close();
@@ -50,7 +45,4 @@ export class AddComponent {
         }, 5500);
       })
   }
-
-
-
 }

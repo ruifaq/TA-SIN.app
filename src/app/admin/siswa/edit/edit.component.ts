@@ -9,13 +9,9 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-edit',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
-
 })
-
 export class EditComponent {
-
-
-  public dataGuruForm!: FormGroup;
+  public dataSiswaForm!: FormGroup;
 
   constructor(private _fb: FormBuilder, public dialogref: MatDialogRef<EditComponent>,
     private api: ApiService,
@@ -29,24 +25,22 @@ export class EditComponent {
   ) { }
 
   ngOnInit(): void {
-    this.dataGuruForm = new FormGroup({
-      nip: new FormControl(),
+    this.dataSiswaForm = new FormGroup({
+      nis: new FormControl(),
       nama: new FormControl(),
-      username: new FormControl(),
-      pass: new FormControl(),
       alamat: new FormControl(),
-      jabatan: new FormControl(),
       hp: new FormControl(),
-      status: new FormControl(),
-
+      kelas: new FormControl(),
+      ta: new FormControl(),
     })
 
-    this.dataGuruForm.patchValue(this.data);
+    this.dataSiswaForm.patchValue(this.data);
   }
+  
 
   simpan() {
 
-    this.api.ubahDataGuru(this.data.id, this.dataGuruForm.value).subscribe(res => {
+    this.api.ubahDataSiswa(this.data.id, this.dataSiswaForm.value).subscribe(res => {
       this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Guru');
       this.dialogref.close();
       setTimeout(() => {
@@ -55,6 +49,5 @@ export class EditComponent {
     },
     )
   }
-
 
 }

@@ -30,6 +30,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+import { AddSiswaComponent } from './siswa/add-siswa/add-siswa.component';
+import { AddkelasComponent } from './kelas/addkelas/addkelas.component';
+import { DeletekelasComponent } from './kelas/deletekelas/deletekelas.component';
+import { EditkelasComponent } from './kelas/editkelas/editkelas.component';
 
 const routes: Routes = [
   {
@@ -69,7 +73,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     SiswaComponent,
-
     DashboardComponent,
     KelasComponent,
     GuruComponent,
@@ -79,6 +82,10 @@ const routes: Routes = [
     AddComponent,
     EditComponent,
     DashboardAdminComponent,
+    AddSiswaComponent,
+    AddkelasComponent,
+    DeletekelasComponent,
+    EditkelasComponent  
 
 
   ],

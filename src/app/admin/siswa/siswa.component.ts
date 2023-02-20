@@ -1,33 +1,86 @@
-import { Component } from '@angular/core';
-
-export interface PeriodicElement {
-  nis: string;
-  position: number;
-  nama: string;
-  alamat:string;
-  kelas:string;
-  hp:string;
-  tahun_ajaran:string;
-
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, nis: '1000', nama: 'Budi', alamat: 'Yogyakarta', hp: '08987654321', kelas: '5', tahun_ajaran: '2022/2023'},
-  {position: 2, nis: '1000', nama: 'Budi', alamat: 'Yogyakarta', hp: '08987654321', kelas: '5', tahun_ajaran: '2022/2023'},
-  {position: 3, nis: '1000', nama: 'Budi', alamat: 'Yogyakarta', hp: '08987654321', kelas: '5', tahun_ajaran: '2022/2023'},
-  {position: 4, nis: '1000', nama: 'Budi', alamat: 'Yogyakarta', hp: '08987654321', kelas: '5', tahun_ajaran: '2022/2023'},
-  {position: 5, nis: '1000', nama: 'Budi', alamat: 'Yogyakarta', hp: '08987654321', kelas: '5', tahun_ajaran: '2022/2023'},
-
-];
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/api.service';
+import { DeleteComponent } from './delete/delete.component';
+import { EditComponent } from './edit/edit.component';
+import { SiswaModule } from './siswa.module'; 
+import { ToastrService } from 'ngx-toastr';
+import { AddSiswaComponent } from './add-siswa/add-siswa.component';
 
 @Component({
   selector: 'app-siswa',
   templateUrl: './siswa.component.html',
   styleUrls: ['./siswa.component.css']
 })
-export class SiswaComponent {
 
-  displayedColumns: string[] = ['position', 'nis', 'nama', 'alamat', 'hp', 'kelas', 'tahun_ajaran', 'action'];
-  dataSource = ELEMENT_DATA;
+export class SiswaComponent implements OnInit {
+  
+  formValue !: FormGroup;
+  public dataSiswa !: MatTableDataSource<SiswaModule>;
+  public siswas !: any;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  displayedColumns: string[] = ['nis', 'nama', 'alamat', 'hp', 'kelas', 'ta', 'action'];
+
+  constructor(
+    private _dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private router: Router,
+    private toastr: ToastrService,
+    
+  ) {}
+
+  add() {
+   this._dialog.open(AddSiswaComponent)
+  }
+  edit(data: any) {
+    this._dialog.open(EditComponent, { data });
+  }
+  delete(data: any) {
+
+    this._dialog.open(DeleteComponent, { data })
+  }
+  
+  ngOnInit(): void {
+    this.formValue = this.formBuilder.group({
+      nis: [''],
+      nama: [''],
+      alamat: [''],
+      hp: [''],
+      kelas: [''],
+      ta: [''],
+    })
+
+  this.getDataSiswa();
+  }
+
+  getDataSiswa() { //untuk ambil data bisa dibuat kek gini
+    this.api.ambilDataSiswa()
+      .subscribe(res => {
+        this.siswas = res;
+        console.log();
+        this.dataSiswa = new MatTableDataSource(this.siswas);
+        this.dataSiswa.paginator = this.paginator;
+        this.dataSiswa.sort = this.sort;
+
+      })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSiswa.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSiswa.paginator) {
+      this.dataSiswa.paginator.firstPage();
+    }
+  }
 
 }

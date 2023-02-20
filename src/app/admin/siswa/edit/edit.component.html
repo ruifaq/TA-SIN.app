@@ -1,0 +1,57 @@
+<div mat-dialog-title>
+    <h1>Edit Guru</h1>
+</div>
+
+<form [formGroup]="dataSiswaForm">
+    <div mat-dialog-content class="content">
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>NIS</mat-label>
+                <input matInput formControlName="nis" required>
+                <mat-error>Masukkan NIP terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Nama</mat-label>
+                <input matInput type="text" formControlName="nama" required>
+                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Alamat</mat-label>
+                <input matInput formControlName="alamat" required>
+                <mat-error>Masukkan username terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>No. Hp</mat-label> 
+                <input matInput  formControlName="hp" required>
+                <mat-error>Masukkan password terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Kelas</mat-label>
+                <input matInput type="text" formControlName="kelas" required>
+                <mat-error>Masukkan alamat terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Tahun Ajaran</mat-label>
+                <mat-select formControlName="ta" required>
+                    <mat-option value="2022/2023 Ganjil">2022/2023 Ganjil</mat-option>
+                    <mat-option value="2022/2023 Genap">2022/2023 Genap</mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
+    </div>
+</form>

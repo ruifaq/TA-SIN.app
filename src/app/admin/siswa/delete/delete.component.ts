@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
-import { GuruModule } from '../guru.module';
+import { SiswaComponent } from '../siswa.component'; 
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -12,7 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent {
-  public dataGuruForm!: FormGroup;
+  public dataSiswaForm!: FormGroup;
 
   myimage: string = "assets/images/icon-delete.png";
 
@@ -26,24 +26,22 @@ export class DeleteComponent {
   ) { }
 
   ngOnInit(): void {
-    this.dataGuruForm = new FormGroup({
-      nip: new FormControl(),
+    this.dataSiswaForm = new FormGroup({
+      nis: new FormControl(),
       nama: new FormControl(),
-      username: new FormControl(),
-      pass: new FormControl(),
       alamat: new FormControl(),
-      jabatan: new FormControl(),
       hp: new FormControl(),
-      status: new FormControl(),
+      kelas: new FormControl(),
+      ta: new FormControl(),
 
     })
 
-    this.dataGuruForm.patchValue(this.data)
+    this.dataSiswaForm.patchValue(this.data)
   }
 
-  hapusDataGuru() {
-    this.api.hapusDataGuru(this.data.id).subscribe(res => {
-      this.toastr.success('Berhasil Menghapus Data!!!', 'Data Guru');
+  hapusDataSiswa() {
+    this.api.hapusDataSiswa(this.data.id).subscribe(res => {
+      this.toastr.success('Berhasil Menghapus Data!!!', 'Data Siswa');
         this.dialogref.close();
         setTimeout(() => {
           window.location.reload();

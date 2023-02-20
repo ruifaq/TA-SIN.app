@@ -1,23 +1,17 @@
-import { Component } from '@angular/core';
-
-export interface PeriodicElement {
- 
-  position: number;
-  jumlah_siswa: string;
-  wali_kelas:string;
-  kelas:string;
-  tahun_ajaran:string;
-
-}
-
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, kelas: '5', jumlah_siswa: '20', wali_kelas: 'Wulan S. Pd', tahun_ajaran: '2022/2023'},
-  {position: 2, kelas: '5', jumlah_siswa: '20', wali_kelas: 'Wulan S. Pd', tahun_ajaran: '2022/2023'},
-  {position: 3, kelas: '5', jumlah_siswa: '20', wali_kelas: 'Wulan S. Pd', tahun_ajaran: '2022/2023'},
-  {position: 4, kelas: '5', jumlah_siswa: '20', wali_kelas: 'Wulan S. Pd', tahun_ajaran: '2022/2023'},
-  {position: 5, kelas: '5', jumlah_siswa: '20', wali_kelas: 'Wulan S. Pd', tahun_ajaran: '2022/2023'},
-
-];
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { ApiService } from 'src/app/shared/api.service';
+import { KelasModule } from './kelas.module';
+import { ToastrService } from 'ngx-toastr';
+import { AddkelasComponent } from './addkelas/addkelas.component';
+import { EditkelasComponent } from './editkelas/editkelas.component';
+import { DeletekelasComponent } from './deletekelas/deletekelas.component';
 
 @Component({
   selector: 'app-kelas',
@@ -25,8 +19,62 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./kelas.component.css']
 })
 export class KelasComponent {
+  public dataKelas !: MatTableDataSource<KelasModule>;
 
-  displayedColumns: string[] = ['position', 'kelas', 'jumlah_siswa', 'wali_kelas', 'tahun_ajaran', 'action'];
-  dataSource = ELEMENT_DATA;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+  displayedColumns: string[] = ['kelas', 'jumlah_siswa', 'wali_kelas', 'ta', 'action'];
+
+  formValue !: FormGroup;
+  kelasModuleObj: KelasModule = new KelasModule();
+  public kelass !: any;
+
+  constructor(
+    private _dialog: MatDialog,
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private router: Router,
+    private toastr: ToastrService,
+
+  ) { }
+
+  add() {
+    this._dialog.open(AddkelasComponent)
+  }
+  edit(data: any) {
+    this._dialog.open(EditkelasComponent, { data });
+  }
+  delete(data: any) {
+
+    this._dialog.open(DeletekelasComponent, { data })
+  }
+
+  ngOnInit(): void {
+
+    this.getDataKelas(); //untuk menampilkan wajib input ini
+
+  }
+
+  getDataKelas() { //untuk ambil data bisa dibuat kek gini
+    this.api.ambilDataKelas()
+      .subscribe(res => {
+        this.kelass = res;
+        console.log();
+        this.dataKelas = new MatTableDataSource(this.kelass);
+        this.dataKelas.paginator = this.paginator;
+        this.dataKelas.sort = this.sort;
+
+      })
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataKelas.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataKelas.paginator) {
+      this.dataKelas.paginator.firstPage();
+    }
+  }
 
 }

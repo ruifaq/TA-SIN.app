@@ -1,0 +1,12 @@
+
+<div mat-dialog-content class="content">
+    <img [src]="myimage" class="ihapus">
+
+    <h1>Apakah anda yakin ingin menghapus data?</h1>
+</div>
+
+
+<div mat-dialog-actions class="action">
+    <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
+    <button mat-raised-button color="warn" class="btn-flex" type="submit" (click)="hapusDataKelas()">Hapus</button>
+</div>
