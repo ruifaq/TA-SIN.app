@@ -18,7 +18,8 @@ export class EditComponent {
     private _formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
     private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public kelas: any
 
 
 
@@ -35,6 +36,13 @@ export class EditComponent {
     })
 
     this.dataSiswaForm.patchValue(this.data);
+    this.getKelas();
+  }
+
+  getKelas(){
+    this.api.ambilDataKelas().subscribe(res => {
+      this.kelas = res;
+    })
   }
   
 

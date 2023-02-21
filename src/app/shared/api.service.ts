@@ -46,6 +46,12 @@ export class ApiService {
     return this.http.get<GuruModule>(this.guruUrl);
   }
 
+  ambilDataGr() {
+    return this.http.get<GuruModule>(this.guruUrl).pipe( //PR next
+      map(gr => gr.nama)
+    )
+  }
+
   ambilDataSiswa() {
     return this.http.get<SiswaModule>(this.siswaUrl);
   }

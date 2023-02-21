@@ -35,8 +35,10 @@
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Kelas</mat-label>
-                <input matInput type="text" formControlName="kelas" required>
-                <mat-error>Masukkan alamat terlebih dahulu</mat-error>
+                <mat-select formControlName="kelas" required >
+                    <mat-option  *ngFor="let kls of kelas" [value]="kls.kelas">{{kls.kelas}} </mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>

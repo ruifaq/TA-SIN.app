@@ -12,13 +12,15 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EditmapelComponent {
   public dataMapelForm!: FormGroup;
+  public tema !: any;
 
   constructor(private _fb: FormBuilder, public dialogref: MatDialogRef<EditmapelComponent>,
     private api: ApiService,
     private _formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
     private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public kelas: any
 
   ) { }
 
@@ -31,6 +33,20 @@ export class EditmapelComponent {
     })
 
     this.dataMapelForm.patchValue(this.data);
+    this.getTema();
+    this.getKelas();
+  }
+
+  getTema() {
+    this.api.ambilDataTema().subscribe(res => {
+      this.tema = res;
+    })
+  }
+
+  getKelas(){
+    this.api.ambilDataKelas().subscribe(res => {
+      this.kelas = res;
+    })
   }
 
   simpan() {

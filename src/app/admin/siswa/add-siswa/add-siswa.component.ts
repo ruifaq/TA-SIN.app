@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { SiswaModule } from '../siswa.module';
 import { ToastrService } from 'ngx-toastr';
@@ -20,6 +20,7 @@ export class AddSiswaComponent {
     private api: ApiService,
     private _formBuilder: FormBuilder,
     private toastr: ToastrService,
+    @Inject(MAT_DIALOG_DATA) public kelas: any
   ) {
   }
 
@@ -32,6 +33,14 @@ export class AddSiswaComponent {
       kelas: ["", Validators.required],
       ta: ["", Validators.required],
 
+    })
+
+    this.getKelas();
+  }
+
+  getKelas(){
+    this.api.ambilDataKelas().subscribe(res => {
+      this.kelas = res;
     })
   }
 

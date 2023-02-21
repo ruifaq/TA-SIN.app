@@ -19,7 +19,8 @@ export class EditkelasComponent {
     private _formBuilder: FormBuilder,
     private activeRoute: ActivatedRoute,
     private toastr: ToastrService,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public posts: any
 
 
 
@@ -34,11 +35,16 @@ export class EditkelasComponent {
     })
 
     this.dataKelasForm.patchValue(this.data);
+    this.getGuru();
   }
 
-  
-  simpan() {
+  getGuru() {
+    this.api.ambilDataGuru().subscribe(res => {
+      this.posts = res;
+    })
+  }
 
+  simpan() {
     this.api.ubahDataKelas(this.data.id, this.dataKelasForm.value).subscribe(res => {
       this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Kelas');
       this.dialogref.close();

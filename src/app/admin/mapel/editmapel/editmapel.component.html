@@ -21,18 +21,17 @@
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Kelas</mat-label>
-                <input matInput formControlName="kelas" required>
-                <mat-error>Masukkan username terlebih dahulu</mat-error>
+                <mat-select formControlName="kelas" required >
+                    <mat-option  *ngFor="let kls of kelas" [value]="kls.kelas">{{kls.kelas}} </mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Tema</mat-label>
-                <mat-select formControlName="tema" required>
-                    <mat-option value="Tema 1">Tema 1</mat-option>
-                    <mat-option value="Tema 2">Tema 2</mat-option>
-                    <mat-option value="Tema 3">Tema 1</mat-option>
-                    <mat-option value="Tema 4">Tema 2</mat-option>
+                <mat-select formControlName="tema" required >
+                    <mat-option  *ngFor="let tm of tema" [value]="tm.tema">{{tm.tema}} {{tm.sub_tema}}</mat-option>
                 </mat-select>
                 <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>

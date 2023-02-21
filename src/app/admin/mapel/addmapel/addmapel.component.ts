@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
-import { MapelModule } from '../mapel.module'; 
+import { MapelModule } from '../mapel.module';
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AddmapelComponent {
   mapelModuleObj: MapelModule = new MapelModule;
+  public tema !: any;
 
   public dataMapelForm!: FormGroup;
 
@@ -21,6 +22,9 @@ export class AddmapelComponent {
     private api: ApiService,
     private _formBuilder: FormBuilder,
     private toastr: ToastrService,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public kelas: any
+
   ) {
   }
 
@@ -30,6 +34,21 @@ export class AddmapelComponent {
       kkm: ["", Validators.required],
       kelas: ["", Validators.required],
       tema: ["", Validators.required],
+    })
+
+    this.getTema();
+    this.getKelas();
+  }
+
+  getTema() {
+    this.api.ambilDataTema().subscribe(res => {
+      this.tema = res;
+    })
+  }
+
+  getKelas(){
+    this.api.ambilDataKelas().subscribe(res => {
+      this.kelas = res;
     })
   }
 

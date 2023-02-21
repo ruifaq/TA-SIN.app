@@ -21,6 +21,11 @@
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Name Column -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="nip">
             <th mat-header-cell *matHeaderCellDef> NIP </th>
             <td mat-cell *matCellDef="let element"> {{element.nip}} </td>

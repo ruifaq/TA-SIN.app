@@ -21,8 +21,10 @@
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Wali Kelas</mat-label>
-                <input matInput formControlName="wali_kelas" required>
-                <mat-error>Masukkan username terlebih dahulu</mat-error>
+                <mat-select formControlName="wali_kelas" required >
+                    <mat-option  *ngFor="let gr of posts" [value]="gr.nama">{{gr.nama}} </mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>

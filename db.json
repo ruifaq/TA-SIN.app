@@ -9,7 +9,7 @@
       "jabatan": "guru",
       "hp": "0972324422",
       "status": "Aktif",
-      "id": 6
+      "id": 1
     },
     {
       "nip": "199056425355",
@@ -20,7 +20,7 @@
       "jabatan": "guru",
       "hp": "0898352424245",
       "status": "Aktif",
-      "id": 7
+      "id": 2
     },
     {
       "nip": "199835336256",
@@ -31,7 +31,7 @@
       "jabatan": "guru",
       "hp": "081335463535",
       "status": "Aktif",
-      "id": 8
+      "id": 3
     },
     {
       "nip": "20006868674635",
@@ -42,7 +42,7 @@
       "jabatan": "guru",
       "hp": "0823645342425",
       "status": "Aktif",
-      "id": 9
+      "id": 4
     },
     {
       "nip": "1999646364346",
@@ -53,7 +53,7 @@
       "jabatan": "guru",
       "hp": "087846352526",
       "status": "Aktif",
-      "id": 10
+      "id": 5
     },
     {
       "nip": "2000746453424",
@@ -64,7 +64,7 @@
       "jabatan": "guru",
       "hp": "0898464534",
       "status": "Aktif",
-      "id": 11
+      "id": 6
     },
     {
       "nip": "2001363453435",
@@ -75,7 +75,7 @@
       "jabatan": "admin",
       "hp": "081343287446",
       "status": "Aktif",
-      "id": 12
+      "id": 7
     },
     {
       "nip": "200056345242",
@@ -86,7 +86,7 @@
       "jabatan": "guru",
       "hp": "081354535324",
       "status": "Aktif",
-      "id": 13
+      "id": 8
     }
   ],
   "comments": [],
@@ -97,42 +97,42 @@
     {
       "kelas": "1",
       "jumlah_siswa": "20",
-      "wali_kelas": "Wulan S. Pd",
+      "wali_kelas": "rudi",
       "ta": "2022/2023 Genap",
       "id": 1
     },
     {
       "kelas": "2",
       "jumlah_siswa": "17",
-      "wali_kelas": "Tono M. Pd",
+      "wali_kelas": "david",
       "ta": "2022/2023 Genap",
       "id": 2
     },
     {
       "kelas": "3",
       "jumlah_siswa": "34",
-      "wali_kelas": "Joko S. Ag",
+      "wali_kelas": "joko",
       "ta": "2022/2023 Genap",
       "id": 3
     },
     {
       "kelas": "4",
       "jumlah_siswa": "25",
-      "wali_kelas": "Tuti S. Sos",
+      "wali_kelas": "rui",
       "ta": "2022/2023 Genap",
       "id": 4
     },
     {
       "kelas": "5",
       "jumlah_siswa": "15",
-      "wali_kelas": "Drs. Hasan",
+      "wali_kelas": "Toni",
       "ta": "2022/2023 Genap",
       "id": 5
     },
     {
       "kelas": "6",
-      "jumlah_siswa": "28",
-      "wali_kelas": "Yono S. Pd. Sd",
+      "jumlah_siswa": "23",
+      "wali_kelas": "mika",
       "ta": "2022/2023 Genap",
       "id": 6
     }
@@ -214,10 +214,10 @@
       "id": 1
     },
     {
-      "mapel": "IPA",
+      "mapel": "IPS",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 2",
+      "tema": "Tema 1",
       "id": 2
     },
     {
@@ -231,36 +231,15 @@
       "mapel": "IPA",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 4",
+      "tema": "Tema 2",
       "id": 4
     },
     {
       "mapel": "IPS",
       "kkm": "75",
-      "kelas": "5",
-      "tema": "Tema 1",
-      "id": 5
-    },
-    {
-      "mapel": "IPS",
-      "kkm": "75",
-      "kelas": "5",
-      "tema": "Tema 2",
-      "id": 6
-    },
-    {
-      "mapel": "IPS",
-      "kkm": "75",
-      "kelas": "5",
+      "kelas": "6",
       "tema": "Tema 3",
-      "id": 7
-    },
-    {
-      "mapel": "IPS",
-      "kkm": "75",
-      "kelas": "5",
-      "tema": "Tema 4",
-      "id": 8
+      "id": 5
     }
   ],
   "tema": [
@@ -273,6 +252,16 @@
       "tema": "Tema 1",
       "sub_tema": "Subtema 2",
       "id": 2
+    },
+    {
+      "tema": "Tema 2",
+      "sub_tema": "Subtema 1",
+      "id": 3
+    },
+    {
+      "tema": "Tema 3",
+      "sub_tema": "Subtema 1",
+      "id": 4
     }
   ]
 }

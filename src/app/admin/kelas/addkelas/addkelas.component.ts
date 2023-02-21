@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,  Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { KelasModule } from '../kelas.module';
 import { ToastrService } from 'ngx-toastr';
@@ -21,6 +21,7 @@ export class AddkelasComponent {
     private api: ApiService,
     private _formBuilder: FormBuilder,
     private toastr: ToastrService,
+    @Inject(MAT_DIALOG_DATA) public posts: any,
   ) {
   }
 
@@ -31,7 +32,16 @@ export class AddkelasComponent {
       wali_kelas: ["", Validators.required],
       ta: ["", Validators.required],
     })
+
+    this.getGuru();
   }
+
+  getGuru() {
+    this.api.ambilDataGuru().subscribe(res => {
+      this.posts = res;
+    })
+  }
+  
 
   simpan() {
     this.api.tambahDataKelas(this.dataKelasForm.value)
