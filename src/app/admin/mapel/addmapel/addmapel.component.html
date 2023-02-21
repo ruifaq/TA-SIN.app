@@ -1,40 +1,43 @@
 <div mat-dialog-title>
-    <h1>Edit Guru</h1>
+    <h1>Tambah Mata Pelajaran</h1>
 </div>
 
-<form [formGroup]="dataKelasForm">
+<form [formGroup]="dataMapelForm">
     <div mat-dialog-content class="content">
         <div>
             <mat-form-field appearance="outline" class="field">
-                <mat-label>Kelas</mat-label>
-                <input matInput formControlName="kelas" required>
+                <mat-label>Mata Pelajaran</mat-label>
+                <input matInput formControlName="mapel" required>
                 <mat-error>Masukkan NIP terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline" class="field">
-                <mat-label>Jumlah Siswa</mat-label>
-                <input matInput type="text" formControlName="jumlah_siswa" required>
+                <mat-label>KKM</mat-label>
+                <input matInput type="text" formControlName="kkm" required>
                 <mat-error>Masukkan nama terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline" class="field">
-                <mat-label>Wali Kelas</mat-label>
-                <input matInput formControlName="wali_kelas" required>
+                <mat-label>Kelas</mat-label>
+                <input matInput formControlName="kelas" required>
                 <mat-error>Masukkan username terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline" class="field">
-                <mat-label>Tahun Ajaran</mat-label>
-                <mat-select formControlName="ta" required>
-                    <mat-option value="2022/2023 Ganjil">2022/2023 Ganjil</mat-option>
-                    <mat-option value="2022/2023 Genap">2022/2023 Genap</mat-option>
+                <mat-label>Tema</mat-label>
+                <mat-select formControlName="tema" required>
+                    <mat-option value="Tema 1">Tema 1</mat-option>
+                    <mat-option value="Tema 2">Tema 2</mat-option>
+                    <mat-option value="Tema 3">Tema 3</mat-option>
+                    <mat-option value="Tema 4">Tema 4</mat-option>
                 </mat-select>
                 <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
+
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>

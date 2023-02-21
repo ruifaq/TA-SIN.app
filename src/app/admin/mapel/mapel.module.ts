@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 
+
 @NgModule({
   declarations: [],
   imports: [
@@ -37,9 +38,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
       MatPaginatorModule,
   ]
 })
-export class KelasModule { 
-  kelas!: string;
-  jumlah_siswa!: string ;
-  wali_kelas!: string ;
-  ta!: string ;
-}
+export class MapelModule {
+  mapel!: string;
+  kkm!: string ;
+  kelas!: string ;
+  tema!: string ;
+ }

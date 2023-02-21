@@ -34,6 +34,12 @@ import { AddSiswaComponent } from './siswa/add-siswa/add-siswa.component';
 import { AddkelasComponent } from './kelas/addkelas/addkelas.component';
 import { DeletekelasComponent } from './kelas/deletekelas/deletekelas.component';
 import { EditkelasComponent } from './kelas/editkelas/editkelas.component';
+import { AddmapelComponent } from './mapel/addmapel/addmapel.component';
+import { EditmapelComponent } from './mapel/editmapel/editmapel.component';
+import { DeletemapelComponent } from './mapel/deletemapel/deletemapel.component';
+import { AddtemaComponent } from './tema/addtema/addtema.component'; 
+import { EdittemaComponent } from './tema/edittema/edittema.component'; 
+import { DeletetemaComponent } from './tema/deletetema/deletetema.component'; 
 
 const routes: Routes = [
   {
@@ -85,7 +91,13 @@ const routes: Routes = [
     AddSiswaComponent,
     AddkelasComponent,
     DeletekelasComponent,
-    EditkelasComponent  
+    EditkelasComponent,
+    AddmapelComponent,
+    EditmapelComponent,
+    DeletemapelComponent,
+    AddtemaComponent,
+    EdittemaComponent,
+    DeletetemaComponent  
 
 
   ],

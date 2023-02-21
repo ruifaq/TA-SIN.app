@@ -1,23 +1,6 @@
 <div class="padding">
     <h1>Tema</h1>
 
-    <!-- <h3>NIP/Nama</h3> -->
-
-    <!-- <form class="example-form">
-        <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                   placeholder="Ex. pat@example.com">
-            <mat-hint>Errors appear instantly!</mat-hint>
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-    </form> -->
-
     <mat-form-field appearance="outline" class="field">
         <mat-label>Tema</mat-label>
         <input matInput placeholder="Masukkan Tema">
@@ -25,22 +8,12 @@
 
     <section>
         <div class="example-button-row">
-            <button mat-raised-button color="primary">Cari</button>
-            <button mat-raised-button color="primary">Tambah Tema</button>
+            <button mat-raised-button color="primary" (click)="add()">Tambah Tema</button>
         </div>
     </section>
     <mat-divider></mat-divider>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> No. </th>
-            <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
+    <table mat-table [dataSource]="dataTema" class="mat-elevation-z8">
 
         <!-- Name Column -->
         <ng-container matColumnDef="tema">
@@ -49,20 +22,25 @@
         </ng-container>
 
         <!-- Weight Column -->
-        <ng-container matColumnDef="subtema">
+        <ng-container matColumnDef="sub_tema">
             <th mat-header-cell *matHeaderCellDef> Sub Tema </th>
-            <td mat-cell *matCellDef="let element"> {{element.subtema}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.sub_tema}} </td>
         </ng-container>
 
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element">
-                <a>
-                    <mat-icon aria-label="Side nav toggle icon" class="logout" color="primary">edit</mat-icon>
-                </a>
+                <div>
+                    <button mat-icon-button color="primary" (click)="edit(element)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" (click)="delete(element)">
 
-                <mat-icon aria-label="Side nav toggle icon" class="logout" color="warn">delete</mat-icon>
+                        <!-- (click)="hapusDataGuru(element.id) => untuk hapus langsung -->
 
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
             </td>
         </ng-container>
 

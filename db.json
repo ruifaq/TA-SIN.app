@@ -204,5 +204,75 @@
       "ta": "2022/2023 Genap",
       "id": 6
     }
+  ],
+  "mapel": [
+    {
+      "mapel": "IPA",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 1",
+      "id": 1
+    },
+    {
+      "mapel": "IPA",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 2",
+      "id": 2
+    },
+    {
+      "mapel": "IPA",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 3",
+      "id": 3
+    },
+    {
+      "mapel": "IPA",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 4",
+      "id": 4
+    },
+    {
+      "mapel": "IPS",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 1",
+      "id": 5
+    },
+    {
+      "mapel": "IPS",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 2",
+      "id": 6
+    },
+    {
+      "mapel": "IPS",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 3",
+      "id": 7
+    },
+    {
+      "mapel": "IPS",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 4",
+      "id": 8
+    }
+  ],
+  "tema": [
+    {
+      "tema": "Tema 1",
+      "sub_tema": "Subtema 1",
+      "id": 1
+    },
+    {
+      "tema": "Tema 1",
+      "sub_tema": "Subtema 2",
+      "id": 2
+    }
   ]
 }
