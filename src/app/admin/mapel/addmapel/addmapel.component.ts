@@ -34,6 +34,7 @@ export class AddmapelComponent {
       kkm: ["", Validators.required],
       kelas: ["", Validators.required],
       tema: ["", Validators.required],
+      sub_tema: ["", Validators.required],
     })
 
     this.getTema();

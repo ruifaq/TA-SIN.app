@@ -21,24 +21,23 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   declarations: [],
   imports: [
     CommonModule,
-    CommonModule,
-      LayoutModule,
-      MatToolbarModule,
-      MatButtonModule,
-      MatSidenavModule,
-      MatIconModule,
-      MatListModule,
-      MatTableModule,
-      FormsModule,
-      ReactiveFormsModule,
-      MatSelectModule,
-      MatDialogModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatPaginatorModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
   ]
 })
-export class MapelModule {
+export class KkmModule {
   mapel!: string;
   kkm!: string ;
   kelas!: string ;

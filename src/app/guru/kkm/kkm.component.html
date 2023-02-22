@@ -1,5 +1,5 @@
 <div class="padding">
-    <h1>Mata Pelajaran</h1>
+    <h1>KKM</h1>
     
     <mat-form-field appearance="outline" class="field">
         <mat-label>Pencarian</mat-label>
@@ -15,7 +15,7 @@
 
     <section>
         <div class="example-button-row">
-            <button mat-raised-button color="primary" (click)="add()">Tambah Mata Pelajaran</button>
+            <button mat-raised-button color="primary" (click)="add()">Tambah KKM</button>
         </div>
     </section>
     <mat-divider></mat-divider>
@@ -54,6 +54,7 @@
             <th mat-header-cell *matHeaderCellDef> Sub Tema </th>
             <td mat-cell *matCellDef="let element"> {{element.sub_tema}}</td>
         </ng-container>
+
 
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>

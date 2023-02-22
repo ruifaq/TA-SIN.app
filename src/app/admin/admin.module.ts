@@ -1,13 +1,8 @@
 import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterModule, Routes } from '@angular/router';
-
 import { MaterialDesign } from '../material/material';
-
 import { SiswaComponent } from './siswa/siswa.component';
-
-
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';

@@ -210,57 +210,54 @@
       "mapel": "IPA",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 1",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
       "id": 1
     },
     {
-      "mapel": "IPS",
+      "mapel": "IPA",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 1",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
       "id": 2
     },
     {
       "mapel": "IPA",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 3",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
       "id": 3
     },
     {
       "mapel": "IPA",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 2",
-      "id": 4
-    },
-    {
-      "mapel": "IPS",
-      "kkm": "75",
-      "kelas": "6",
-      "tema": "Tema 3",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 4 Udara Bersih",
       "id": 5
     }
   ],
   "tema": [
     {
-      "tema": "Tema 1",
-      "sub_tema": "Subtema 1",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
       "id": 1
     },
     {
-      "tema": "Tema 1",
-      "sub_tema": "Subtema 2",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
       "id": 2
     },
     {
-      "tema": "Tema 2",
-      "sub_tema": "Subtema 1",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
       "id": 3
     },
     {
-      "tema": "Tema 3",
-      "sub_tema": "Subtema 1",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 4 Udara Bersih",
       "id": 4
     }
   ]

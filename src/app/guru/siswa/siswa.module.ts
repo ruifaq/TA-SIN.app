@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Injectable, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -21,27 +21,27 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   declarations: [],
   imports: [
     CommonModule,
-    CommonModule,
-      LayoutModule,
-      MatToolbarModule,
-      MatButtonModule,
-      MatSidenavModule,
-      MatIconModule,
-      MatListModule,
-      MatTableModule,
-      FormsModule,
-      ReactiveFormsModule,
-      MatSelectModule,
-      MatDialogModule,
-      MatFormFieldModule,
-      MatInputModule,
-      MatPaginatorModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatPaginatorModule,
   ]
 })
-export class MapelModule {
-  mapel!: string;
-  kkm!: string ;
+export class SiswaModule { 
+  nis!: string;
+  nama!: string ;
+  alamat!: string ;
+  hp!: string ;
   kelas!: string ;
-  tema!: string ;
-  sub_tema!: string;
- }
+  ta!: string ;
+}

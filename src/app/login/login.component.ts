@@ -42,6 +42,7 @@ ngOnInit(): void {
       this.toastr.success('Login Berhasil', 'Info');
       this.login.reset();
       this.router.navigate(['admin/dashboard-admin']);
+     
     }else{
       this.toastr.warning('Login Gagal', 'Info');
       this.router.navigate(['']);

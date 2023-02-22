@@ -7,20 +7,21 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/shared/api.service';
-import { MapelModule } from './mapel.module'; 
+import { KkmModule } from './kkm.module';
 import { ToastrService } from 'ngx-toastr';
-import { AddmapelComponent } from './addmapel/addmapel.component'; 
-import { EditkelasComponent } from '../kelas/editkelas/editkelas.component'; 
-import { DeletemapelComponent } from './deletemapel/deletemapel.component'; 
-import { EditmapelComponent } from './editmapel/editmapel.component';
+import { MapelModule } from 'src/app/admin/mapel/mapel.module';
+import { TemaModule } from 'src/app/admin/tema/tema.module';
+
 
 @Component({
-  selector: 'app-mapel',
-  templateUrl: './mapel.component.html',
-  styleUrls: ['./mapel.component.css']
+  selector: 'app-kkm',
+  templateUrl: './kkm.component.html',
+  styleUrls: ['./kkm.component.css']
 })
-export class MapelComponent {
+export class KkmComponent {
+
   public dataMapel !: MatTableDataSource<MapelModule>;
+  public dataTema !: MatTableDataSource<TemaModule>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -28,8 +29,8 @@ export class MapelComponent {
   displayedColumns: string[] = ['mapel', 'kkm', 'kelas', 'tema', 'sub_tema', 'action'];
 
   formValue !: FormGroup;
-  mapelModuleObj: MapelModule = new MapelModule();
-  public mapels !: any;
+  kkmModuleObj: KkmModule = new KkmModule();
+  public kkms !: any;
 
   constructor(
     private _dialog: MatDialog,
@@ -41,30 +42,42 @@ export class MapelComponent {
   ) { }
 
   add() {
-    this._dialog.open(AddmapelComponent)
+
   }
   edit(data: any) {
-    this._dialog.open(EditmapelComponent, { data });
+
   }
   delete(data: any) {
 
-    this._dialog.open(DeletemapelComponent, { data })
+
   }
 
   ngOnInit(): void {
 
-     this.getDataMapel();//untuk menampilkan wajib input ini
-
+this.getDataMapel()
+    this.getDataTema();
   }
 
   getDataMapel() { //untuk ambil data bisa dibuat kek gini
     this.api.ambilDataMapel()
       .subscribe(res => {
-        this.mapels = res;
+        this.kkms = res;
         console.log();
-        this.dataMapel = new MatTableDataSource(this.mapels);
+        this.dataMapel = new MatTableDataSource(this.kkms);
         this.dataMapel.paginator = this.paginator;
         this.dataMapel.sort = this.sort;
+
+      })
+  }
+
+  getDataTema() { //untuk ambil data bisa dibuat kek gini
+    this.api.ambilDataTema()
+      .subscribe(res => {
+        this.kkms = res;
+        console.log();
+        this.dataTema = new MatTableDataSource(this.kkms);
+        this.dataTema.paginator = this.paginator;
+        this.dataTema.sort = this.sort;
 
       })
   }

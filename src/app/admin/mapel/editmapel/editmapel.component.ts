@@ -30,6 +30,7 @@ export class EditmapelComponent {
       kkm: new FormControl(),
       kelas: new FormControl(),
       tema: new FormControl(),
+      sub_tema: new FormControl()
     })
 
     this.dataMapelForm.patchValue(this.data);
