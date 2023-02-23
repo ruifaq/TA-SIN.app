@@ -236,7 +236,7 @@
       "kelas": "5",
       "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
       "sub_tema": "Subtema 4 Udara Bersih",
-      "id": 5
+      "id": 4
     }
   ],
   "tema": [
@@ -256,6 +256,44 @@
       "id": 3
     },
     {
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 4 Udara Bersih",
+      "id": 4
+    }
+  ],
+  "nilai": [
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "90",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "id": 1
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "82",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "id": 2
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "77",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
+      "id": 3
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "88",
+      "mapel": "IPA",
       "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
       "sub_tema": "Subtema 4 Udara Bersih",
       "id": 4

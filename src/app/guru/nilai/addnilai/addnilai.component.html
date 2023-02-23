@@ -1,0 +1,71 @@
+<div mat-dialog-title>
+    <h1>Tambah Nilai</h1>
+</div>
+
+<form [formGroup]="dataNilaiForm">
+    <div mat-dialog-content class="content">
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>NIS</mat-label>
+                <input matInput formControlName="nis" [matAutocomplete]="nis" required>
+                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+                <mat-autocomplete #nis="matAutocomplete" >
+                    <mat-option *ngFor="let option of siswa" [value]="option.nis">
+                      {{option.nis}} {{option.nama}}
+                    </mat-option>
+                  </mat-autocomplete>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Nama</mat-label>
+                <input matInput formControlName="nama" [matAutocomplete]="nama" required>
+                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+                <mat-autocomplete #nama="matAutocomplete" >
+                    <mat-option *ngFor="let option of siswa" [value]="option.nama">
+                        {{option.nis}} {{option.nama}}
+                    </mat-option>
+                  </mat-autocomplete>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Nilai</mat-label>
+                <input matInput type="text" formControlName="nilai" required>
+                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Mata Pelajaran</mat-label>
+                <mat-select formControlName="mapel" required >
+                    <mat-option  *ngFor="let mpl of mapel" [value]="mpl.mapel">{{mpl.mapel}} </mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Tema</mat-label>
+                <mat-select formControlName="tema" required >
+                    <mat-option  *ngFor="let mpl of mapel" [value]="mpl.tema">{{mpl.tema}}</mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div> 
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Sub Tema</mat-label>
+                <mat-select formControlName="sub_tema" required >
+                    <mat-option  *ngFor="let mpl of mapel" [value]="mpl.sub_tema">{{mpl.sub_tema}}</mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div> 
+
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
+    </div>
+</form>

@@ -22,6 +22,8 @@ import { SiswaComponent } from './siswa/siswa.component';
 import { NilaiComponent } from './nilai/nilai.component';
 import { KkmComponent } from './kkm/kkm.component';
 import { LaporanComponent } from './laporan/laporan.component';
+import { NgxPrintModule } from 'ngx-print';
+
 
 const routes: Routes = [
   {
@@ -77,6 +79,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
+    NgxPrintModule,
   ]
 })
 export class GuruModule { }

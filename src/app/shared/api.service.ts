@@ -7,6 +7,7 @@ import { SiswaModule } from '../admin/siswa/siswa.module';
 import { KelasModule } from '../admin/kelas/kelas.module';
 import { MapelModule } from '../admin/mapel/mapel.module';
 import { TemaModule } from '../admin/tema/tema.module';
+import { NilaiModule } from '../guru/nilai/nilai.module';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,7 @@ export class ApiService {
   kelasUrl = 'http://localhost:3000/kelas'
   mapelUrl = 'http://localhost:3000/mapel'
   temaUrl = 'http://localhost:3000/tema'
+  nilaiUrl = 'http://localhost:3000/nilai'
 
   tambahData(guruModuleObj: GuruModule) {
     return this.http.post<GuruModule>(this.guruUrl, guruModuleObj)
@@ -40,6 +42,10 @@ export class ApiService {
 
   tambahDataTema(temaModuleObj: TemaModule) {
     return this.http.post<TemaModule>(this.temaUrl, temaModuleObj);
+  }
+
+  tambahdataNilai(nilaiModuleObj: NilaiModule){
+    return this.http.post<NilaiModule>(this.nilaiUrl, nilaiModuleObj);
   }
 
   ambilDataGuru() {
@@ -68,6 +74,10 @@ export class ApiService {
     return this.http.get<TemaModule>(this.temaUrl);
   }
 
+  ambilDataNilai() {
+    return this.http.get<NilaiModule>(this.nilaiUrl);
+  }
+
   loginCode(code: any) {
     return this.http.get<any>(this.guruUrl);
   }
@@ -92,6 +102,10 @@ export class ApiService {
     return this.http.put<TemaModule>(this.temaUrl + '/' + id, data);
   }
 
+  ubahDataNilai(id: number, data: any){
+    return this.http.put<NilaiModule>(this.nilaiUrl + '/' + id, data);
+  }
+
   hapusDataGuru(id: number) {
     return this.http.delete<GuruModule>(this.guruUrl + '/' + id);
   }
@@ -106,6 +120,10 @@ export class ApiService {
 
   hapusDataMapel(id: number) {
     return this.http.delete<MapelModule>(this.mapelUrl + '/' + id);
+  }
+
+  hapusDataNilai(id: number) {
+    return this.http.delete<NilaiModule>(this.nilaiUrl + '/' + id);
   }
 
   hapusDataTema(id: number){
