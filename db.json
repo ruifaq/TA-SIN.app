@@ -298,5 +298,23 @@
       "sub_tema": "Subtema 4 Udara Bersih",
       "id": 4
     }
+  ],
+  "kkm": [
+    {
+      "kelas": "5",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "kkm": "75",
+      "id": 1
+    },
+    {
+      "kelas": "5",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "kkm": "75",
+      "id": 2
+    }
   ]
 }

@@ -27,7 +27,7 @@ export class TemaComponent {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  displayedColumns: string[] = ['tema', 'sub_tema', 'action'];
+  displayedColumns: string[] = ['no', 'tema', 'sub_tema', 'action'];
 
   formValue !: FormGroup;
   temaModuleObj: TemaModule = new TemaModule();

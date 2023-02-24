@@ -30,7 +30,7 @@ export class NilaiComponent {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild('tabel', { static: false }) el!: ElementRef;
 
-  displayedColumns: string[] = ['nis', 'nama', 'nilai', 'mapel', 'tema', 'sub_tema', 'action'];
+  displayedColumns: string[] = ['no', 'nis', 'nama', 'nilai', 'mapel', 'tema', 'sub_tema', 'action'];
 
   formValue !: FormGroup;
   nilaiModuleObj: NilaiModule = new NilaiModule();

@@ -11,6 +11,9 @@ import { KkmModule } from './kkm.module';
 import { ToastrService } from 'ngx-toastr';
 import { MapelModule } from 'src/app/admin/mapel/mapel.module';
 import { TemaModule } from 'src/app/admin/tema/tema.module';
+import { AddkkmComponent } from './addkkm/addkkm.component';
+import { EditkkmComponent } from './editkkm/editkkm.component';
+import { DeletekkmComponent } from './deletekkm/deletekkm.component';
 
 
 @Component({
@@ -20,13 +23,13 @@ import { TemaModule } from 'src/app/admin/tema/tema.module';
 })
 export class KkmComponent {
 
-  public dataMapel !: MatTableDataSource<MapelModule>;
+  public dataKkm !: MatTableDataSource<MapelModule>;
   public dataTema !: MatTableDataSource<TemaModule>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['mapel', 'kkm', 'kelas', 'tema', 'sub_tema', 'action'];
+  displayedColumns: string[] = ['no', 'kelas', 'mapel', 'tema', 'sub_tema', 'kkm', 'action'];
 
   formValue !: FormGroup;
   kkmModuleObj: KkmModule = new KkmModule();
@@ -42,52 +45,37 @@ export class KkmComponent {
   ) { }
 
   add() {
-
+    this._dialog.open(AddkkmComponent)
   }
   edit(data: any) {
-
+    this._dialog.open(EditkkmComponent, {data})
   }
   delete(data: any) {
-
-
+    this._dialog.open(DeletekkmComponent, {data})
   }
 
   ngOnInit(): void {
-
-this.getDataMapel()
-    this.getDataTema();
+    this.getDataKkm();
   }
 
-  getDataMapel() { //untuk ambil data bisa dibuat kek gini
-    this.api.ambilDataMapel()
+  getDataKkm() { //untuk ambil data bisa dibuat kek gini
+    this.api.ambilDataKkm()
       .subscribe(res => {
         this.kkms = res;
         console.log();
-        this.dataMapel = new MatTableDataSource(this.kkms);
-        this.dataMapel.paginator = this.paginator;
-        this.dataMapel.sort = this.sort;
-
-      })
-  }
-
-  getDataTema() { //untuk ambil data bisa dibuat kek gini
-    this.api.ambilDataTema()
-      .subscribe(res => {
-        this.kkms = res;
-        console.log();
-        this.dataTema = new MatTableDataSource(this.kkms);
-        this.dataTema.paginator = this.paginator;
-        this.dataTema.sort = this.sort;
+        this.dataKkm = new MatTableDataSource(this.kkms);
+        this.dataKkm.paginator = this.paginator;
+        this.dataKkm.sort = this.sort;
 
       })
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataMapel.filter = filterValue.trim().toLowerCase();
+    this.dataKkm.filter = filterValue.trim().toLowerCase();
 
-    if (this.dataMapel.paginator) {
-      this.dataMapel.paginator.firstPage();
+    if (this.dataKkm.paginator) {
+      this.dataKkm.paginator.firstPage();
     }
   }
 

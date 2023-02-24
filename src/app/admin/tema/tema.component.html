@@ -16,6 +16,11 @@
     <table mat-table [dataSource]="dataTema" class="mat-elevation-z8">
 
         <!-- Name Column -->
+        <ng-container matColumnDef="no" >
+            <th mat-header-cell *matHeaderCellDef> No </th>
+            <td mat-cell *matCellDef="let element = index"> {{element + 1}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="tema">
             <th mat-header-cell *matHeaderCellDef> Tema </th>
             <td mat-cell *matCellDef="let element"> {{element.tema}} </td>

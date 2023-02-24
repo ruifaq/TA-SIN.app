@@ -23,7 +23,7 @@ export class GuruComponent implements OnInit {
   public gurus !: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['id','nip', 'nama', 'username', 'pass', 'alamat', 'jabatan', 'hp', 'status', 'action'];
+  displayedColumns: string[] = ['no','nip', 'nama', 'username', 'pass', 'alamat', 'jabatan', 'hp', 'status', 'action'];
 
   formValue !: FormGroup;
   guruModuleObj: GuruModule = new GuruModule();

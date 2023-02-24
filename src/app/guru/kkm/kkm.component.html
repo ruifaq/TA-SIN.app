@@ -20,7 +20,7 @@
     </section>
     <mat-divider></mat-divider>
 
-    <table mat-table [dataSource]="dataMapel" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataKkm" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
@@ -28,9 +28,15 @@
         <!-- Position Column -->
 
         <!-- Name Column -->
+
+        <ng-container matColumnDef="no" >
+            <th mat-header-cell *matHeaderCellDef> No </th>
+            <td mat-cell *matCellDef="let element = index"> {{element + 1}} </td>
+        </ng-container>
+
         <ng-container matColumnDef="mapel">
             <th mat-header-cell *matHeaderCellDef> Mata Pelajaran </th>
-            <td mat-cell *matCellDef="let element"> {{element.mapel}} </td>
+            <td mat-cell *matCellDef="let element "> {{element.mapel}} </td>
         </ng-container>
 
         <!-- Weight Column -->

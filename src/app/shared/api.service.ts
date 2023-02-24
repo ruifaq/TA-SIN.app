@@ -8,6 +8,7 @@ import { KelasModule } from '../admin/kelas/kelas.module';
 import { MapelModule } from '../admin/mapel/mapel.module';
 import { TemaModule } from '../admin/tema/tema.module';
 import { NilaiModule } from '../guru/nilai/nilai.module';
+import { KkmModule } from '../guru/kkm/kkm.module';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class ApiService {
   mapelUrl = 'http://localhost:3000/mapel'
   temaUrl = 'http://localhost:3000/tema'
   nilaiUrl = 'http://localhost:3000/nilai'
+  kkmUrl = 'http://localhost:3000/kkm'
 
   tambahData(guruModuleObj: GuruModule) {
     return this.http.post<GuruModule>(this.guruUrl, guruModuleObj)
@@ -46,6 +48,10 @@ export class ApiService {
 
   tambahdataNilai(nilaiModuleObj: NilaiModule){
     return this.http.post<NilaiModule>(this.nilaiUrl, nilaiModuleObj);
+  }
+
+  tambahDataKkm(kkmModuleObj: KkmModule){
+return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
   }
 
   ambilDataGuru() {
@@ -78,6 +84,10 @@ export class ApiService {
     return this.http.get<NilaiModule>(this.nilaiUrl);
   }
 
+  ambilDataKkm(){
+    return this.http.get<KkmModule>(this.kkmUrl);
+  }
+
   loginCode(code: any) {
     return this.http.get<any>(this.guruUrl);
   }
@@ -106,6 +116,10 @@ export class ApiService {
     return this.http.put<NilaiModule>(this.nilaiUrl + '/' + id, data);
   }
 
+  ubahDataKkm(id: number, data: any){
+    return this.http.put<KkmModule>(this.kkmUrl + '/' + id, data);
+  }
+
   hapusDataGuru(id: number) {
     return this.http.delete<GuruModule>(this.guruUrl + '/' + id);
   }
@@ -128,6 +142,10 @@ export class ApiService {
 
   hapusDataTema(id: number){
     return this.http.delete<TemaModule>(this.temaUrl + '/' + id);
+  }
+
+  hapusDataKkm(id: number){
+    return this.http.delete<KkmModule>(this.kkmUrl + '/' + id);
   }
 
   ambilDataEditId(id: number) {

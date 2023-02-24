@@ -24,7 +24,7 @@ export class SiswaComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['nis', 'nama', 'alamat', 'hp', 'kelas', 'ta'];
+  displayedColumns: string[] = ['no', 'nis', 'nama', 'alamat', 'hp', 'kelas', 'ta'];
 
   constructor(
     private _dialog: MatDialog,

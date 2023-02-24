@@ -14,11 +14,18 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AddkkmComponent } from './addkkm/addkkm.component';
+import { EditkkmComponent } from './editkkm/editkkm.component';
+import { DeletekkmComponent } from './deletekkm/deletekkm.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    AddkkmComponent,
+    EditkkmComponent,
+    DeletekkmComponent
+  ],
   imports: [
     CommonModule,
     LayoutModule,
@@ -38,9 +45,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   ]
 })
 export class KkmModule {
-  mapel!: string;
-  kkm!: string ;
-  kelas!: string ;
+  kelas!: string;
+  mapel!: string ;
   tema!: string ;
+  kkm!: string ;
   sub_tema!: string;
  }
