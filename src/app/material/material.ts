@@ -14,6 +14,7 @@ import { MatTab, MatTabsModule } from '@angular/material/tabs';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
 
 
 export const MaterialDesign = [
@@ -34,5 +35,6 @@ export const MaterialDesign = [
     MatChipsModule,
     MatIconModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
 ]

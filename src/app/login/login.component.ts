@@ -11,44 +11,53 @@ import { ApiService } from '../shared/api.service';
 })
 export class LoginComponent {
 
-  login: FormGroup|any;
+  login: FormGroup | any;
+  public role!: any;
 
   constructor(private _fb: FormBuilder,
     private toastr: ToastrService,
     private router: Router,
     private service: ApiService,
-    
+
 
   ) {
   }
 
-ngOnInit(): void {
-  this.login = new FormGroup({
-    'username': new FormControl(),
-    'pass': new FormControl()
-  })
-}
+  ngOnInit(): void {
+    this.login = new FormGroup({
+      'username': new FormControl(),
+      'pass': new FormControl(),
+    })
+  }
 
- 
 
-  loginApp(login:FormGroup) {
 
-  this.service.loginCode(this.login.value.username).subscribe(res=>{
-    const usera = res.find((a:any)=>{
-      return a.username === this.login.value.username && a.pass === this.login.value.pass
-    });
+  loginApp(login: FormGroup) {
 
-    if(usera){
-      this.toastr.success('Login Berhasil', 'Info');
-      this.login.reset();
-      this.router.navigate(['admin/dashboard-admin']);
-     
-    }else{
-      this.toastr.warning('Login Gagal', 'Info');
-      this.router.navigate(['']);
-    }
-  })
-  
+    this.service.loginCode(this.login.value.username).subscribe(res => {
+
+      const usera = res.find((a: any) => {
+        return a.username === this.login.value.username && a.pass === this.login.value.pass 
+
+      });
+
+      if (usera) {
+        if (this.login.value.username == 'admin') {
+          this.toastr.success('Login Sebagai Administrator', 'Login Berhasil');
+          this.login.reset();
+          this.router.navigate(['admin/dashboard-admin']);
+        } else {
+          this.toastr.success('Login Sebagai Guru', 'Login Berhasil');
+          this.login.reset();
+          this.router.navigate(['guru/dashboard-guru']);
+        }
+      } else {
+        this.role = this.login.value == '';
+        this.toastr.warning('Mohon Cek Kembali Username atau Password Anda', 'Login Gagal');
+        this.router.navigate(['/']);
+      }
+    })
+
   }
 
 }
