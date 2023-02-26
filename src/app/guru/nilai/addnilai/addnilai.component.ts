@@ -6,6 +6,7 @@ import { NilaiModule } from '../nilai.module';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-addnilai',
   templateUrl: './addnilai.component.html',
@@ -16,9 +17,11 @@ export class AddnilaiComponent {
   nilaiModuleObj: NilaiModule = new NilaiModule;
   public mapel !: any;
   public siswa !: any;
+  public uid!: any;
 
   public dataNilaiForm!: FormGroup;
  filterNis!: Observable<any[]>;
+ 
 
   constructor(private _fb: FormBuilder,
     public dialogref: MatDialogRef<AddnilaiComponent>,
@@ -39,6 +42,7 @@ export class AddnilaiComponent {
       mapel: ["", Validators.required],
       tema: ["", Validators.required],
       sub_tema: ["", Validators.required],
+      token: [crypto.randomUUID(), Validators.required],
     })
 
     this.getMapel();
@@ -58,6 +62,12 @@ export class AddnilaiComponent {
     })
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.siswa.filter = filterValue.trim().toLowerCase();
+  }
+
+
   simpan() {
     this.api.tambahdataNilai(this.dataNilaiForm.value)
       .subscribe(res => {
@@ -68,5 +78,7 @@ export class AddnilaiComponent {
         }, 5500);
       })
   }
+
+
 
 }

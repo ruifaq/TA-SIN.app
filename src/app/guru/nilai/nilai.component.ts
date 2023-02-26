@@ -15,6 +15,7 @@ import { DeletenilaiComponent } from './deletenilai/deletenilai.component';
 import { jsPDF } from 'jspdf';
 import { ngxCsv } from 'ngx-csv/ngx-csv';
 import * as XLSX from 'xlsx';
+import { v4 as  uuidv4 } from 'uuid';
 
 
 @Component({
@@ -35,6 +36,7 @@ export class NilaiComponent {
   formValue !: FormGroup;
   nilaiModuleObj: NilaiModule = new NilaiModule();
   public nilais !: any;
+  public  uid!: any;
 
   constructor(
     private _dialog: MatDialog,
@@ -46,7 +48,7 @@ export class NilaiComponent {
   ) { }
 
   add() {
-    this._dialog.open(AddnilaiComponent)
+    this._dialog.open(AddnilaiComponent);
   }
   edit(data: any) {
     this._dialog.open(EditnilaiComponent, { data });

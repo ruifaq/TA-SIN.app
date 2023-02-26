@@ -7,7 +7,7 @@
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>NIS</mat-label>
-                <input matInput formControlName="nis" [matAutocomplete]="nis" required>
+                <input type="text" matInput formControlName="nis" [matAutocomplete]="nis" required>
                 <mat-error>Masukkan nama terlebih dahulu</mat-error>
                 <mat-autocomplete #nis="matAutocomplete" >
                     <mat-option *ngFor="let option of siswa" [value]="option.nis">

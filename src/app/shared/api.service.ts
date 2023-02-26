@@ -58,10 +58,8 @@ return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
     return this.http.get<GuruModule>(this.guruUrl);
   }
 
-  ambilDataGr() {
-    return this.http.get<GuruModule>(this.guruUrl).pipe( //PR next
-      map(gr => gr.nama)
-    )
+  ambilDataGr(data: any) {
+    return this.http.get<GuruModule>(this.guruUrl, data)
   }
 
   ambilDataSiswa() {
