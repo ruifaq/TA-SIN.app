@@ -58,8 +58,8 @@ return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
     return this.http.get<GuruModule>(this.guruUrl);
   }
 
-  ambilDataGr(data: any) {
-    return this.http.get<GuruModule>(this.guruUrl, data)
+  ambilDataGr(id: number) {
+    return this.http.get<GuruModule>(this.guruUrl +'/'+ id)
   }
 
   ambilDataSiswa() {

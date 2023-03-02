@@ -215,18 +215,18 @@
       "id": 1
     },
     {
-      "mapel": "IPA",
+      "mapel": "IPS",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "tema": "Tema 1 Sejarah Bangsa",
       "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
       "id": 2
     },
     {
-      "mapel": "IPA",
+      "mapel": "MTK",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "tema": "Tema 1 Perkalian",
       "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
       "id": 3
     },
@@ -237,6 +237,38 @@
       "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
       "sub_tema": "Subtema 4 Udara Bersih",
       "id": 4
+    },
+    {
+      "mapel": "Bahasa Indonesia",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "id": 5
+    },
+    {
+      "mapel": "Penjas",
+      "kkm": "75",
+      "kelas": "2",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "id": 6
+    },
+    {
+      "mapel": "Mulok",
+      "kkm": "75",
+      "kelas": "3",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "id": 7
+    },
+    {
+      "mapel": "Agama Islam",
+      "kkm": "75",
+      "kelas": "2",
+      "tema": "Tema 1 Perkalian",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "id": 8
     }
   ],
   "tema": [
@@ -246,12 +278,12 @@
       "id": 1
     },
     {
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "tema": "Tema 1 Sejarah Bangsa",
       "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
       "id": 2
     },
     {
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "tema": "Tema 1 Perkalian",
       "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
       "id": 3
     },
@@ -299,6 +331,38 @@
       "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
       "kkm": "75",
       "id": 2
+    },
+    {
+      "kelas": "3",
+      "mapel": "MTK",
+      "tema": "Tema 1 Perkalian",
+      "sub_tema": "Subtema 4 Udara Bersih",
+      "kkm": "50",
+      "id": 3
+    },
+    {
+      "kelas": "6",
+      "mapel": "Bahasa Indonesia",
+      "tema": "Tema 1 Sejarah Bangsa",
+      "sub_tema": "Subtema 4 Udara Bersih",
+      "kkm": "75",
+      "id": 4
+    },
+    {
+      "kelas": "6",
+      "mapel": "Mulok",
+      "tema": "Tema 1 Perkalian",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "kkm": "75",
+      "id": 5
+    },
+    {
+      "kelas": "6",
+      "mapel": "Agama Islam",
+      "tema": "Tema 1 Perkalian",
+      "sub_tema": "Subtema 4 Udara Bersih",
+      "kkm": "75",
+      "id": 6
     }
   ]
 }

@@ -17,6 +17,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddkkmComponent } from './addkkm/addkkm.component';
 import { EditkkmComponent } from './editkkm/editkkm.component';
 import { DeletekkmComponent } from './deletekkm/deletekkm.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+
 
 
 
@@ -42,6 +44,7 @@ import { DeletekkmComponent } from './deletekkm/deletekkm.component';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
+    MatAutocompleteModule
   ]
 })
 export class KkmModule {

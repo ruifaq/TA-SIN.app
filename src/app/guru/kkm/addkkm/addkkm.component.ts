@@ -1,10 +1,11 @@
 import { Component, Inject } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ApiService } from 'src/app/shared/api.service';
 import { KkmComponent } from '../kkm.component';
 import { ToastrService } from 'ngx-toastr';
 import { KkmModule } from '../kkm.module';
+
 
 @Component({
   selector: 'app-addkkm',
@@ -15,9 +16,14 @@ export class AddkkmComponent {
 
   mapelKkmeObj: KkmModule = new KkmModule;
   public tema !: any;
+  public sub_tema !: any;
   public mapel !: any;
+  unikMapel: any[] = [];
+  unikTema: any[] = [];
+  unikSubTema: any[] = [];
 
   public dataKkmForm!: FormGroup;
+  mapelFormControl = new FormControl();
 
   constructor(private _fb: FormBuilder,
     public dialogref: MatDialogRef<AddkkmComponent>,
@@ -25,7 +31,8 @@ export class AddkkmComponent {
     private _formBuilder: FormBuilder,
     private toastr: ToastrService,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    @Inject(MAT_DIALOG_DATA) public kelas: any
+    @Inject(MAT_DIALOG_DATA) public kelas: any,
+
 
   ) {
   }
@@ -41,16 +48,107 @@ export class AddkkmComponent {
 
     this.getMapel();
     this.getKelas();
+    this.initFromTema();
+    this.initFromMapel();
+    this.initFromSubTema();
   }
+
+  //BAGIAN INITFROM
+
+  initFromMapel() {
+    this.mapel = this._formBuilder.group({
+      'mapel': ['']
+    })
+    this.dataKkmForm.get('mapel')?.valueChanges.subscribe(res => {
+      console.log('data is', res)
+      this.filterM(res)
+    })
+  }
+
+  initFromTema() {
+    this.tema = this._formBuilder.group({
+      'sub_tema': ['']
+    })
+    this.dataKkmForm.get('tema')?.valueChanges.subscribe(res => {
+      console.log('data is', res)
+      this.filterT(res)
+    })
+  }
+
+  initFromSubTema() {
+    this.sub_tema = this._formBuilder.group({
+      'sub_tema': ['']
+    })
+    this.dataKkmForm.get('sub_tema')?.valueChanges.subscribe(res => {
+      console.log('data is', res)
+      this.filterST(res)
+    })
+  }
+
+  //BAGIAN FILTER
+
+  filterM(enterData: any) {
+    if (!enterData) {
+      // jika input kosong, tampilkan semua data
+      this.filterMapel();
+      this.filterSubTema();
+    } else {
+      // filter data berdasarkan input
+      this.unikMapel = this.unikMapel.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+    }
+  }
+
+  filterT(enterData: any) {
+    if (!enterData) {
+      // jika input kosong, tampilkan semua data
+      this.filterTema();
+    } else {
+      // filter data berdasarkan input
+      this.unikTema = this.unikTema.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+    }
+  }
+
+  filterST(enterData: any) {
+    if (!enterData) {
+      // jika input kosong, tampilkan semua data
+      this.filterSubTema();
+    } else {
+      // filter data berdasarkan input
+      this.unikSubTema = this.unikSubTema.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+    }
+  }
+
+  filterMapel() {
+    this.unikMapel = Array.from(new Set(this.mapel.map((item: { mapel: string; }) => item.mapel)));
+    console.log(this.unikMapel);
+  }
+
+  filterTema() {
+    this.unikTema = Array.from(new Set(this.mapel.map((item: { tema: string; }) => item.tema)));
+    console.log(this.unikTema);
+  }
+
+  filterSubTema() {
+    this.unikSubTema = Array.from(new Set(this.mapel.map((item: { sub_tema: string; }) => item.sub_tema)));
+    console.log(this.unikSubTema);
+  }
+
+
+
+  //BAGIAN GET, POST
 
   getMapel() {
     this.api.ambilDataMapel().subscribe(res => {
       this.mapel = res;
-      const unik = this.mapel.filter((value: any, tema: any) => {
-        return this.mapel.indexOf(value) === tema;
-      })
-      console.log(unik);
-
+      this.filterMapel();
+      this.filterTema();
+      this.filterSubTema();
     })
   }
 
@@ -59,10 +157,6 @@ export class AddkkmComponent {
       this.kelas = res;
 
     })
-  }
-
-  filter() {
-
   }
 
   simpan() {

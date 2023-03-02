@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GuruComponent } from './guru/guru.component';
 
 
-
 @Injectable({
   providedIn: 'root'
 })

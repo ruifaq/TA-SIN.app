@@ -16,9 +16,9 @@ export class ProfileGuruComponent implements OnInit{
     ) { }
 
   ngOnInit(): void {
-    // Membuat permintaan ke backend server
-    this.api.ambilDataGr(this.data).subscribe((d) => {
-      this.data = d;
-    });
-  }
+    // Mengambil data dari local storage
+  const userData = JSON.parse(sessionStorage.getItem('currentUser')!);
+  // Menyimpan data di property data
+  this.data = userData;
+}
 }

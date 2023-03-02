@@ -1,18 +1,18 @@
 <div class="padding">
     <img mat-card-image src="assets/images/tut-wuri.png" class="img">
     <h1>Profil Guru</h1>
-    <mat-list *ngIf="data">
-        <mat-list-item>NIP :</mat-list-item>
+    <mat-list>
+        <mat-list-item>NIP : {{data.nip}}</mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>Nama : {{data.nama}}</mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>Alamat :</mat-list-item>
+        <mat-list-item>Alamat : {{data.alamat}}</mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>Jabatan :</mat-list-item>
+        <mat-list-item>Jabatan : {{data.jabatan}}</mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>No. Hp :</mat-list-item>
+        <mat-list-item>No. Hp : {{data.hp}}</mat-list-item>
         <mat-divider></mat-divider>
-        <mat-list-item>Status :</mat-list-item>
+        <mat-list-item>Status : {{data.status}}</mat-list-item>
     </mat-list>
 
 </div>

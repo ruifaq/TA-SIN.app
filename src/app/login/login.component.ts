@@ -13,7 +13,7 @@ export class LoginComponent {
 
   login: FormGroup | any;
   public role!: any;
-data: any;
+  data: any;
 
   constructor(private _fb: FormBuilder,
     private toastr: ToastrService,
@@ -37,21 +37,22 @@ data: any;
 
     this.service.loginCode(this.login.value.username).subscribe(res => {
       const usera = res.find((a: any) => {
-        return a.username === this.login.value.username && a.pass === this.login.value.pass 
-        
+        return a.username === this.login.value.username && a.pass === this.login.value.pass
+
       });
-      console.log('data guru:', usera);
 
       if (usera) {
         if (this.login.value.username == 'admin') {
           this.data = usera;
           this.toastr.success('Login Sebagai Administrator', 'Login Berhasil');
+          sessionStorage.setItem('currentUser', JSON.stringify(usera));
           this.login.reset();
           this.router.navigate(['admin/dashboard-admin']);
-          
+
         } else {
           this.data = usera;
           this.toastr.success('Login Sebagai Guru', 'Login Berhasil');
+          sessionStorage.setItem('currentUser', JSON.stringify(usera));
           this.login.reset();
           this.router.navigate(['guru/dashboard-guru']);
         }
