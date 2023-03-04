@@ -298,10 +298,9 @@
       "nis": "1000",
       "nama": "budi",
       "nilai": "75",
-      "mapel": "IPA",
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 4 Udara Bersih",
-      "token": "a9af21e5-f1ae-40db-a618-e4bf25b333de",
+      "mapel": "MTK",
+      "tema": "Tema 1 Perkalian",
+      "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
       "id": 1
     },
     {
@@ -318,10 +317,10 @@
   "kkm": [
     {
       "kelas": "5",
-      "mapel": "IPA",
+      "mapel": "MTK",
       "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
-      "kkm": "75",
+      "sub_tema": "Subtema 4 Udara Bersih",
+      "kkm": "80",
       "id": 1
     },
     {
@@ -337,7 +336,7 @@
       "mapel": "MTK",
       "tema": "Tema 1 Perkalian",
       "sub_tema": "Subtema 4 Udara Bersih",
-      "kkm": "50",
+      "kkm": "75",
       "id": 3
     },
     {
@@ -364,5 +363,6 @@
       "kkm": "75",
       "id": 6
     }
-  ]
+  ],
+  "laporan": []
 }

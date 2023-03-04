@@ -7,39 +7,56 @@
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Kelas</mat-label>
-                <mat-select formControlName="kelas" required >
-                    <mat-option  *ngFor="let kls of kelas" [value]="kls.kelas">{{kls.kelas}} </mat-option>
+                <mat-select formControlName="kelas" required>
+                    <mat-option *ngFor="let kls of kelas" [value]="kls.kelas">{{kls.kelas}} </mat-option>
                 </mat-select>
                 <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
-        <div>
+
+          <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Mata Pelajaran</mat-label>
-                <mat-select formControlName="mapel" required >
-                    <mat-option  *ngFor="let mpl of mapel" [value]="mpl.mapel">{{mpl.mapel}}</mat-option>
-                </mat-select>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+                <input matInput formControlName="mapel" [matAutocomplete]="autoMapel" required>
+                <mat-autocomplete #autoMapel="matAutocomplete" #singleSelect required>
+                    <ngx-mat-select-search ngDefaultControl></ngx-mat-select-search>
+                    <mat-option *ngFor="let um of unikMapel" [value]="um">
+                        {{um}}
+                    </mat-option>
+                </mat-autocomplete>
             </mat-form-field>
-        </div> 
+        </div>
+
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Tema</mat-label>
-                <mat-select formControlName="tema" required >
-                    <mat-option  *ngFor="let mpl of mapel" [value]="mpl.tema">{{mpl.tema}}</mat-option>
-                </mat-select>
+                <input matInput formControlName="tema" [matAutocomplete]="autoTema" required>
+                <mat-autocomplete #autoTema="matAutocomplete" #singleSelect required>
+                    <ngx-mat-select-search ngDefaultControl></ngx-mat-select-search>
+                    <mat-option *ngFor="let ut of unikTema" [value]="ut">
+                        {{ut}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-autocomplete></mat-autocomplete>
                 <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
-        </div> 
+        </div>
+
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Sub Tema</mat-label>
-                <mat-select formControlName="sub_tema" required >
-                    <mat-option  *ngFor="let mpl of mapel" [value]="mpl.sub_tema">{{mpl.sub_tema}}</mat-option>
-                </mat-select>
+                <input matInput formControlName="sub_tema" [matAutocomplete]="autoSubTema" required>
+                <mat-autocomplete #autoSubTema="matAutocomplete" #singleSelect required>
+                    <ngx-mat-select-search ngDefaultControl></ngx-mat-select-search>
+                    <mat-option *ngFor="let ust of unikSubTema" [value]="ust">
+                        {{ust}}
+                    </mat-option>
+                </mat-autocomplete>
+                <mat-autocomplete></mat-autocomplete>
                 <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
-        </div> 
+        </div>
+
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>KKM</mat-label>
@@ -47,6 +64,7 @@
                 <mat-error>Masukkan nama terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
+
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>

@@ -1,1 +1,108 @@
-<p>laporan works!</p>
+<div class="padding">
+    <h1>Laporan</h1>
+
+    <mat-form-field appearance="outline" class="field">
+        <mat-label>Pencarian</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Contoh. Rui Faqri" #input>
+    </mat-form-field>
+
+    <section>
+        <div class="example-button-row">
+            <button mat-raised-button color="primary" (click)="cetak()">Cetak ke PDF</button>
+            <button mat-raised-button color="primary" (click)="csv()">Cetak ke Excel</button>
+        </div>
+    </section>
+
+
+    <table mat-table [dataSource]="dataLaporan" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="no">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element = index"> {{element + 1}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="nis">
+            <th mat-header-cell *matHeaderCellDef> NIS </th>
+            <td mat-cell *matCellDef="let element"> {{element.nis}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="nama">
+            <th mat-header-cell *matHeaderCellDef> Nama </th>
+            <td mat-cell *matCellDef="let element"> {{element.nama}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="tema1">
+            <th mat-header-cell *matHeaderCellDef> Tema 1 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema1}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema2">
+            <th mat-header-cell *matHeaderCellDef> Tema 2 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema2}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema3">
+            <th mat-header-cell *matHeaderCellDef> Tema 3 </th>
+            <td mat-cell *matCellDef="let element">{{element.tema3}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema4">
+            <th mat-header-cell *matHeaderCellDef> Tema 4 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema4}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema5">
+            <th mat-header-cell *matHeaderCellDef> Tema 5 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema5}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema6">
+            <th mat-header-cell *matHeaderCellDef> Tema 6 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema6}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema7">
+            <th mat-header-cell *matHeaderCellDef> Tema 7 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema7}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema8">
+            <th mat-header-cell *matHeaderCellDef> Tema 8 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema8}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="tema9">
+            <th mat-header-cell *matHeaderCellDef> Tema 9 </th>
+            <td mat-cell *matCellDef="let element"> {{element.tema9}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Action </th>
+            <td mat-cell *matCellDef="let element">
+                <div>
+                    <button mat-icon-button color="primary" >
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                    <button mat-icon-button color="warn" >
+
+                        <!-- (click)="hapusDataGuru(element.id) => untuk hapus langsung -->
+
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+
+            </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+</div>

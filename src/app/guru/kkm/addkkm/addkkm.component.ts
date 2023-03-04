@@ -48,107 +48,76 @@ export class AddkkmComponent {
 
     this.getMapel();
     this.getKelas();
-    this.initFromTema();
     this.initFromMapel();
-    this.initFromSubTema();
+
   }
 
-  //BAGIAN INITFROM
-
+  //BAGIAN MEMANGGIL DATA MAPEL
   initFromMapel() {
     this.mapel = this._formBuilder.group({
-      'mapel': ['']
+      'mapel': [''],
     })
     this.dataKkmForm.get('mapel')?.valueChanges.subscribe(res => {
       console.log('data is', res)
       this.filterM(res)
     })
-  }
 
-  initFromTema() {
     this.tema = this._formBuilder.group({
-      'sub_tema': ['']
+      'tema': ['']
     })
     this.dataKkmForm.get('tema')?.valueChanges.subscribe(res => {
       console.log('data is', res)
-      this.filterT(res)
+      this.filterM(res)
     })
-  }
 
-  initFromSubTema() {
     this.sub_tema = this._formBuilder.group({
       'sub_tema': ['']
     })
     this.dataKkmForm.get('sub_tema')?.valueChanges.subscribe(res => {
       console.log('data is', res)
-      this.filterST(res)
+      this.filterM(res)
     })
+   
   }
 
-  //BAGIAN FILTER
 
-  filterM(enterData: any) {
+   //FILTER SEARCHING MAPEL
+   filterM(enterData: any) {
     if (!enterData) {
       // jika input kosong, tampilkan semua data
       this.filterMapel();
-      this.filterSubTema();
     } else {
       // filter data berdasarkan input
       this.unikMapel = this.unikMapel.filter((item: string) => {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
-    }
-  }
 
-  filterT(enterData: any) {
-    if (!enterData) {
-      // jika input kosong, tampilkan semua data
-      this.filterTema();
-    } else {
-      // filter data berdasarkan input
       this.unikTema = this.unikTema.filter((item: string) => {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
-    }
-  }
 
-  filterST(enterData: any) {
-    if (!enterData) {
-      // jika input kosong, tampilkan semua data
-      this.filterSubTema();
-    } else {
-      // filter data berdasarkan input
       this.unikSubTema = this.unikSubTema.filter((item: string) => {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
     }
   }
 
+   //FILTER SEARCHING MAPEL
   filterMapel() {
     this.unikMapel = Array.from(new Set(this.mapel.map((item: { mapel: string; }) => item.mapel)));
-    console.log(this.unikMapel);
-  }
-
-  filterTema() {
     this.unikTema = Array.from(new Set(this.mapel.map((item: { tema: string; }) => item.tema)));
-    console.log(this.unikTema);
-  }
-
-  filterSubTema() {
     this.unikSubTema = Array.from(new Set(this.mapel.map((item: { sub_tema: string; }) => item.sub_tema)));
+    console.log(this.unikMapel);
+    console.log(this.unikTema);
     console.log(this.unikSubTema);
   }
 
-
-
   //BAGIAN GET, POST
-
   getMapel() {
     this.api.ambilDataMapel().subscribe(res => {
       this.mapel = res;
       this.filterMapel();
-      this.filterTema();
-      this.filterSubTema();
+   
     })
   }
 
