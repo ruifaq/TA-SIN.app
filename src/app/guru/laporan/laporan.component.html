@@ -37,69 +37,68 @@
             <td mat-cell *matCellDef="let element"> {{element.nama}} </td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="tema1">
-            <th mat-header-cell *matHeaderCellDef> Tema 1 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema1}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema2">
-            <th mat-header-cell *matHeaderCellDef> Tema 2 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema2}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema3">
-            <th mat-header-cell *matHeaderCellDef> Tema 3 </th>
-            <td mat-cell *matCellDef="let element">{{element.tema3}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema4">
-            <th mat-header-cell *matHeaderCellDef> Tema 4 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema4}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema5">
-            <th mat-header-cell *matHeaderCellDef> Tema 5 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema5}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema6">
-            <th mat-header-cell *matHeaderCellDef> Tema 6 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema6}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema7">
-            <th mat-header-cell *matHeaderCellDef> Tema 7 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema7}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema8">
-            <th mat-header-cell *matHeaderCellDef> Tema 8 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema8}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="tema9">
-            <th mat-header-cell *matHeaderCellDef> Tema 9 </th>
-            <td mat-cell *matCellDef="let element"> {{element.tema9}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="action">
-            <th mat-header-cell *matHeaderCellDef> Action </th>
+        <ng-container matColumnDef="nilaiMapel1">
+            <th mat-header-cell *matHeaderCellDef> IPA </th>
             <td mat-cell *matCellDef="let element">
-                <div>
-                    <button mat-icon-button color="primary" >
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button mat-icon-button color="warn" >
 
-                        <!-- (click)="hapusDataGuru(element.id) => untuk hapus langsung -->
+                Rata-Rata: <br> 
+                Tema 1: {{element.nilaiPerTema['Tema 1 Organ Gerak Hewan dan Manusia']?.jumlah}} <br> 
+                Tema 2: <br> 
+                Tema 3: <br> 
+                Tema 4: {{element.nilaiPerTema['Tema 9 dunia']?.jumlah}}<br> 
 
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </div>
-
+                Total Nilai: {{element.nilaiPerMapel.IPA.total}} <br> 
             </td>
         </ng-container>
+
+        <ng-container matColumnDef="nilaiMapel2">
+            <th mat-header-cell *matHeaderCellDef> MTK </th>
+
+            <!-- <td mat-cell *matCellDef="let element">
+                Rata-Rata: <br>
+                <ng-container *ngFor="let tema of getTemaKeysAndFilterByMapel(element.nilaiPerTema, 'MTK', laporans)">
+                    {{tema}}: {{element.nilaiPerTema[tema]?.jumlah}} <br>
+                  </ng-container>
+                Total Nilai: {{element.nilaiPerMapel.MTK.total}} <br>
+            </td> -->
+
+            <td mat-cell *matCellDef="let element">
+
+                Rata-Rata: <br> 
+                Tema 1: <br> 
+                Tema 2: {{element.nilaiPerTema['Tema 2 Perkalian']?.jumlah}} <br> 
+                Tema 3: <br> 
+                Tema 4: {{element.nilaiPerTema['Tema 9 dunia']?.jumlah}}<br> 
+
+                Total Nilai: {{element.nilaiPerMapel.IPA.total}} <br> 
+            </td>
+
+        </ng-container>
+        
+        
+
+        <ng-container matColumnDef="nilaiMapel3">
+            <th mat-header-cell *matHeaderCellDef> Bahasa Indonesia </th>
+            <td mat-cell *matCellDef="let element">
+               
+                Rata-Rata: <br>
+                Tema 1: <br>
+                Tema 2: <br>
+                Tema 3: {{element.nilaiPerTema['Tema 3 Bahasa Baku']?.jumlah}}<br>
+                Tema 4: <br>
+
+                Total Nilai: {{element.nilaiPerMapel['BAHASA INDONESIA']?.total}} <br>  
+            
+            </td>
+          </ng-container>
+          
+
+        <ng-container matColumnDef="total_nilai">
+            <th mat-header-cell *matHeaderCellDef> Total Nilai Keseluruhan </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalNilai}} </td>
+        </ng-container>
+
+
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

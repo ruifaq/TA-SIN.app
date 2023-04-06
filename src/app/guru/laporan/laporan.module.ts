@@ -43,13 +43,12 @@ export class LaporanModule {
   nis!: string;
   position!: number;
   nama!: string;
-  tema1!: string;
-  tema2!: string;
-  tema3!: string;
-  tema4!: string;
-  tema5!: string;
-  tema6!: string;
-  tema7!: string;
-  tema8!: string;
-  tema9!: string;
+  mapel!: string;
+  rataRata!: number;
+  totalNilai!: number;
+  jumlahNilai!: number;
+  tema!: string;
+  total!: number;
+  jumlah!: number;
+  nilai!: number ;
  }

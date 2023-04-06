@@ -82,6 +82,10 @@ return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
     return this.http.get<NilaiModule>(this.nilaiUrl);
   }
 
+  hitungNilai(): Observable<NilaiModule[]> {
+    return this.http.get<NilaiModule[]>(this.nilaiUrl);
+  }
+
   ambilDataKkm(){
     return this.http.get<KkmModule>(this.kkmUrl);
   }

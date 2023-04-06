@@ -44,7 +44,7 @@ export class AddnilaiComponent {
     this.dataNilaiForm = this._formBuilder.group({
       nis: ["", Validators.required],
       nama: ["", Validators.required],
-      nilai: ["", Validators.required],
+      nilai: [ , Validators.required],
       mapel: ["", Validators.required],
       tema: ["", Validators.required],
       sub_tema: ["", Validators.required],

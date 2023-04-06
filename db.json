@@ -226,8 +226,8 @@
       "mapel": "MTK",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 1 Perkalian",
-      "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 1 Penjumlahan",
       "id": 3
     },
     {
@@ -235,15 +235,15 @@
       "kkm": "75",
       "kelas": "5",
       "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 4 Udara Bersih",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
       "id": 4
     },
     {
-      "mapel": "Bahasa Indonesia",
+      "mapel": "BAHASA INDONESIA",
       "kkm": "75",
       "kelas": "5",
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 1 Kata Baku",
       "id": 5
     },
     {
@@ -269,6 +269,22 @@
       "tema": "Tema 1 Perkalian",
       "sub_tema": "Subtema 1 Di Kandang Kelinci ",
       "id": 8
+    },
+    {
+      "mapel": "MTK",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 2 Pengurangan",
+      "id": 9
+    },
+    {
+      "mapel": "BAHASA INDONESIA",
+      "kkm": "75",
+      "kelas": "5",
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 2 Kalimat Efektif",
+      "id": 10
     }
   ],
   "tema": [
@@ -278,19 +294,29 @@
       "id": 1
     },
     {
-      "tema": "Tema 1 Sejarah Bangsa",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
       "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
       "id": 2
     },
     {
-      "tema": "Tema 1 Perkalian",
-      "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 1 Penjumlahan",
       "id": 3
     },
     {
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 4 Udara Bersih",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 2 Pengurangan",
       "id": 4
+    },
+    {
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 1 Kata Baku",
+      "id": 5
+    },
+    {
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 2 Kalimat Efektif",
+      "id": 6
     }
   ],
   "nilai": [
@@ -298,20 +324,121 @@
       "nis": "1000",
       "nama": "budi",
       "nilai": "75",
-      "mapel": "MTK",
-      "tema": "Tema 1 Perkalian",
-      "sub_tema": "Subtema 3 Berkubang Tanah Mencari ",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "token": "8a990efd-5a20-46d9-b8f3-6904ea82d719",
       "id": 1
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "83",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "token": "7460633b-642f-4db1-9294-4e269e9475a9",
+      "id": 2
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "88",
+      "mapel": "MTK",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 1 Penjumlahan",
+      "token": "29c7d7c1-71b9-4a3e-8059-253b017b5cdf",
+      "id": 3
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "95",
+      "mapel": "MTK",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 2 Pengurangan",
+      "token": "2c51c359-607c-4184-ac7f-5ef37a4e3230",
+      "id": 4
+    },
+    {
+      "nis": "1001",
+      "nama": "yuni",
+      "nilai": "77",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "token": "ce0396dc-ddf8-4379-b451-c1fe616f7daf",
+      "id": 5
+    },
+    {
+      "nis": "1001",
+      "nama": "yuni",
+      "nilai": "86",
+      "mapel": "IPA",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "token": "f328b7ef-3574-416e-958f-67d3831de076",
+      "id": 6
+    },
+    {
+      "nis": "1001",
+      "nama": "yuni",
+      "nilai": "93",
+      "mapel": "MTK",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 1 Penjumlahan",
+      "token": "cae659f4-7d07-42ed-b9bb-8d55f2bdc68b",
+      "id": 7
+    },
+    {
+      "nis": "1001",
+      "nama": "yuni",
+      "nilai": "83",
+      "mapel": "MTK",
+      "tema": "Tema 2 Perkalian",
+      "sub_tema": "Subtema 2 Pengurangan",
+      "token": "9f48fc4e-abb7-410f-96f2-20295635b949",
+      "id": 8
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "67",
+      "mapel": "BAHASA INDONESIA",
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 1 Kata Baku",
+      "token": "e071846f-b4b5-4410-a455-e4ddf58a810c",
+      "id": 9
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "88",
+      "mapel": "BAHASA INDONESIA",
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 2 Kalimat Efektif",
+      "token": "9f34a41c-4b7e-43a7-9055-67a27d88f02c",
+      "id": 10
+    },
+    {
+      "nis": "1001",
+      "nama": "yuni",
+      "nilai": "95",
+      "mapel": "BAHASA INDONESIA",
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 1 Kata Baku",
+      "token": "a633ceb8-be7b-4d23-8d7e-d4e0d79b748a",
+      "id": 11
     },
     {
       "nis": "1001",
       "nama": "yuni",
       "nilai": "88",
-      "mapel": "IPA",
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 4 Udara Bersih",
-      "token": "3fe8357a-dca4-4393-8342-f9828405e937",
-      "id": 2
+      "mapel": "BAHASA INDONESIA",
+      "tema": "Tema 3 Bahasa Baku",
+      "sub_tema": "Subtema 2 Kalimat Efektif",
+      "token": "0e0d411d-8187-47ec-9c99-917653fdf47e",
+      "id": 12
     }
   ],
   "kkm": [
@@ -341,7 +468,7 @@
     },
     {
       "kelas": "6",
-      "mapel": "Bahasa Indonesia",
+      "mapel": "BAHASA INDONESIA",
       "tema": "Tema 1 Sejarah Bangsa",
       "sub_tema": "Subtema 4 Udara Bersih",
       "kkm": "75",

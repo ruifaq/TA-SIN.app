@@ -52,7 +52,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 export class NilaiModule {
   nis!: string;
   nama!: string ;
-  nilai!: string ;
+  nilai!: number ;
   mapel!: string ;
   tema!: string;
   sub_tema!: string;
