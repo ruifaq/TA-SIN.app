@@ -46,12 +46,12 @@ export class ApiService {
     return this.http.post<TemaModule>(this.temaUrl, temaModuleObj);
   }
 
-  tambahdataNilai(nilaiModuleObj: NilaiModule){
+  tambahdataNilai(nilaiModuleObj: NilaiModule) {
     return this.http.post<NilaiModule>(this.nilaiUrl, nilaiModuleObj);
   }
 
-  tambahDataKkm(kkmModuleObj: KkmModule){
-return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
+  tambahDataKkm(kkmModuleObj: KkmModule) {
+    return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
   }
 
   ambilDataGuru() {
@@ -59,7 +59,7 @@ return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
   }
 
   ambilDataGr(id: number) {
-    return this.http.get<GuruModule>(this.guruUrl +'/'+ id)
+    return this.http.get<GuruModule>(this.guruUrl + '/' + id)
   }
 
   ambilDataSiswa() {
@@ -86,7 +86,7 @@ return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
     return this.http.get<NilaiModule[]>(this.nilaiUrl);
   }
 
-  ambilDataKkm(){
+  ambilDataKkm() {
     return this.http.get<KkmModule>(this.kkmUrl);
   }
 
@@ -114,11 +114,11 @@ return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
     return this.http.put<TemaModule>(this.temaUrl + '/' + id, data);
   }
 
-  ubahDataNilai(id: number, data: any){
+  ubahDataNilai(id: number, data: any) {
     return this.http.put<NilaiModule>(this.nilaiUrl + '/' + id, data);
   }
 
-  ubahDataKkm(id: number, data: any){
+  ubahDataKkm(id: number, data: any) {
     return this.http.put<KkmModule>(this.kkmUrl + '/' + id, data);
   }
 
@@ -142,11 +142,11 @@ return this.http.post<KkmModule>(this.kkmUrl, kkmModuleObj);
     return this.http.delete<NilaiModule>(this.nilaiUrl + '/' + id);
   }
 
-  hapusDataTema(id: number){
+  hapusDataTema(id: number) {
     return this.http.delete<TemaModule>(this.temaUrl + '/' + id);
   }
 
-  hapusDataKkm(id: number){
+  hapusDataKkm(id: number) {
     return this.http.delete<KkmModule>(this.kkmUrl + '/' + id);
   }
 

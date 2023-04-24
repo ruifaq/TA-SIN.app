@@ -5,16 +5,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { LoginComponent } from './login/login.component';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { MaterialDesign } from './material/material';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GuruComponent } from './guru/guru.component';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 
 @Injectable({
@@ -28,7 +30,7 @@ import { GuruComponent } from './guru/guru.component';
     LoginComponent,
     GuruComponent,
 
-  
+
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,8 @@ import { GuruComponent } from './guru/guru.component';
     FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule
 
   ],
   providers: [],

@@ -266,7 +266,7 @@
       "mapel": "Agama Islam",
       "kkm": "75",
       "kelas": "2",
-      "tema": "Tema 1 Perkalian",
+      "tema": "Tema 2 Perkalian",
       "sub_tema": "Subtema 1 Di Kandang Kelinci ",
       "id": 8
     },
@@ -289,45 +289,32 @@
   ],
   "tema": [
     {
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "mapel": "IPA",
+      "tema": " Tema 1 Alam Indonesia",
+      "sub_tema": "Sub Tema 1 Alam 1",
       "id": 1
     },
     {
-      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
-      "sub_tema": "Subtema 2 Sehat dan Bermanfaat ",
+      "mapel": "IPA",
+      "tema": " Tema 1 Alam Indonesia",
+      "sub_tema": "Sub Tema 1 Alam 2",
       "id": 2
     },
     {
-      "tema": "Tema 2 Perkalian",
-      "sub_tema": "Subtema 1 Penjumlahan",
+      "mapel": "IPA",
+      "tema": " Tema 1 Alam Indonesia",
+      "sub_tema": "Sub Tema 1 Alam 3",
       "id": 3
-    },
-    {
-      "tema": "Tema 2 Perkalian",
-      "sub_tema": "Subtema 2 Pengurangan",
-      "id": 4
-    },
-    {
-      "tema": "Tema 3 Bahasa Baku",
-      "sub_tema": "Subtema 1 Kata Baku",
-      "id": 5
-    },
-    {
-      "tema": "Tema 3 Bahasa Baku",
-      "sub_tema": "Subtema 2 Kalimat Efektif",
-      "id": 6
     }
   ],
   "nilai": [
     {
       "nis": "1000",
       "nama": "budi",
-      "nilai": "75",
+      "nilai": "96",
       "mapel": "IPA",
       "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
       "sub_tema": "Subtema 1 Di Kandang Kelinci ",
-      "token": "8a990efd-5a20-46d9-b8f3-6904ea82d719",
       "id": 1
     },
     {
@@ -439,6 +426,16 @@
       "sub_tema": "Subtema 2 Kalimat Efektif",
       "token": "0e0d411d-8187-47ec-9c99-917653fdf47e",
       "id": 12
+    },
+    {
+      "nis": "2006",
+      "nama": "joko",
+      "nilai": "80",
+      "mapel": "IPS",
+      "tema": "Tema 1 Organ Gerak Hewan dan Manusia",
+      "sub_tema": "Subtema 1 Di Kandang Kelinci ",
+      "token": "9fb1956d-2fc0-4f36-9284-82237b51b138",
+      "id": 13
     }
   ],
   "kkm": [

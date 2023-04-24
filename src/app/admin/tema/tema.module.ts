@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -36,9 +37,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
+    MatAutocompleteModule,
   ]
 })
 export class TemaModule {
+  mapel!: string;
   tema!: string;
   sub_tema!: string ;
  }

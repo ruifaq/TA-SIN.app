@@ -4,18 +4,32 @@
 
 <form [formGroup]="dataTemaForm">
     <div mat-dialog-content class="content">
+
+        <div>
+            <mat-form-field appearance="outline" class="field">
+                <mat-label>Mapel</mat-label>
+                <mat-select formControlName="mapel" required >
+                    <mat-option  *ngFor="let um of unikMapel" [value]="um">{{um}}</mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+            </mat-form-field>
+        </div> 
+
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Tema</mat-label>
-                <input matInput formControlName="tema" required>
-                <mat-error>Masukkan NIP terlebih dahulu</mat-error>
+                <mat-select formControlName="tema" required >
+                    <mat-option  *ngFor="let tm of unikTema" [value]="tm">{{tm}}</mat-option>
+                </mat-select>
+                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
-        </div>
+        </div> 
+
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Sub Tema</mat-label>
                 <input matInput type="text" formControlName="sub_tema" required>
-                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+                <mat-error>Masukkan Sub Tema terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
 

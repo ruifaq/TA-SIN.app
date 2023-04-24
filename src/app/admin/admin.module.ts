@@ -35,6 +35,8 @@ import { DeletemapelComponent } from './mapel/deletemapel/deletemapel.component'
 import { AddtemaComponent } from './tema/addtema/addtema.component'; 
 import { EdittemaComponent } from './tema/edittema/edittema.component'; 
 import { DeletetemaComponent } from './tema/deletetema/deletetema.component'; 
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+
 
 const routes: Routes = [
   {
@@ -92,7 +94,7 @@ const routes: Routes = [
     DeletemapelComponent,
     AddtemaComponent,
     EdittemaComponent,
-    DeletetemaComponent  
+    DeletetemaComponent,  
 
 
   ],
@@ -114,6 +116,7 @@ const routes: Routes = [
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
+    NgxMatSelectSearchModule
   ]
 })
 export class AdminModule { }
