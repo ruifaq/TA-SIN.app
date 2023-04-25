@@ -40,8 +40,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 })
 export class MapelModule {
   mapel!: string;
-  kkm!: string ;
+  // kkm!: string ;
   kelas!: string ;
-  tema!: string ;
-  sub_tema!: string;
+  // tema!: string ;
+  // sub_tema!: string;
  }

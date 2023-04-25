@@ -75,7 +75,7 @@ export class AddtemaComponent {
     })
     this.dataTemaForm.get('tema')?.valueChanges.subscribe(res => {
       console.log('data is', res)
-      // this.filterT(res)
+      this.filterT(res)
     })
   }
 
@@ -93,17 +93,17 @@ export class AddtemaComponent {
   //   }
   // }
 
-  // filterT (enterData: any) {
-  //   if (!enterData) {
-  //     // jika input kosong, tampilkan semua data
-  //     this.filterTema();
-  //   } else {
-  //     // filter data berdasarkan input
-  //     this.unikTema = this.unikTema.filter((item: string) => {
-  //       return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
-  //     })
-  //   }
-  // }
+  filterT (enterData: any) {
+    if (!enterData) {
+      // jika input kosong, tampilkan semua data
+      this.filterTema();
+    } else {
+      // filter data berdasarkan input
+      this.unikTema = this.unikTema.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+    }
+  }
 
   //FILTER DUPLICATE MAPEL
   filterMapel() {

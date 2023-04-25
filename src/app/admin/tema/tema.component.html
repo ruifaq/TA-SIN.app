@@ -2,8 +2,8 @@
     <h1>Tema</h1>
 
     <mat-form-field appearance="outline" class="field">
-        <mat-label>Tema</mat-label>
-        <input matInput placeholder="Masukkan Tema">
+        <mat-label>Cari</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Masukkan Mapel/Tema">
     </mat-form-field>
 
     <section>

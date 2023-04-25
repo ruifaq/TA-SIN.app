@@ -44,13 +44,16 @@ export class EditnilaiComponent {
       nilai: new FormControl(),
       mapel: new FormControl(),
       tema: new FormControl(),
-      sub_tema: new FormControl()
+      sub_tema: new FormControl(),
+      token: new FormControl(),
     })
 
     this.dataNilaiForm.patchValue(this.data);
     this.getMapel();
+    this.getTema();
     this.getSiswa();
     this.initFromMapel();
+    this.initFromTema();
     this.initFromSiswa();
   }
 
@@ -72,31 +75,23 @@ export class EditnilaiComponent {
       }
     }
 
-    const temaForm = this.dataNilaiForm.get('tema');
-    if (temaForm) {
-      temaForm.valueChanges.subscribe(res => {
+  }
 
-        this.filterM(res);
-      });
-
-      // set nilai awal form jika sedang dalam mode edit
-      if (this.data && this.data.tema) {
-        temaForm.patchValue(this.data.tema);
-      }
-    }
-
-    const subTemaForm = this.dataNilaiForm.get('sub_tema');
-    if (subTemaForm) {
-      subTemaForm.valueChanges.subscribe(res => {
-
-        this.filterM(res);
-      });
-
-      // set nilai awal form jika sedang dalam mode edit
-      if (this.data && this.data.sub_tema) {
-        subTemaForm.patchValue(this.data.sub_tema);
-      }
-    }
+  initFromTema() {
+    this.tema = this._formBuilder.group({
+      'tema': ['']
+    })
+    this.dataNilaiForm.get('tema')?.valueChanges.subscribe(res => {
+      console.log('data is', res)
+      this.filterT(res)
+    })
+    this.tema = this._formBuilder.group({
+      'sub_tema': ['']
+    })
+    this.dataNilaiForm.get('sub_tema')?.valueChanges.subscribe(res => {
+      console.log('data is', res)
+      this.filterT(res)
+    })
   }
 
   initFromSiswa() {
@@ -142,13 +137,6 @@ export class EditnilaiComponent {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
 
-      this.unikTema = this.unikTema.filter((item: string) => {
-        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
-      })
-
-      this.unikSubTema = this.unikSubTema.filter((item: string) => {
-        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
-      })
     }
   }
 
@@ -168,14 +156,25 @@ export class EditnilaiComponent {
     }
   }
 
+  filterT (enterData: any) {
+    if (!enterData) {
+      // jika input kosong, tampilkan semua data
+      this.filterTema();
+    } else {
+      // filter data berdasarkan input
+      this.unikTema = this.unikTema.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+      this.unikSubTema = this.unikSubTema.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+    }
+  }
+
   //FILTER DATA DUPLICATE
   filterMapel() {
     this.unikMapel = Array.from(new Set(this.mapel.map((item: { mapel: string; }) => item.mapel)));
-    this.unikTema = Array.from(new Set(this.mapel.map((item: { tema: string; }) => item.tema)));
-    this.unikSubTema = Array.from(new Set(this.mapel.map((item: { sub_tema: string; }) => item.sub_tema)));
     // console.log(this.unikMapel);
-    // console.log(this.unikTema);
-    // console.log(this.unikSubTema);
   }
 
   filterSiswa() {
@@ -183,6 +182,11 @@ export class EditnilaiComponent {
     this.unikNama = Array.from(new Set(this.siswa.map((item: { nama: string; }) => item.nama)));
     // console.log(this.unikNis);
     // console.log(this.unikNama);
+  }
+
+  filterTema() {
+    this.unikTema = Array.from(new Set(this.tema.map((item: { tema: string; }) => item.tema)));
+    this.unikSubTema = Array.from(new Set(this.tema.map((item: { sub_tema: string; }) => item.sub_tema)));
   }
 
   getSiswa() {
@@ -197,6 +201,13 @@ export class EditnilaiComponent {
       this.mapel = res;
       this.filterMapel();
       this.filterSiswa();
+    })
+  }
+
+  getTema() {
+    this.api.ambilDataTema().subscribe(res => {
+      this.tema = res;
+      this.filterTema();
     })
   }
 

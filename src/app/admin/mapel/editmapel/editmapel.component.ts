@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class EditmapelComponent {
   public dataMapelForm!: FormGroup;
   public tema !: any;
+  unikTema: any[] = [];
 
   constructor(private _fb: FormBuilder, public dialogref: MatDialogRef<EditmapelComponent>,
     private api: ApiService,
@@ -27,22 +28,51 @@ export class EditmapelComponent {
   ngOnInit(): void {
     this.dataMapelForm = new FormGroup({
       mapel: new FormControl(),
-      kkm: new FormControl(),
+      // kkm: new FormControl(),
       kelas: new FormControl(),
-      tema: new FormControl(),
-      sub_tema: new FormControl()
+      // tema: new FormControl(),
+      // sub_tema: new FormControl()
     })
 
     this.dataMapelForm.patchValue(this.data);
-    this.getTema();
+    // this.getTema();
     this.getKelas();
+    // this.initFromTema();
   }
 
-  getTema() {
-    this.api.ambilDataTema().subscribe(res => {
-      this.tema = res;
-    })
-  }
+  // initFromTema() {
+  //   this.tema = this._formBuilder.group({
+  //     'tema': ['']
+  //   })
+  //   this.dataMapelForm.get('tema')?.valueChanges.subscribe(res => {
+  //     console.log('data is', res)
+  //     this.filterT(res)
+  //   })
+  // }
+
+  // filterT (enterData: any) {
+  //   if (!enterData) {
+  //     // jika input kosong, tampilkan semua data
+  //     this.filterTema();
+  //   } else {
+  //     // filter data berdasarkan input
+  //     this.unikTema = this.unikTema.filter((item: string) => {
+  //       return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+  //     })
+  //   }
+  // }
+
+  // filterTema() {
+  //   this.unikTema = Array.from(new Set(this.tema.map((item: { tema: string; }) => item.tema)));
+  //   this.unikTema = Array.from(new Set(this.tema.map((item: { sub_tema: string; }) => item.sub_tema)));
+  // }
+
+  // getTema() {
+  //   this.api.ambilDataTema().subscribe(res => {
+  //     this.tema = res;
+  //     this.filterTema();
+  //   })
+  // }
 
   getKelas(){
     this.api.ambilDataKelas().subscribe(res => {

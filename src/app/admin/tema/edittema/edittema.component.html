@@ -15,13 +15,16 @@
         </div> 
         <div>
             <mat-form-field appearance="outline" class="field">
-                <mat-label>Tema</mat-label>
-                <mat-select formControlName="tema" required >
-                    <mat-option  *ngFor="let ut of unikTema" [value]="ut">{{ut}}</mat-option>
-                </mat-select>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+              <mat-label>Tema</mat-label>
+              <input matInput formControlName="tema" [matAutocomplete]="autoTema" required ngDefaultControl>
+              <mat-autocomplete #autoTema="matAutocomplete">
+                <mat-option *ngFor="let ut of unikTema" [value]="ut">
+                  {{ut}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
-        </div>
+          </div>
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Sub Tema</mat-label>

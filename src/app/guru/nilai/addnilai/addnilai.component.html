@@ -50,18 +50,16 @@
 
         <div>
             <mat-form-field appearance="outline" class="field">
-                <mat-label>Tema</mat-label>
-                <input matInput formControlName="tema" [matAutocomplete]="autoTema" required>
-                <mat-autocomplete #autoTema="matAutocomplete" #singleSelect required>
-                    <ngx-mat-select-search ngDefaultControl></ngx-mat-select-search>
-                    <mat-option *ngFor="let ut of unikTema" [value]="ut">
-                        {{ut}}
-                    </mat-option>
-                </mat-autocomplete>
-                <mat-autocomplete></mat-autocomplete>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+              <mat-label>Tema</mat-label>
+              <input matInput formControlName="tema" [matAutocomplete]="autoTema" required ngDefaultControl>
+              <mat-autocomplete #autoTema="matAutocomplete">
+                <mat-option *ngFor="let ut of unikTema" [value]="ut">
+                  {{ut}}
+                </mat-option>
+              </mat-autocomplete>
+              <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
-        </div>
+          </div> 
 
         <div>
             <mat-form-field appearance="outline" class="field">

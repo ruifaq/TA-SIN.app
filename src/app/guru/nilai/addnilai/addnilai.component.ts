@@ -52,9 +52,11 @@ export class AddnilaiComponent {
     })
 
     this.getMapel();
+    this.getTema();
     this.getSiswa();
     this.initFromMapel();
     this.initFormSiswa();
+    this.initFromTema();
   }
 
   //MEMANGGIL DATA MAPEL
@@ -63,22 +65,6 @@ export class AddnilaiComponent {
       'mapel': [''],
     })
     this.dataNilaiForm.get('mapel')?.valueChanges.subscribe(res => {
-      console.log('data is', res)
-      this.filterM(res)
-    })
-
-    this.tema = this._formBuilder.group({
-      'tema': ['']
-    })
-    this.dataNilaiForm.get('tema')?.valueChanges.subscribe(res => {
-      console.log('data is', res)
-      this.filterM(res)
-    })
-
-    this.sub_tema = this._formBuilder.group({
-      'sub_tema': ['']
-    })
-    this.dataNilaiForm.get('sub_tema')?.valueChanges.subscribe(res => {
       console.log('data is', res)
       this.filterM(res)
     })
@@ -101,6 +87,23 @@ export class AddnilaiComponent {
     })
   }
 
+  initFromTema() {
+    this.tema = this._formBuilder.group({
+      'tema': ['']
+    })
+    this.dataNilaiForm.get('tema')?.valueChanges.subscribe(res => {
+      console.log('data is', res)
+      this.filterT(res)
+    })
+    this.tema = this._formBuilder.group({
+      'sub_tema': ['']
+    })
+    this.dataNilaiForm.get('sub_tema')?.valueChanges.subscribe(res => {
+      console.log('data is', res)
+      this.filterT(res)
+    })
+  }
+
   //FILTER SEARCHING MAPEL
   filterM(enterData: any) {
     if (!enterData) {
@@ -109,14 +112,6 @@ export class AddnilaiComponent {
     } else {
       // filter data berdasarkan input
       this.unikMapel = this.unikMapel.filter((item: string) => {
-        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
-      })
-
-      this.unikTema = this.unikTema.filter((item: string) => {
-        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
-      })
-
-      this.unikSubTema = this.unikSubTema.filter((item: string) => {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
     }
@@ -139,22 +134,35 @@ export class AddnilaiComponent {
     }
   }
 
+  filterT (enterData: any) {
+    if (!enterData) {
+      // jika input kosong, tampilkan semua data
+      this.filterTema();
+    } else {
+      // filter data berdasarkan input
+      this.unikTema = this.unikTema.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+      this.unikSubTema = this.unikSubTema.filter((item: string) => {
+        return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
+      })
+    }
+  }
+
   //FILTER DUPLICATE MAPEL
   filterMapel() {
     this.unikMapel = Array.from(new Set(this.mapel.map((item: { mapel: string; }) => item.mapel)));
-    this.unikTema = Array.from(new Set(this.mapel.map((item: { tema: string; }) => item.tema)));
-    this.unikSubTema = Array.from(new Set(this.mapel.map((item: { sub_tema: string; }) => item.sub_tema)));
-    // console.log(this.unikMapel);
-    // console.log(this.unikTema);
-    // console.log(this.unikSubTema);
   }
 
    //FILTER DUPLICATE SISWA
   filterSiswa(){
     this.unikNis = Array.from(new Set(this.siswa.map((item: { nis: string; }) => item.nis)));
     this.unikNama = Array.from(new Set(this.siswa.map((item: { nama: string; }) => item.nama)));
-    // console.log(this.unikNis);
-    // console.log(this.unikNama);
+  }
+
+  filterTema() {
+    this.unikTema = Array.from(new Set(this.tema.map((item: { tema: string; }) => item.tema)));
+    this.unikSubTema = Array.from(new Set(this.tema.map((item: { sub_tema: string; }) => item.sub_tema)));
   }
 
   getSiswa() {
@@ -168,6 +176,13 @@ export class AddnilaiComponent {
     this.api.ambilDataMapel().subscribe(res => {
       this.mapel = res;
       this.filterMapel();
+    })
+  }
+
+  getTema() {
+    this.api.ambilDataTema().subscribe(res => {
+      this.tema = res;
+      this.filterTema();
     })
   }
 

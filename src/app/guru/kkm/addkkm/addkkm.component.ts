@@ -47,6 +47,8 @@ export class AddkkmComponent {
     })
 
     this.getMapel();
+    this.getTema();
+    this.initFromTema();
     this.getKelas();
     this.initFromMapel();
 
@@ -61,23 +63,24 @@ export class AddkkmComponent {
       console.log('data is', res)
       this.filterM(res)
     })
+   
+  }
 
+  initFromTema() {
     this.tema = this._formBuilder.group({
       'tema': ['']
     })
     this.dataKkmForm.get('tema')?.valueChanges.subscribe(res => {
       console.log('data is', res)
-      this.filterM(res)
+      this.filterT(res)
     })
-
-    this.sub_tema = this._formBuilder.group({
+    this.tema = this._formBuilder.group({
       'sub_tema': ['']
     })
     this.dataKkmForm.get('sub_tema')?.valueChanges.subscribe(res => {
       console.log('data is', res)
-      this.filterM(res)
+      this.filterT(res)
     })
-   
   }
 
 
@@ -91,11 +94,18 @@ export class AddkkmComponent {
       this.unikMapel = this.unikMapel.filter((item: string) => {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
+    }
+  }
 
+  filterT (enterData: any) {
+    if (!enterData) {
+      // jika input kosong, tampilkan semua data
+      this.filterTema();
+    } else {
+      // filter data berdasarkan input
       this.unikTema = this.unikTema.filter((item: string) => {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
-
       this.unikSubTema = this.unikSubTema.filter((item: string) => {
         return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
       })
@@ -105,11 +115,11 @@ export class AddkkmComponent {
    //FILTER SEARCHING MAPEL
   filterMapel() {
     this.unikMapel = Array.from(new Set(this.mapel.map((item: { mapel: string; }) => item.mapel)));
-    this.unikTema = Array.from(new Set(this.mapel.map((item: { tema: string; }) => item.tema)));
-    this.unikSubTema = Array.from(new Set(this.mapel.map((item: { sub_tema: string; }) => item.sub_tema)));
-    console.log(this.unikMapel);
-    console.log(this.unikTema);
-    console.log(this.unikSubTema);
+  }
+
+  filterTema() {
+    this.unikTema = Array.from(new Set(this.tema.map((item: { tema: string; }) => item.tema)));
+    this.unikSubTema = Array.from(new Set(this.tema.map((item: { sub_tema: string; }) => item.sub_tema)));
   }
 
   //BAGIAN GET, POST
@@ -125,6 +135,13 @@ export class AddkkmComponent {
     this.api.ambilDataKelas().subscribe(res => {
       this.kelas = res;
 
+    })
+  }
+
+  getTema() {
+    this.api.ambilDataTema().subscribe(res => {
+      this.tema = res;
+      this.filterTema();
     })
   }
 
