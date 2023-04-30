@@ -1,85 +1,62 @@
 <div class="padding">
     <h1>Siswa</h1>
 
-    <!-- <h3>NIP/Nama</h3> -->
-
-    <!-- <form class="example-form">
-        <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                   placeholder="Ex. pat@example.com">
-            <mat-hint>Errors appear instantly!</mat-hint>
-            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-              Please enter a valid email address
-            </mat-error>
-            <mat-error *ngIf="emailFormControl.hasError('required')">
-              Email is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-    </form> -->
-
     <mat-form-field appearance="outline" class="field">
         <mat-label>Pencarian</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Contoh. Rui Faqri" #input>
     </mat-form-field>
-
-    <!-- <mat-form-field appearance="outline" class="field">
-        <mat-select required>
-            <mat-option  *ngFor="let siswa of kelas" [value]="siswa.nis">{{siswa.nama}}</mat-option>
-        </mat-select>
-        <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
-    </mat-form-field> -->
     <mat-divider></mat-divider>
 
-    <table mat-table [dataSource]="dataSiswa" class="mat-elevation-z8">
+    <table mat-table matSort (matSortChange)="sortData($event)" [dataSource]="dataSiswa" class="mat-elevation-z8">
 
-        <!--- Note that these columns can be defined in any order.
-              The actual rendered columns are set as a property on the row definition" -->
-
-        <!-- Position Column -->
-
-        <!-- Name Column -->
+        <!-- No Column -->
         <ng-container matColumnDef="no" >
-            <th mat-header-cell *matHeaderCellDef> No </th>
+            <th mat-header-cell mat-sort-header="no" *matHeaderCellDef> No </th>
             <td mat-cell *matCellDef="let element = index"> {{element + 1}} </td>
         </ng-container>
-
+    
+        <!-- NIS Column -->
         <ng-container matColumnDef="nis">
-            <th mat-header-cell *matHeaderCellDef> NIS </th>
+            <th mat-header-cell mat-sort-header="nis" *matHeaderCellDef mat-sort-header> NIS </th>
             <td mat-cell *matCellDef="let element"> {{element.nis}} </td>
         </ng-container>
-
-        <!-- Weight Column -->
+    
+        <!-- Nama Column -->
         <ng-container matColumnDef="nama">
-            <th mat-header-cell *matHeaderCellDef> Nama </th>
+            <th mat-header-cell mat-sort-header="nama" *matHeaderCellDef mat-sort-header> Nama </th>
             <td mat-cell *matCellDef="let element"> {{element.nama}} </td>
         </ng-container>
-
-        <!-- Symbol Column -->
+    
+        <!-- Alamat Column -->
         <ng-container matColumnDef="alamat">
-            <th mat-header-cell *matHeaderCellDef> Alamat </th>
+            <th mat-header-cell mat-sort-header="alamat" *matHeaderCellDef mat-sort-header> Alamat </th>
             <td mat-cell *matCellDef="let element"> {{element.alamat}} </td>
         </ng-container>
-
+    
+        <!-- No. Hp Column -->
         <ng-container matColumnDef="hp">
-            <th mat-header-cell *matHeaderCellDef> No. Hp </th>
+            <th mat-header-cell mat-sort-header="hp" *matHeaderCellDef mat-sort-header> No. Hp </th>
             <td mat-cell *matCellDef="let element"> {{element.hp}}</td>
         </ng-container>
-
+    
+        <!-- Kelas Column -->
         <ng-container matColumnDef="kelas">
-            <th mat-header-cell *matHeaderCellDef> Kelas </th>
+            <th mat-header-cell mat-sort-header="kelas" *matHeaderCellDef mat-sort-header> Kelas </th>
             <td mat-cell *matCellDef="let element">{{element.kelas}} </td>
         </ng-container>
-
+    
+        <!-- Tahun Ajaran Column -->
         <ng-container matColumnDef="ta">
-            <th mat-header-cell *matHeaderCellDef> Tahun Ajaran </th>
+            <th mat-header-cell mat-sort-header="ta" *matHeaderCellDef mat-sort-header> Tahun Ajaran </th>
             <td mat-cell *matCellDef="let element"> {{element.ta}}</td>
         </ng-container>
-
+    
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Pilih page dari Guru"
         class="mat-elevation-z8"></mat-paginator>
 </div>
+  

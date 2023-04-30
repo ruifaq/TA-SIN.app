@@ -17,11 +17,11 @@
         <div class="example-button-row">
             <button mat-raised-button color="primary" (click)="add()">Tambah Nilai</button>
             <button mat-raised-button color="primary" (click)="cetak()">Cetak ke PDF</button>
-            <button mat-raised-button color="primary" (click)="csv()">Cetak ke Excel</button>
+            <button mat-raised-button color="primary" (click)="excel()">Cetak ke Excel</button>
         </div>
     </section>
   
-    <div #tabel>
+    <div id="nilai" #tabel>
         <table mat-table [dataSource]="dataNilai" class="mat-elevation-z8" id="nilai">
 
             <!--- Note that these columns can be defined in any order.

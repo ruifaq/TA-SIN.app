@@ -258,6 +258,18 @@
       "tema": "Tema 1 Bahasa Indonesia",
       "sub_tema": "Subtema 2 Bahasa Indonesia",
       "id": 6
+    },
+    {
+      "mapel": "IPA",
+      "tema": "Tema 2 IPA",
+      "sub_tema": "Subtema 1 IPA 2",
+      "id": 7
+    },
+    {
+      "mapel": "IPA",
+      "tema": "Tema 2 IPA",
+      "sub_tema": "Subtema 2 IPA 2",
+      "id": 8
     }
   ],
   "nilai": [
@@ -280,6 +292,56 @@
       "sub_tema": "Subtema 2 IPA",
       "token": "021d99a1-6698-43d0-add0-74f02d757db3",
       "id": 2
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "75",
+      "mapel": "IPA",
+      "tema": "Tema 2 IPA",
+      "sub_tema": "Subtema 1 IPA 2",
+      "token": "6ced09be-a163-4dcc-8c2c-7b6036bba81c",
+      "id": 3
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "87",
+      "mapel": "IPA",
+      "tema": "Tema 2 IPA",
+      "sub_tema": "Subtema 2 IPA 2",
+      "token": "7e2816c4-99ee-442a-8367-0864884c1a74",
+      "id": 4
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "88",
+      "mapel": "MTK",
+      "tema": "Tema 1 MTK",
+      "sub_tema": "Subtema 1 MTK",
+      "token": "db9e91d5-52f0-42a3-8850-2e1eef1e60b4",
+      "id": 5
+    },
+    {
+      "nis": "1000",
+      "nama": "budi",
+      "nilai": "78,7",
+      "mapel": "MTK",
+      "tema": "Tema 1 MTK",
+      "sub_tema": "Subtema 2 MTK",
+      "token": "a2f21578-38b3-499f-bd49-ecba4a7a7fb1",
+      "id": 6
+    },
+    {
+      "nis": "1001",
+      "nama": "yuni",
+      "nilai": "80",
+      "mapel": "IPA",
+      "tema": "Tema 1 IPA",
+      "sub_tema": "Subtema 1 IPA",
+      "token": "795346eb-f205-461b-8644-749419197366",
+      "id": 7
     }
   ],
   "kkm": [

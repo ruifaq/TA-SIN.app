@@ -26,7 +26,7 @@ export class LaporanComponent {
 
   public dataLaporan !: MatTableDataSource<LaporanModule>;
 
-  displayedColumns: string[] = ['no', 'nis', 'nama', 'nilaiMapel1', 'nilaiMapel2', 'nilaiMapel3', 'total_nilai'];
+  displayedColumns: string[] = ['no', 'nis', 'nama', 'nilaiMapel1', 'nilaiMapel2', 'nilaiMapel3', 'nilaiMapel4', 'nilaiMapel5', 'nilaiMapel6', 'nilaiMapel7', 'nilaiMapel8', 'nilaiMapel9', 'total_nilai'];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -214,21 +214,6 @@ export class LaporanComponent {
     })
   }
 
-  csv() {
-    var options = {
-      fieldSeparator: ',',
-      quoteStrings: '"',
-      decimalseparator: '.',
-      showLabels: true,
-      showTitle: true,
-      title: 'Laporan Nilai Rata-Rata',
-      useBom: true,
-      headers: ['nis', 'nama', 'nilaiMapel1', 'nilaiMapel2', 'nilaiMapel3', 'total_nilai']
-    };
-
-    new ngxCsv(this.laporans, "Laporan Nilai Rata-Rata", options);
-  }
-
   excel() {
     let element = document.getElementById('nilai');
     const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(element);
@@ -236,7 +221,8 @@ export class LaporanComponent {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'sheet1');
 
-    XLSX.writeFile(wb, this.laporans)
+    XLSX.writeFile(wb, 'Nilai Rata-Rata Per Tema.xlsx');
+
   }
 
 }

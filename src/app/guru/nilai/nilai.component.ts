@@ -57,8 +57,9 @@ export class NilaiComponent {
 
     this._dialog.open(DeletenilaiComponent, { data })
   }
+
   cetak() {
-    let pdf = new jsPDF('l', 'pt', 'a3');
+    let pdf = new jsPDF('l', 'pt', 'a4');
     pdf.html(this.el.nativeElement, {
       callback: (pdf) => {
         pdf.save("nilai.pdf")
@@ -88,7 +89,8 @@ export class NilaiComponent {
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, 'sheet1');
 
-    XLSX.writeFile(wb, this.nilais)
+    XLSX.writeFile(wb, 'Nilai Rata-Rata Per Tema.xlsx');
+
   }
 
   ngOnInit(): void {

@@ -20,6 +20,7 @@ export class AddnilaiComponent {
   public uid!: any;
   public tema !: any;
   public sub_tema !: any;
+  public kkm !: any;
   unikMapel: any[] = [];
   unikTema: any[] = [];
   unikSubTema: any[] = [];
@@ -54,6 +55,7 @@ export class AddnilaiComponent {
     this.getMapel();
     this.getTema();
     this.getSiswa();
+    this.getKKM();
     this.initFromMapel();
     this.initFormSiswa();
     this.initFromTema();
@@ -186,6 +188,13 @@ export class AddnilaiComponent {
     })
   }
 
+  getKKM() {
+    this.api.ambilDataKkm().subscribe(res => {
+      this.kkm = res;
+      console.log(res);
+    })
+  }
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.siswa.filter = filterValue.trim().toLowerCase();
@@ -193,7 +202,14 @@ export class AddnilaiComponent {
 
 
   simpan() {
-    this.api.tambahdataNilai(this.dataNilaiForm.value)
+    const nilai = this.dataNilaiForm?.get('nilai')?.value ?? 0;
+    const kkm = this.kkm.find((item: { kkm: any; }) => item.kkm === this.dataNilaiForm.get('kkm')?.value)?.kkm ?? 75;
+
+    if (kkm !== 0 && nilai < kkm) {
+      this.toastr.error(`Nilai yang dimasukkan (${nilai}) kurang dari KKM (${kkm})`, 'Gagal Menambah Data');
+      return;
+    } else {
+        this.api.tambahdataNilai(this.dataNilaiForm.value)
       .subscribe(res => {
         this.toastr.success('Berhasil Menambah Data!!!', 'Data Nilai');
         this.dialogref.close();
@@ -201,8 +217,6 @@ export class AddnilaiComponent {
           window.location.reload();
         }, 5500);
       })
+    }
   }
-
-
-
 }

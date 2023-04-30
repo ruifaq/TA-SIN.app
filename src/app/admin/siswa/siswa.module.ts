@@ -44,6 +44,9 @@ import { DeleteComponent } from './delete/delete.component';
   ]
 })
 export class SiswaModule {
+  slice() {
+    throw new Error('Method not implemented.');
+  }
   nis!: string;
   nama!: string ;
   alamat!: string ;

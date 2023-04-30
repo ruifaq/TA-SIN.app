@@ -48,5 +48,10 @@
     width: 120px;
   }
   
+  .chip{
+    padding-bottom: 20px;
+  }
 
-  
+  .mat-sort-header-container {
+    align-items: center;
+  }
