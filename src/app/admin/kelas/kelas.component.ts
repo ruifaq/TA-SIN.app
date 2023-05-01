@@ -24,7 +24,7 @@ export class KelasComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['kelas', 'jumlah_siswa', 'wali_kelas', 'ta', 'action'];
+  displayedColumns: string[] = ['no', 'kelas', 'jumlah_siswa', 'wali_kelas', 'ta', 'action'];
 
   formValue !: FormGroup;
   kelasModuleObj: KelasModule = new KelasModule();
@@ -69,9 +69,21 @@ export class KelasComponent {
   }
 
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataKelas.filter = filterValue.trim().toLowerCase();
-
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+  
+    // Jika filterValue berupa kelas, filter berdasarkan kelas
+    if (['1', '2', '3', '4', '5', '6'].includes(filterValue)) {
+      this.dataKelas.filterPredicate = (data, filter) =>
+        data.kelas.toLowerCase().includes(filter);
+      this.dataKelas.filter = filterValue;
+    }
+    // Jika filterValue berupa siswa, filter berdasarkan nama atau nis
+    else {
+      this.dataKelas.filterPredicate = (data, filter) =>
+        data.kelas.toLowerCase().includes(filter) || data.wali_kelas.toLowerCase().includes(filter);
+      this.dataKelas.filter = filterValue;
+    }
+  
     if (this.dataKelas.paginator) {
       this.dataKelas.paginator.firstPage();
     }

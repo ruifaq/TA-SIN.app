@@ -220,6 +220,11 @@
       "mapel": "Bahasa Indonesia",
       "kelas": "5",
       "id": 3
+    },
+    {
+      "mapel": "IPS",
+      "kelas": "3",
+      "id": 4
     }
   ],
   "tema": [
@@ -326,7 +331,7 @@
     {
       "nis": "1000",
       "nama": "budi",
-      "nilai": "78,7",
+      "nilai": "78",
       "mapel": "MTK",
       "tema": "Tema 1 MTK",
       "sub_tema": "Subtema 2 MTK",
@@ -368,6 +373,14 @@
       "sub_tema": "Subtema 1 MTK",
       "kkm": "75",
       "id": 3
+    },
+    {
+      "kelas": "1",
+      "mapel": "IPA",
+      "tema": "Tema 1 IPA",
+      "sub_tema": "Subtema 1 IPA",
+      "kkm": "75",
+      "id": 4
     }
   ],
   "laporan": []

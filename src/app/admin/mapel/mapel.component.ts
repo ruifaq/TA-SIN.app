@@ -70,9 +70,21 @@ export class MapelComponent {
   }
 
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataMapel.filter = filterValue.trim().toLowerCase();
-
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+  
+    // Jika filterValue berupa kelas, filter berdasarkan kelas
+    if (['1', '2', '3', '4', '5', '6'].includes(filterValue)) {
+      this.dataMapel.filterPredicate = (data, filter) =>
+        data.kelas.toLowerCase().includes(filter);
+      this.dataMapel.filter = filterValue;
+    }
+    // Jika filterValue berupa siswa, filter berdasarkan nama atau nis
+    else {
+      this.dataMapel.filterPredicate = (data, filter) =>
+        data.mapel.toLowerCase().includes(filter) || data.mapel.toLowerCase().includes(filter);
+      this.dataMapel.filter = filterValue;
+    }
+  
     if (this.dataMapel.paginator) {
       this.dataMapel.paginator.firstPage();
     }

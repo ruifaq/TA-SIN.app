@@ -3,7 +3,7 @@
     
     <mat-form-field appearance="outline" class="field">
         <mat-label>Pencarian</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Contoh. Rui Faqri" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Masukkan Kelas/Wali Kelas" #input>
     </mat-form-field>
 
     <!-- <mat-form-field appearance="outline" class="field">
@@ -26,7 +26,10 @@
               The actual rendered columns are set as a property on the row definition" -->
 
         <!-- Position Column -->
-
+        <ng-container matColumnDef="no" >
+            <th mat-header-cell *matHeaderCellDef> No </th>
+            <td mat-cell *matCellDef="let element = index"> {{element + 1}} </td>
+        </ng-container>
         <!-- Name Column -->
         <ng-container matColumnDef="kelas">
             <th mat-header-cell *matHeaderCellDef> Kelas </th>

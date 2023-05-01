@@ -41,8 +41,8 @@ export class SiswaComponent implements OnInit {
       console.log('data:', data);
       this.siswas = res;
     });
-    
-    
+
+
   }
 
   ngOnInit(): void {
@@ -58,10 +58,6 @@ export class SiswaComponent implements OnInit {
     this.getDataSiswa();
   }
 
-  ngOnChanges(changes: SimpleChange): void {
-
-  }
-
   getDataSiswa() { //untuk ambil data bisa dibuat kek gini
     this.api.ambilDataSiswa()
       .subscribe(res => {
@@ -75,15 +71,28 @@ export class SiswaComponent implements OnInit {
   }
 
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSiswa.filter = filterValue.trim().toLowerCase();
-
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+  
+    // Jika filterValue berupa kelas, filter berdasarkan kelas
+    if (['1', '2', '3', '4', '5', '6'].includes(filterValue)) {
+      this.dataSiswa.filterPredicate = (data, filter) =>
+        data.kelas.toLowerCase().includes(filter);
+      this.dataSiswa.filter = filterValue;
+    }
+    // Jika filterValue berupa siswa, filter berdasarkan nama atau nis
+    else {
+      this.dataSiswa.filterPredicate = (data, filter) =>
+        data.nama.toLowerCase().includes(filter) || data.nis.toLowerCase().includes(filter);
+      this.dataSiswa.filter = filterValue;
+    }
+  
     if (this.dataSiswa.paginator) {
       this.dataSiswa.paginator.firstPage();
     }
   }
+  
 
-  sortData(event: Event ) {
+  sortData(event: Event) {
     const sort = event as unknown as Sort;
     const data = this.siswas.slice();
     if (!sort.active || sort.direction === '') {
@@ -93,8 +102,8 @@ export class SiswaComponent implements OnInit {
 
     this.dataSiswa = data.sort((
 
-      a: { no: string ; nis: string; nama: string; alamat: string; hp: string; kelas: string; ta: string; },
-      b: { no: string ; nis: string; nama: string; alamat: string; hp: string; kelas: string; ta: string; }) => {
+      a: { no: string; nis: string; nama: string; alamat: string; hp: string; kelas: string; ta: string; },
+      b: { no: string; nis: string; nama: string; alamat: string; hp: string; kelas: string; ta: string; }) => {
 
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {

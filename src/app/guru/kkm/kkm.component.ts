@@ -71,9 +71,21 @@ export class KkmComponent {
   }
 
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataKkm.filter = filterValue.trim().toLowerCase();
-
+    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
+  
+    // Jika filterValue berupa kelas, filter berdasarkan kelas
+    if (['1', '2', '3', '4', '5', '6'].includes(filterValue)) {
+      this.dataKkm.filterPredicate = (data, filter) =>
+        data.kelas.toLowerCase().includes(filter);
+      this.dataKkm.filter = filterValue;
+    }
+    // Jika filterValue berupa siswa, filter berdasarkan nama atau nis
+    else {
+      this.dataKkm.filterPredicate = (data, filter) =>
+        data.mapel.toLowerCase().includes(filter) || data.mapel.toLowerCase().includes(filter);
+      this.dataKkm.filter = filterValue;
+    }
+  
     if (this.dataKkm.paginator) {
       this.dataKkm.paginator.firstPage();
     }

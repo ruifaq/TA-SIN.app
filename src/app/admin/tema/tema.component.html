@@ -2,8 +2,8 @@
     <h1>Tema</h1>
 
     <mat-form-field appearance="outline" class="field">
-        <mat-label>Cari</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Masukkan Mapel/Tema">
+        <mat-label>Pencarian</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Masukkan Mata Pelajaran/Tema">
     </mat-form-field>
 
     <section>
@@ -22,7 +22,7 @@
         </ng-container>
 
         <ng-container matColumnDef="mapel">
-            <th mat-header-cell *matHeaderCellDef> Mapel </th>
+            <th mat-header-cell *matHeaderCellDef> Mata Pelajaran </th>
             <td mat-cell *matCellDef="let element"> {{element.mapel}} </td>
         </ng-container>
 
