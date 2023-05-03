@@ -40,17 +40,15 @@
             <ng-container matColumnDef="nilaiMapel1">
                 <th mat-header-cell *matHeaderCellDef> IPA </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: {{element.nilaiPerTema['Tema 1 IPA']?.jumlah}} <br>
-                    T2: {{element.nilaiPerTema['Tema 2 IPA']?.jumlah}} <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 IPA']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 IPA']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 IPA']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 IPA']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 IPA']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 IPA']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 IPA']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 IPA']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 IPA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 IPA']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 IPA']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel.IPA.total}} <br>
                 </td>
@@ -58,27 +56,16 @@
 
             <ng-container matColumnDef="nilaiMapel2">
                 <th mat-header-cell *matHeaderCellDef> MTK </th>
-
-                <!-- <td mat-cell *matCellDef="let element">
-                Rata-Rata: <br>
-                <ng-container *ngFor="let tema of getTemaKeysAndFilterByMapel(element.nilaiPerTema, 'MTK', laporans)">
-                    {{tema}}: {{element.nilaiPerTema[tema]?.jumlah}} <br>
-                  </ng-container>
-                Total Nilai: {{element.nilaiPerMapel.MTK.total}} <br>
-            </td> -->
-
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: {{element.nilaiPerTema['Tema 1 MTK']?.jumlah}} <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 MTK']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 MTK']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 MTK']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 MTK']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 MTK']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 MTK']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 MTK']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 MTK']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 MTK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 MTK']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 MTK']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['MTK']?.total}} <br>
                 </td>
@@ -90,17 +77,15 @@
             <ng-container matColumnDef="nilaiMapel3">
                 <th mat-header-cell *matHeaderCellDef> BINDO </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 Bahasa Indonesia']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 Bahasa Indonesia']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 Bahasa Indonesia']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 Bahasa Indonesia']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 Bahasa Indonesia']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 Bahasa Indonesia']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 Bahasa Indonesia']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 Bahasa Indonesia']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 Bahasa Indonesia']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 Bahasa Indonesia']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 Bahasa Indonesia']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['PPKN']?.total}} <br>
 
@@ -110,17 +95,15 @@
             <ng-container matColumnDef="nilaiMapel4">
                 <th mat-header-cell *matHeaderCellDef> PPKN </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 PPKN']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 PPKN']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 PPKN']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 PPKN']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 PPKN']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 PPKN']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 PPKN']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 PPKN']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 PPKN']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 PPKN']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 PPKN']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['PPKN']?.total}} <br>
 
@@ -130,17 +113,15 @@
             <ng-container matColumnDef="nilaiMapel5">
                 <th mat-header-cell *matHeaderCellDef> IPS </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 IPS']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 IPS']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 IPS']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 IPS']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 IPS']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 IPS']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 IPS']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 IPS']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 IPS']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 IPS']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 IPS']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['IPS']?.total}} <br>
 
@@ -150,17 +131,15 @@
             <ng-container matColumnDef="nilaiMapel6">
                 <th mat-header-cell *matHeaderCellDef> SBDP </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 SBDP']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 SBDP']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 SBDP']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 SBDP']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 SBDP']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 SBDP']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 SBDP']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 SBDP']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 SBDP']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 SBDP']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 SBDP']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['SBDP']?.total}} <br>
 
@@ -170,17 +149,15 @@
             <ng-container matColumnDef="nilaiMapel7">
                 <th mat-header-cell *matHeaderCellDef> PJOK </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 PJOK']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 PJOK']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 PJOK']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 PJOK']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 PJOK']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 PJOK']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 PJOK']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 PJOK']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 PJOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 PJOK']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 PJOK']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['PJOK']?.total}} <br>
 
@@ -190,17 +167,15 @@
             <ng-container matColumnDef="nilaiMapel8">
                 <th mat-header-cell *matHeaderCellDef> MULOK </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 MULOK']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 MULOK']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 MULOK']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 MULOK']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 MULOK']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 MULOK']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 MULOK']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 MULOK']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 MULOK']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 MULOK']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 MULOK']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['MULOK']?.total}} <br>
 
@@ -210,17 +185,15 @@
             <ng-container matColumnDef="nilaiMapel9">
                 <th mat-header-cell *matHeaderCellDef> AGAMA </th>
                 <td mat-cell *matCellDef="let element">
-
-
-                    T1: <br>
-                    T2: <br>
-                    T3: <br>
-                    T4: <br>
-                    T5: <br>
-                    T6: <br>
-                    T7: <br>
-                    T8: <br>
-                    T9: <br>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 1 AGAMA']?.jumlah < 65}">T1: {{element.nilaiPerTema['Tema 1 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 2 AGAMA']?.jumlah < 65}">T2: {{element.nilaiPerTema['Tema 2 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 3 AGAMA']?.jumlah < 65}">T3: {{element.nilaiPerTema['Tema 3 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 4 AGAMA']?.jumlah < 65}">T4: {{element.nilaiPerTema['Tema 4 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 5 AGAMA']?.jumlah < 65}">T5: {{element.nilaiPerTema['Tema 5 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 6 AGAMA']?.jumlah < 65}">T6: {{element.nilaiPerTema['Tema 6 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 7 AGAMA']?.jumlah < 65}">T7: {{element.nilaiPerTema['Tema 7 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 8 AGAMA']?.jumlah < 65}">T8: {{element.nilaiPerTema['Tema 8 AGAMA']?.jumlah}}</h5>
+                    <h5 [ngClass]="{'text-danger': element.nilaiPerTema['Tema 9 AGAMA']?.jumlah < 65}">T9: {{element.nilaiPerTema['Tema 9 AGAMA']?.jumlah}}</h5>
 
                     Total Nilai: {{element.nilaiPerMapel['Agama']?.total}} <br>
 

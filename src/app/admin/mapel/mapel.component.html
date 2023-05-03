@@ -3,7 +3,7 @@
     
     <mat-form-field appearance="outline" class="field">
         <mat-label>Pencarian</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Masukkan Mata Pelajaran/Kelas" #input>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Masukkan Mata Pelajaran" #input>
     </mat-form-field>
 
     <!-- <mat-form-field appearance="outline" class="field">
@@ -39,11 +39,6 @@
         </ng-container>
 
         <!-- Symbol Column -->
-        <ng-container matColumnDef="kelas">
-            <th mat-header-cell *matHeaderCellDef> Kelas </th>
-            <td mat-cell *matCellDef="let element"> {{element.kelas}} </td>
-        </ng-container>
-
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
             <td mat-cell *matCellDef="let element">

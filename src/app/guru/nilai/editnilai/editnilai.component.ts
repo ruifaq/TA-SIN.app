@@ -224,10 +224,18 @@ export class EditnilaiComponent {
 
 simpan() {
   const nilai = this.dataNilaiForm?.get('nilai')?.value ?? 0;
-  const kkm = this.kkm.find((item: { kkm: any; }) => item.kkm === this.dataNilaiForm.get('kkm')?.value)?.kkm ?? 75;
+  const kkm = this.kkm.find((item: { kkm: any; }) => item.kkm === this.dataNilaiForm.get('kkm')?.value)?.kkm ?? 65;
 
   if (kkm !== 0 && nilai < kkm) {
-    this.toastr.error(`Nilai yang dimasukkan (${nilai}) kurang dari KKM (${kkm})`, 'Gagal Menambah Data');
+    this.toastr.error(`Nilai yang dimasukkan (${nilai}) kurang dari KKM (${kkm})`, 'Masuk Kategori Remidial');
+    this.api.ubahDataNilai(this.data.id, this.dataNilaiForm.value)
+    .subscribe(res => {
+      this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Nilai');
+      this.dialogref.close();
+      setTimeout(() => {
+        window.location.reload();
+      }, 5500);
+    })
     return;
   } else {
     this.api.ubahDataNilai(this.data.id, this.dataNilaiForm.value)

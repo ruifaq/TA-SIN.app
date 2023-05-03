@@ -60,10 +60,6 @@ const routes: Routes = [
       {
         path: 'tema', component: TemaComponent,
       },
-      {
-        path: 'laporan', component: LaporanComponent,
-      },
-
     ]
     
   }

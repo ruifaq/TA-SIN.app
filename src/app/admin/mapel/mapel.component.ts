@@ -25,7 +25,7 @@ export class MapelComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['no', 'mapel', 'kelas', 'action'];
+  displayedColumns: string[] = ['no', 'mapel', 'action'];
 
   formValue !: FormGroup;
   mapelModuleObj: MapelModule = new MapelModule();

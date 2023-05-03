@@ -2,31 +2,14 @@
     <h1>Dashboard</h1>
 
 <mat-grid-list cols="3" rowHeight="2:1">
-   <mat-grid-tile>
-       <!-- Cards with media area -->
-       <mat-card class="example-card" style="background-color: lightgreen;">
-           <mat-card-header>
-               <mat-card-title-group>
-                   <mat-card-title>Admin</mat-card-title>
-                   <mat-card-subtitle>data_admin</mat-card-subtitle>
-               </mat-card-title-group>
-           </mat-card-header>
-           <mat-card-content>
-               <div class="img">
-                   <img src="assets/images/user.png">
-
-                 </div>
-           </mat-card-content>
-       </mat-card>
-   </mat-grid-tile>
 
    <mat-grid-tile>
        <!-- Cards with media area -->
        <mat-card class="example-card" style="background-color: lightcoral;">
            <mat-card-header>
                <mat-card-title-group>
-                   <mat-card-title>Guru</mat-card-title>
-                   <mat-card-subtitle>data_guru</mat-card-subtitle>
+                   <mat-card-title>Profil Guru</mat-card-title>
+                   <mat-card-subtitle></mat-card-subtitle>
                </mat-card-title-group>
            </mat-card-header>
            <mat-card-content>
@@ -43,7 +26,7 @@
            <mat-card-header>
                <mat-card-title-group>
                    <mat-card-title>Siswa</mat-card-title>
-                   <mat-card-subtitle>data_siswa</mat-card-subtitle>
+                   <mat-card-subtitle>{{totalDataSiswa()}}</mat-card-subtitle>
                </mat-card-title-group>
            </mat-card-header>
            <mat-card-content>
@@ -59,13 +42,13 @@
        <mat-card class="example-card" style="background-color: lightsalmon;">
            <mat-card-header>
                <mat-card-title-group>
-                   <mat-card-title>Kelas</mat-card-title>
-                   <mat-card-subtitle>data_kelas</mat-card-subtitle>
+                   <mat-card-title>Nilai</mat-card-title>
+                   <mat-card-subtitle>{{ totalDataNilai()}}</mat-card-subtitle>
                </mat-card-title-group>
            </mat-card-header>
            <mat-card-content>
                <div class="img">
-                   <img src="assets/images/kelas.png">
+                   <img src="assets/images/nilai.png">
                  </div>
            </mat-card-content>
        </mat-card>
@@ -76,8 +59,8 @@
        <mat-card class="example-card" style="background-color: lightsteelblue;">
            <mat-card-header>
                <mat-card-title-group>
-                   <mat-card-title>Mata Pelajaran</mat-card-title>
-                   <mat-card-subtitle>data_mapel</mat-card-subtitle>
+                   <mat-card-title>KKM</mat-card-title>
+                   <mat-card-subtitle>{{totalDataKkm()}}</mat-card-subtitle>
                </mat-card-title-group>
            </mat-card-header>
            <mat-card-content>
@@ -94,7 +77,7 @@
            <mat-card-header>
                <mat-card-title-group>
                    <mat-card-title>Laporan</mat-card-title>
-                   <mat-card-subtitle>data_laporan</mat-card-subtitle>
+                   <mat-card-subtitle>{{totalDataLaporan()}}</mat-card-subtitle>
                </mat-card-title-group>
            </mat-card-header>
            <mat-card-content>

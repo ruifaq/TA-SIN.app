@@ -51,4 +51,11 @@
   .logout{
     padding: 5px;
   }
+
+  .text-danger {
+    color: red;
+  }
   
+h5{
+  margin-bottom: 5px;
+}

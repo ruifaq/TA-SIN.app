@@ -8,7 +8,7 @@
             <mat-card-header>
                 <mat-card-title-group>
                     <mat-card-title>Admin</mat-card-title>
-                    <mat-card-subtitle>data_admin</mat-card-subtitle>
+                    <mat-card-subtitle>{{ totalDataAdmin()}}</mat-card-subtitle>
                 </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
@@ -26,7 +26,7 @@
             <mat-card-header>
                 <mat-card-title-group>
                     <mat-card-title>Guru</mat-card-title>
-                    <mat-card-subtitle>data_guru</mat-card-subtitle>
+                    <mat-card-subtitle>{{ totalDataGuru() }}</mat-card-subtitle>
                 </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
@@ -43,7 +43,7 @@
             <mat-card-header>
                 <mat-card-title-group>
                     <mat-card-title>Siswa</mat-card-title>
-                    <mat-card-subtitle>data_siswa</mat-card-subtitle>
+                    <mat-card-subtitle>{{totalDataSiswa()}}</mat-card-subtitle>
                 </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
@@ -60,7 +60,7 @@
             <mat-card-header>
                 <mat-card-title-group>
                     <mat-card-title>Kelas</mat-card-title>
-                    <mat-card-subtitle>data_kelas</mat-card-subtitle>
+                    <mat-card-subtitle>{{totalDataKelas()}}</mat-card-subtitle>
                 </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
@@ -77,7 +77,7 @@
             <mat-card-header>
                 <mat-card-title-group>
                     <mat-card-title>Mata Pelajaran</mat-card-title>
-                    <mat-card-subtitle>data_mapel</mat-card-subtitle>
+                    <mat-card-subtitle>{{totalDataMapel()}}</mat-card-subtitle>
                 </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
@@ -93,8 +93,8 @@
         <mat-card class="example-card" style="background-color: lightcyan">
             <mat-card-header>
                 <mat-card-title-group>
-                    <mat-card-title>Laporan</mat-card-title>
-                    <mat-card-subtitle>data_laporan</mat-card-subtitle>
+                    <mat-card-title>Tema</mat-card-title>
+                    <mat-card-subtitle>{{totalDataTema()}}</mat-card-subtitle>
                 </mat-card-title-group>
             </mat-card-header>
             <mat-card-content>
