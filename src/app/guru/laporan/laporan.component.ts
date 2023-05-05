@@ -206,7 +206,7 @@ export class LaporanComponent {
   }
 
   cetak() {
-    let pdf = new jsPDF('l', 'pt', 'a3');
+    let pdf = new jsPDF('l', 'pt', 'a4');
     pdf.html(this.el.nativeElement, {
       callback: (pdf) => {
         pdf.save("nilai.pdf")

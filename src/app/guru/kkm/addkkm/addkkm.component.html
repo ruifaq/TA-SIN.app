@@ -2,7 +2,7 @@
     <h1>Tambah KKM</h1>
 </div>
 
-<form [formGroup]="dataKkmForm">
+<form [formGroup]="dataKkmForm" (ngSubmit)="submit()">
     <div mat-dialog-content class="content">
         <div>
             <mat-form-field appearance="outline" class="field">
@@ -10,7 +10,7 @@
                 <mat-select formControlName="kelas" required>
                     <mat-option *ngFor="let kls of kelas" [value]="kls.kelas">{{kls.kelas}} </mat-option>
                 </mat-select>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+                <mat-error>Masukkan Kelas terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
@@ -66,6 +66,6 @@
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
-        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit">Simpan</button>
     </div>
 </form>

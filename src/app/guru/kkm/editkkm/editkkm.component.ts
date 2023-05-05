@@ -39,7 +39,7 @@ export class EditkkmComponent {
       mapel: new FormControl(),
       tema: new FormControl(),
       sub_tema: new FormControl(),
-      kkm: new FormControl(),
+      kkm: new FormControl(null, [Validators.required, Validators.min(0), Validators.max(100), Validators.pattern(/^[0-9]*$/)]),
 
     })
 
@@ -139,6 +139,17 @@ export class EditkkmComponent {
   
     })
   }
+
+  submit() {
+    // Validasi form
+    if (this.dataKkmForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data KKM');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
 
   simpan() {
     this.api.ubahDataKkm(this.data.id, this.dataKkmForm.value).subscribe(res => {

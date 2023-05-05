@@ -43,9 +43,9 @@ export class AddnilaiComponent {
 
   ngOnInit(): void {
     this.dataNilaiForm = this._formBuilder.group({
-      nis: ["", Validators.required],
+      nis: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       nama: ["", Validators.required],
-      nilai: [ , Validators.required],
+      nilai: [ , [Validators.required, Validators.min(0), Validators.max(100), Validators.pattern(/^-?(0|[1-9]\d*)(\.\d+)?$/)]],
       mapel: ["", Validators.required],
       tema: ["", Validators.required],
       sub_tema: ["", Validators.required],
@@ -199,6 +199,18 @@ export class AddnilaiComponent {
     const filterValue = (event.target as HTMLInputElement).value;
     this.siswa.filter = filterValue.trim().toLowerCase();
   }
+
+  submit() {
+    // Validasi form
+    if (this.dataNilaiForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data Nilai');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
+
 
 
   simpan() {

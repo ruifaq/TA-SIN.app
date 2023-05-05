@@ -43,7 +43,7 @@ export class AddkkmComponent {
       mapel: ["", Validators.required],
       tema: ["", Validators.required],
       sub_tema: ["", Validators.required],
-      kkm: ["", Validators.required],
+      kkm: ["", [Validators.required, Validators.min(0), Validators.max(100), Validators.pattern(/^-?(0|[1-9]\d*)(\.\d+)?$/)]],
     })
 
     this.getMapel();
@@ -144,6 +144,17 @@ export class AddkkmComponent {
       this.filterTema();
     })
   }
+
+  submit() {
+    // Validasi form
+    if (this.dataKkmForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data KKM');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
 
   simpan() {
     this.api.tambahDataKkm(this.dataKkmForm.value)

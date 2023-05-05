@@ -2,7 +2,7 @@
     <h1>Edit Nilai</h1>
 </div>
 
-<form [formGroup]="dataNilaiForm">
+<form [formGroup]="dataNilaiForm" (ngSubmit)="submit()">
     <div mat-dialog-content class="content">
 
         <div>
@@ -15,6 +15,7 @@
                         {{unis}}
                     </mat-option>
                 </mat-autocomplete>
+                <mat-error>Masukkan NIS terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
 
@@ -28,6 +29,7 @@
                         {{unm}}
                     </mat-option>
                 </mat-autocomplete>
+                <mat-error>Masukkan Nama terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
 
@@ -35,7 +37,7 @@
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Nilai</mat-label>
                 <input matInput type="text" formControlName="nilai" required>
-                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+                <mat-error>Masukkan Nilai terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
 
@@ -49,6 +51,7 @@
                         {{um}}
                     </mat-option>
                 </mat-autocomplete>
+                <mat-error>Masukkan Mata Pelajaran terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
 
@@ -61,7 +64,7 @@
                   {{ut}}
                 </mat-option>
               </mat-autocomplete>
-              <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+              <mat-error>Masukkan Tema terlebih dahulu</mat-error>
             </mat-form-field>
           </div>
 
@@ -76,13 +79,13 @@
                     </mat-option>
                 </mat-autocomplete>
                 <mat-autocomplete></mat-autocomplete>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+                <mat-error>Masukkan Subtema terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
 
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
-        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit">Simpan</button>
     </div>
 </form>

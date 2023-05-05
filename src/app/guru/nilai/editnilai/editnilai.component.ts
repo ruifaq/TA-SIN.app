@@ -42,7 +42,7 @@ export class EditnilaiComponent {
     this.dataNilaiForm = this._formBuilder.group({
       nis: new FormControl(),
       nama: new FormControl(),
-      nilai: new FormControl(),
+      nilai: new FormControl(null, [Validators.required, Validators.min(0), Validators.max(100), Validators.pattern(/^[0-9]*$/)]),
       mapel: new FormControl(),
       tema: new FormControl(),
       sub_tema: new FormControl(),
@@ -219,6 +219,17 @@ export class EditnilaiComponent {
       console.log(res);
     })
   }
+
+  submit() {
+    // Validasi form
+    if (this.dataNilaiForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data Nilai');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
 
   
 
