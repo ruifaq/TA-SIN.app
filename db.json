@@ -1,17 +1,6 @@
 {
   "posts": [
     {
-      "nip": "200135314355",
-      "nama": "joko",
-      "username": "joko",
-      "pass": "123",
-      "alamat": "bantul",
-      "jabatan": "guru",
-      "hp": "0972324422",
-      "status": "Aktif",
-      "id": 1
-    },
-    {
       "nip": "199056425355",
       "nama": "jefri",
       "username": "jefri424",
@@ -87,6 +76,28 @@
       "hp": "081354535324",
       "status": "Aktif",
       "id": 8
+    },
+    {
+      "nip": "8520",
+      "nama": "joko",
+      "username": "joko",
+      "pass": "123",
+      "alamat": "jogja",
+      "jabatan": "Guru",
+      "hp": "123",
+      "status": "Aktif",
+      "id": 10
+    },
+    {
+      "nip": "111",
+      "nama": "11",
+      "username": "11",
+      "pass": "11",
+      "alamat": "11",
+      "jabatan": "Guru",
+      "hp": "111",
+      "status": "Aktif",
+      "id": 11
     }
   ],
   "comments": [],
@@ -103,8 +114,8 @@
     },
     {
       "kelas": "2",
-      "jumlah_siswa": "17",
-      "wali_kelas": "david",
+      "jumlah_siswa": "20",
+      "wali_kelas": "rudi",
       "ta": "2022/2023 Genap",
       "id": 2
     },
@@ -116,13 +127,6 @@
       "id": 3
     },
     {
-      "kelas": "4",
-      "jumlah_siswa": "25",
-      "wali_kelas": "rui",
-      "ta": "2022/2023 Genap",
-      "id": 4
-    },
-    {
       "kelas": "5",
       "jumlah_siswa": "15",
       "wali_kelas": "Toni",
@@ -130,11 +134,18 @@
       "id": 5
     },
     {
-      "kelas": "6",
-      "jumlah_siswa": "23",
-      "wali_kelas": "mika",
+      "kelas": "4",
+      "jumlah_siswa": "12",
+      "wali_kelas": "david",
       "ta": "2022/2023 Genap",
-      "id": 6
+      "id": 7
+    },
+    {
+      "kelas": "6",
+      "jumlah_siswa": "13",
+      "wali_kelas": "rui",
+      "ta": "2022/2023 Genap",
+      "id": 10
     }
   ],
   "user": [
@@ -223,7 +234,6 @@
     },
     {
       "mapel": "IPS",
-      "kelas": "3",
       "id": 4
     }
   ],
@@ -391,6 +401,14 @@
       "sub_tema": "Subtema 1 IPA",
       "kkm": "75",
       "id": 4
+    },
+    {
+      "kelas": "3",
+      "mapel": "IPA",
+      "tema": "Tema 1 IPA",
+      "sub_tema": "Subtema 1 IPA",
+      "kkm": "65",
+      "id": 5
     }
   ],
   "laporan": []

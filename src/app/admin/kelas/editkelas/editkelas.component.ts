@@ -29,7 +29,7 @@ export class EditkelasComponent {
   ngOnInit(): void {
     this.dataKelasForm = new FormGroup({
       kelas: new FormControl(),
-      jumlah_siswa: new FormControl(),
+      jumlah_siswa: new FormControl("", [Validators.required, Validators.pattern('^[0-9]*$')]),
       wali_kelas: new FormControl(),
       ta: new FormControl(),
     })
@@ -42,6 +42,17 @@ export class EditkelasComponent {
     this.api.ambilDataGuru().subscribe(res => {
       this.posts = res;
     })
+  }
+
+  submit() {
+    // Validasi form
+    if (this.dataKelasForm.invalid) {
+      // Tampilkan pesan kesalahan
+      this.toastr.error('Gagal Menambah Data!!!', 'Data Kelas');
+      return;
+    }
+
+    this.simpan(); // Lakukan simpan data
   }
 
   simpan() {

@@ -29,7 +29,7 @@ export class EditmapelComponent {
     this.dataMapelForm = new FormGroup({
       mapel: new FormControl(),
       // kkm: new FormControl(),
-      kelas: new FormControl(),
+      // kelas: new FormControl(),
       // tema: new FormControl(),
       // sub_tema: new FormControl()
     })
@@ -80,10 +80,22 @@ export class EditmapelComponent {
     })
   }
 
+  submit() {
+    // Validasi form
+    if (this.dataMapelForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Mengupdate Data!!!', 'Data Data Mata Pelajaran');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
+  
+
   simpan() {
 
     this.api.ubahDataMapel(this.data.id, this.dataMapelForm.value).subscribe(res => {
-      this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Mata Pelajaran');
+      this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Data Mata Pelajaran');
       this.dialogref.close();
       setTimeout(() => {
         window.location.reload();

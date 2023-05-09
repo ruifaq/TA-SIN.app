@@ -114,6 +114,18 @@ export class AddtemaComponent {
     this.unikTema = Array.from(new Set(this.tema.map((item: { tema: string; }) => item.tema)));
   }
 
+  submit() {
+    // Validasi form
+    if (this.dataTemaForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data Tema');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
+
+
   simpan() {
     this.api.tambahDataTema(this.dataTemaForm.value)
       .subscribe(res => {

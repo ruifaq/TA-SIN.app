@@ -27,10 +27,10 @@ export class EditComponent {
 
   ngOnInit(): void {
     this.dataSiswaForm = new FormGroup({
-      nis: new FormControl(),
+      nis: new FormControl("", [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       nama: new FormControl(),
       alamat: new FormControl(),
-      hp: new FormControl(),
+      hp: new FormControl("", [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       kelas: new FormControl(),
       ta: new FormControl(),
     })
@@ -44,12 +44,23 @@ export class EditComponent {
       this.kelas = res;
     })
   }
+
+  submit() {
+    // Validasi form
+    if (this.dataSiswaForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Mengupdate Data!!!', 'Data Siswa');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
   
 
   simpan() {
 
     this.api.ubahDataSiswa(this.data.id, this.dataSiswaForm.value).subscribe(res => {
-      this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Guru');
+      this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Siswa');
       this.dialogref.close();
       setTimeout(() => {
         window.location.reload();

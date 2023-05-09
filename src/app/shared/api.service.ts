@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { GuruModule } from '../admin/guru/guru.module';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { SiswaModule } from '../admin/siswa/siswa.module';
 import { KelasModule } from '../admin/kelas/kelas.module';
 import { MapelModule } from '../admin/mapel/mapel.module';
@@ -153,4 +153,61 @@ export class ApiService {
   ambilDataEditId(id: number) {
     return this.http.get<GuruModule>(this.guruUrl);
   }
+
+  cekDataKelas(kelas: number): Observable<KelasModule> {
+    return this.http.get<KelasModule>(`${this.kelasUrl}/${kelas}`).pipe(
+      catchError(err => {
+        if (err.status === 404) {
+          // Endpoint tidak ditemukan, tambahkan data ke database
+          return this.addKelasData(kelas);
+        }
+        throw err;
+      })
+    );
+  }
+  
+  addKelasData(kelas: number): Observable<KelasModule> {
+    return this.http.post<KelasModule>(this.kelasUrl, { kelas });
+  }
+
+  addKelasIfNotExists(kelas: number): Observable<KelasModule> {
+    return this.http.get<KelasModule>(`${this.kelasUrl}/${kelas}`).pipe(
+      catchError(err => {
+        if (err.status === 404) {
+          // Endpoint tidak ditemukan, tambahkan data ke database
+          return this.http.post<KelasModule>(this.kelasUrl, { kelas });
+        }
+        throw err;
+      })
+    );
+  }
+  
+  
+
+  hapusDupKelas(kelas: number): Observable<any> {
+    return this.http.delete<any>(this.kelasUrl + '/' + kelas);
+  }
+
+  cekDataSiswa(id: number){
+    return this.http.get<SiswaModule>(this.siswaUrl + '/' + id);
+  }
+
+  hapusDupSiswa(nis: string) {
+    return this.http.delete<SiswaModule>(this.siswaUrl + '/' + nis);
+  }
+
+  // cekDataGuru(nip: number): Observable<any> {
+  //   return this.http.get<GuruModule>(`${this.guruUrl}?nip=${nip}`).pipe(
+  //     catchError((error) => {
+  //       console.error(error);
+  //       return of(null);
+  //     })
+  //   );
+  // }
+
+  // hapusDupGuru(nip: number) {
+  //   return this.http.delete<GuruModule>(this.guruUrl + '/' + nip);
+  // }
+
+ 
 }

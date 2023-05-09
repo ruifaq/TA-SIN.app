@@ -30,19 +30,30 @@ export class EditComponent {
 
   ngOnInit(): void {
     this.dataGuruForm = new FormGroup({
-      nip: new FormControl(),
+      nip: new FormControl("", [Validators.pattern(/^[0-9]*$/)]),
       nama: new FormControl(),
       username: new FormControl(),
       pass: new FormControl(),
       alamat: new FormControl(),
       jabatan: new FormControl(),
-      hp: new FormControl(),
+      hp: new FormControl("", [Validators.required, Validators.pattern(/^[0-9]*$/)]),
       status: new FormControl(),
 
     })
 
     this.dataGuruForm.patchValue(this.data);
   }
+
+  submit() {
+    // Validasi form
+    if (this.dataGuruForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Mengupdate Data!!!', 'Data Guru');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
 
   simpan() {
 

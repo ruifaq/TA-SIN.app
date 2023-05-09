@@ -28,22 +28,33 @@ export class AddComponent {
 
   ngOnInit(): void {
     this.dataGuruForm = this._formBuilder.group({
-      nip: ["", Validators.required],
+      nip: ["", [Validators.required, Validators.pattern('^[0-9]*$')]],
       nama: ["", Validators.required],
       username: ["", Validators.required],
       pass: ["", Validators.required],
       alamat: ["", Validators.required],
       jabatan: ["", Validators.required],
-      hp: ["", Validators.required],
+      hp: ["", [Validators.required, Validators.pattern('^[0-9]*$')]],
       status: ["", Validators.required]
 
     })
   }
 
+  submit() {
+    // Validasi form
+    if (this.dataGuruForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data Guru');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
+
   simpan() {
     this.api.tambahData(this.dataGuruForm.value)
       .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data Siswa');
+        this.toastr.success('Berhasil Menambah Data!!!', 'Data Guru');
         this.dialogref.close();
         setTimeout(() => {
           window.location.reload();

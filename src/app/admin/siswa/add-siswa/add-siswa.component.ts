@@ -26,10 +26,10 @@ export class AddSiswaComponent {
 
   ngOnInit(): void {
     this.dataSiswaForm = this._formBuilder.group({
-      nis: ["", Validators.required],
+      nis: ["", [Validators.required, Validators.pattern('^[0-9]*$')]],
       nama: ["", Validators.required],
       alamat: ["", Validators.required],
-      hp: ["", Validators.required],
+      hp: ["", [Validators.required, Validators.pattern('^[0-9]*$')]],
       kelas: ["", Validators.required],
       ta: ["", Validators.required],
 
@@ -43,6 +43,17 @@ export class AddSiswaComponent {
       this.kelas = res;
     })
   }
+
+  submit() {
+    // Validasi form
+    if (this.dataSiswaForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data Siswa');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
 
   simpan() {
     this.api.tambahDataSiswa(this.dataSiswaForm.value)

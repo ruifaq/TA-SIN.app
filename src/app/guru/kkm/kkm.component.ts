@@ -23,7 +23,7 @@ import { DeletekkmComponent } from './deletekkm/deletekkm.component';
 })
 export class KkmComponent {
 
-  public dataKkm !: MatTableDataSource<MapelModule>;
+  public dataKkm !: MatTableDataSource<KkmModule>;
   public dataTema !: MatTableDataSource<TemaModule>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

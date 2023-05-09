@@ -51,4 +51,9 @@
   .logout{
     padding: 5px;
   }
+
+  table tr.duplicate {
+    background-color: red;
+  }
+  
   

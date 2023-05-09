@@ -28,7 +28,7 @@ export class AddkelasComponent {
   ngOnInit(): void {
     this.dataKelasForm = this._formBuilder.group({
       kelas: ["", Validators.required],
-      jumlah_siswa: ["", Validators.required],
+      jumlah_siswa: ["", [Validators.required, Validators.pattern('^[0-9]*$')]],
       wali_kelas: ["", Validators.required],
       ta: ["", Validators.required],
     })
@@ -41,17 +41,29 @@ export class AddkelasComponent {
       this.posts = res;
     })
   }
-  
 
-  simpan() {
-    this.api.tambahDataKelas(this.dataKelasForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data Kelas');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
-  }
+  submit() {
+    // Validasi form
+    if (this.dataKelasForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data Kelas');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
+
+simpan() {
+  this.api.tambahDataKelas(this.dataKelasForm.value)
+    .subscribe(res => {
+      this.toastr.success('Berhasil Menambah Data!!!', 'Data Kelas');
+      this.dialogref.close();
+      setTimeout(() => {
+        window.location.reload();
+      }, 5500);
+    })
+}
+
+
 
 }

@@ -41,7 +41,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 export class MapelModule {
   mapel!: string;
   // kkm!: string ;
-  kelas!: string ;
+  // kelas!: string ;
   // tema!: string ;
   // sub_tema!: string;
  }

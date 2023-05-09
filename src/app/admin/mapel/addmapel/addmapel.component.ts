@@ -35,7 +35,7 @@ export class AddmapelComponent {
     this.dataMapelForm = this._formBuilder.group({
       mapel: ["", Validators.required],
       // kkm: ["", Validators.required],
-      kelas: ["", Validators.required],
+      // kelas: ["", Validators.required],
       // tema: ["", Validators.required],
       // sub_tema: ["", Validators.required],
     })
@@ -119,6 +119,17 @@ export class AddmapelComponent {
   //   }
   // }
 
+  submit() {
+    // Validasi form
+    if (this.dataMapelForm.invalid) {
+        // Tampilkan pesan kesalahan
+        this.toastr.error('Gagal Menambah Data!!!', 'Data Mata Pelajaran');
+        return;
+    }
+
+   this.simpan(); // Lakukan simpan data
+}
+
   simpan() {
     this.api.tambahDataMapel(this.dataMapelForm.value)
       .subscribe(res => {
@@ -129,5 +140,4 @@ export class AddmapelComponent {
         }, 5500);
       })
   }
-
 }

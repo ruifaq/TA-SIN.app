@@ -2,16 +2,16 @@
     <h1>Tambah Tema</h1>
 </div>
 
-<form [formGroup]="dataTemaForm">
+<form [formGroup]="dataTemaForm" (ngSubmit)="submit()">
     <div mat-dialog-content class="content">
 
         <div>
             <mat-form-field appearance="outline" class="field">
-                <mat-label>Mapel</mat-label>
+                <mat-label>Mata Pelajaran</mat-label>
                 <mat-select formControlName="mapel" required >
                     <mat-option  *ngFor="let um of unikMapel" [value]="um">{{um}}</mat-option>
                 </mat-select>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+                <mat-error>Masukkan Mata Pelajaran terlebih dahulu</mat-error>
             </mat-form-field>
         </div> 
 
@@ -24,7 +24,7 @@
                   {{ut}}
                 </mat-option>
               </mat-autocomplete>
-              <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+              <mat-error>Masukkan Tema terlebih dahulu</mat-error>
             </mat-form-field>
           </div>
           
@@ -39,6 +39,6 @@
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
-        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit">Simpan</button>
     </div>
 </form>

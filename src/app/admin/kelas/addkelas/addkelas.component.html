@@ -2,20 +2,27 @@
     <h1>Tambah Guru</h1>
 </div>
 
-<form [formGroup]="dataKelasForm">
+<form [formGroup]="dataKelasForm" (ngSubmit)="submit()">
     <div mat-dialog-content class="content">
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Kelas</mat-label>
-                <input matInput formControlName="kelas" required>
-                <mat-error>Masukkan NIP terlebih dahulu</mat-error>
+                <mat-select formControlName="kelas" required>
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">4</mat-option>
+                    <mat-option value="5">5</mat-option>
+                    <mat-option value="6">6</mat-option>
+                </mat-select>
+                <mat-error>Masukkan Kelas terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Jumlah Siswa</mat-label>
                 <input matInput type="text" formControlName="jumlah_siswa" required>
-                <mat-error>Masukkan nama terlebih dahulu</mat-error>
+                <mat-error>Masukkan Jumlah Siswa terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
@@ -24,7 +31,7 @@
                 <mat-select formControlName="wali_kelas" required >
                     <mat-option  *ngFor="let gr of posts" [value]="gr.nama">{{gr.nama}} </mat-option>
                 </mat-select>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+                <mat-error>Masukkan Wali Kelas terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <div>
@@ -34,13 +41,13 @@
                     <mat-option value="2022/2023 Ganjil">2022/2023 Ganjil</mat-option>
                     <mat-option value="2022/2023 Genap">2022/2023 Genap</mat-option>
                 </mat-select>
-                <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
+                <mat-error>Masukkan Tahun Ajaran terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
 
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
-        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit">Simpan</button>
     </div>
 </form>

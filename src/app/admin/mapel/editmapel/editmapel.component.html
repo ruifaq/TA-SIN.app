@@ -2,13 +2,13 @@
     <h1>Edit Mata Pelajaran</h1>
 </div>
 
-<form [formGroup]="dataMapelForm">
+<form [formGroup]="dataMapelForm" (ngSubmit)="submit()">
     <div mat-dialog-content class="content">
         <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Mata Pelajaran</mat-label>
                 <input matInput formControlName="mapel" required>
-                <mat-error>Masukkan NIP terlebih dahulu</mat-error>
+                <mat-error>Masukkan Mata Palajaran terlebih dahulu</mat-error>
             </mat-form-field>
         </div>
         <!-- <div>
@@ -18,7 +18,7 @@
                 <mat-error>Masukkan nama terlebih dahulu</mat-error>
             </mat-form-field>
         </div> -->
-        <div>
+        <!-- <div>
             <mat-form-field appearance="outline" class="field">
                 <mat-label>Kelas</mat-label>
                 <mat-select formControlName="kelas" required >
@@ -26,7 +26,7 @@
                 </mat-select>
                 <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
             </mat-form-field>
-        </div>
+        </div> -->
         <!-- <div>
             <mat-form-field appearance="outline" class="field">
               <mat-label>Tema</mat-label>
@@ -53,6 +53,6 @@
     </div>
     <div mat-dialog-actions class="action">
         <button mat-raised-button color="basic" class="btn-flex" [mat-dialog-close]="true">Batal</button>
-        <button mat-raised-button color="primary" class="btn-flex" type="submit" (click)="simpan()">Simpan</button>
+        <button mat-raised-button color="primary" class="btn-flex" type="submit">Simpan</button>
     </div>
 </form>

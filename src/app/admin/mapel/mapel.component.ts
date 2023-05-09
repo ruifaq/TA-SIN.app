@@ -74,9 +74,9 @@ export class MapelComponent {
   
     // Jika filterValue berupa kelas, filter berdasarkan kelas
     if (['1', '2', '3', '4', '5', '6'].includes(filterValue)) {
-      this.dataMapel.filterPredicate = (data, filter) =>
-        data.kelas.toLowerCase().includes(filter);
-      this.dataMapel.filter = filterValue;
+      // this.dataMapel.filterPredicate = (data, filter) =>
+      //   data.kelas.toLowerCase().includes(filter);
+      // this.dataMapel.filter = filterValue;
     }
     // Jika filterValue berupa siswa, filter berdasarkan nama atau nis
     else {
