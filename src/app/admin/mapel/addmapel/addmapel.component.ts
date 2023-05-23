@@ -127,17 +127,37 @@ export class AddmapelComponent {
         return;
     }
 
-   this.simpan(); // Lakukan simpan data
+    const newData = this.dataMapelForm.value;
+    const mapelInput = newData.mapel.toUpperCase(); // Ubah input menjadi lowercase
+    this.api.getMapelId(mapelInput)
+      .subscribe(existingData => {
+        if (existingData.length > 0) {
+          // Mata Pelajaran sudah ada, tampilkan pesan kesalahan
+          this.toastr.error('Mata Pelajaran sudah ada. Data tidak dapat ditambahkan.', 'Data Mata Pelajaran');
+        } else {
+          // Mata Pelajaran belum ada, lakukan simpan data
+          this.api.tambahDataMapel(newData)
+            .subscribe(res => {
+              this.toastr.success('Berhasil Menambah Data!!!', 'Data Mata Pelajaran');
+              this.dialogref.close();
+              setTimeout(() => {
+                window.location.reload();
+              }, 5500);
+            });
+        }
+      }, error => {
+        console.log(error);
+      }); 
 }
 
-  simpan() {
-    this.api.tambahDataMapel(this.dataMapelForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data Mata Pelajaran');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
-  }
+  // simpan() {
+  //   this.api.tambahDataMapel(this.dataMapelForm.value)
+  //     .subscribe(res => {
+  //       this.toastr.success('Berhasil Menambah Data!!!', 'Data Mata Pelajaran');
+  //       this.dialogref.close();
+  //       setTimeout(() => {
+  //         window.location.reload();
+  //       }, 5500);
+  //     })
+  // }
 }

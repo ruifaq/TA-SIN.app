@@ -43,24 +43,43 @@ export class AddComponent {
   submit() {
     // Validasi form
     if (this.dataGuruForm.invalid) {
-        // Tampilkan pesan kesalahan
-        this.toastr.error('Gagal Menambah Data!!!', 'Data Guru');
-        return;
+      // Tampilkan pesan kesalahan
+      this.toastr.error('Gagal Menambah Data!!!', 'Data Guru');
+      return;
     }
 
-   this.simpan(); // Lakukan simpan data
-}
-
-  simpan() {
-    this.api.tambahData(this.dataGuruForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data Guru');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
+    const newData = this.dataGuruForm.value;
+    this.api.getGuruNip(newData.nip)
+      .subscribe(existingData => {
+        if (existingData.length > 0) {
+          // NIP sudah ada, tampilkan pesan kesalahan
+          this.toastr.error('NIP sudah ada. Data tidak dapat ditambahkan.', 'Data Guru');
+        } else {
+          // NIP belum ada, lakukan simpan data
+          this.api.tambahData(newData)
+            .subscribe(res => {
+              this.toastr.success('Berhasil Menambah Data!!!', 'Data Guru');
+              this.dialogref.close();
+              setTimeout(() => {
+                window.location.reload();
+              }, 5500);
+            });
+        }
+      }, error => {
+        console.log(error);
+      });
   }
+
+  // simpan() {
+  //   this.api.tambahData(this.dataGuruForm.value)
+  //     .subscribe(res => {
+  //       this.toastr.success('Berhasil Menambah Data!!!', 'Data Guru');
+  //       this.dialogref.close();
+  //       setTimeout(() => {
+  //         window.location.reload();
+  //       }, 5500);
+  //     })
+  // }
 
 
 

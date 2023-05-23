@@ -87,17 +87,6 @@
       "hp": "123",
       "status": "Aktif",
       "id": 10
-    },
-    {
-      "nip": "111",
-      "nama": "11",
-      "username": "11",
-      "pass": "11",
-      "alamat": "11",
-      "jabatan": "Guru",
-      "hp": "111",
-      "status": "Aktif",
-      "id": 11
     }
   ],
   "comments": [],
@@ -115,7 +104,7 @@
     {
       "kelas": "2",
       "jumlah_siswa": "20",
-      "wali_kelas": "rudi",
+      "wali_kelas": "ismail",
       "ta": "2022/2023 Genap",
       "id": 2
     },
@@ -142,10 +131,10 @@
     },
     {
       "kelas": "6",
-      "jumlah_siswa": "13",
+      "jumlah_siswa": "23",
       "wali_kelas": "rui",
       "ta": "2022/2023 Genap",
-      "id": 10
+      "id": 8
     }
   ],
   "user": [
@@ -219,21 +208,18 @@
   "mapel": [
     {
       "mapel": "IPA",
-      "kelas": "5",
       "id": 1
     },
     {
-      "mapel": "MTK",
-      "kelas": "5",
+      "mapel": "IPS",
       "id": 2
     },
     {
-      "mapel": "Bahasa Indonesia",
-      "kelas": "5",
+      "mapel": "BAHASA INDONESIA",
       "id": 3
     },
     {
-      "mapel": "IPS",
+      "mapel": "MTK",
       "id": 4
     }
   ],
@@ -275,16 +261,12 @@
       "id": 6
     },
     {
-      "mapel": "IPA",
-      "tema": "Tema 2 IPA",
-      "sub_tema": "Subtema 1 IPA 2",
+      "kelas": "5",
+      "mapel": "BAHASA INDONESIA",
+      "tema": "Tema 1 Bahasa Indonesia",
+      "sub_tema": "Subtema 1 Bahasa Indonesia",
+      "kkm": "65",
       "id": 7
-    },
-    {
-      "mapel": "IPA",
-      "tema": "Tema 2 IPA",
-      "sub_tema": "Subtema 2 IPA 2",
-      "id": 8
     }
   ],
   "nilai": [
@@ -367,6 +349,16 @@
       "sub_tema": "Subtema 2 IPA",
       "token": "2410b3bd-40ba-4270-8105-19db550859ca",
       "id": 8
+    },
+    {
+      "nis": "2006",
+      "nama": "nadia",
+      "nilai": "77",
+      "mapel": "IPA",
+      "tema": "Tema 1 IPA",
+      "sub_tema": "Subtema 1 IPA",
+      "token": "473ff7e7-5cb9-4f10-8b12-aadc65e1a59d",
+      "id": 9
     }
   ],
   "kkm": [
@@ -409,6 +401,14 @@
       "sub_tema": "Subtema 1 IPA",
       "kkm": "65",
       "id": 5
+    },
+    {
+      "kelas": "5",
+      "mapel": "BAHASA INDONESIA",
+      "tema": "Tema 1 Bahasa Indonesia",
+      "sub_tema": "Subtema 1 Bahasa Indonesia",
+      "kkm": "65",
+      "id": 6
     }
   ],
   "laporan": []

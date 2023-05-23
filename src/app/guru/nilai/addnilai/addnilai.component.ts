@@ -28,7 +28,7 @@ export class AddnilaiComponent {
   unikNama: any[] = [];
 
   public dataNilaiForm!: FormGroup;
- 
+
 
   constructor(private _fb: FormBuilder,
     public dialogref: MatDialogRef<AddnilaiComponent>,
@@ -45,7 +45,7 @@ export class AddnilaiComponent {
     this.dataNilaiForm = this._formBuilder.group({
       nis: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       nama: ["", Validators.required],
-      nilai: [ , [Validators.required, Validators.min(0), Validators.max(100), Validators.pattern(/^-?(0|[1-9]\d*)(\.\d+)?$/)]],
+      nilai: [, [Validators.required, Validators.min(0), Validators.max(100), Validators.pattern(/^-?(0|[1-9]\d*)(\.\d+)?$/)]],
       mapel: ["", Validators.required],
       tema: ["", Validators.required],
       sub_tema: ["", Validators.required],
@@ -70,11 +70,11 @@ export class AddnilaiComponent {
       console.log('data is', res)
       this.filterM(res)
     })
-   
+
   }
 
   //MEMANGGIL DATA SISWA
-  initFormSiswa(){
+  initFormSiswa() {
     this.siswa = this._formBuilder.group({
       'siswa': [''],
     })
@@ -120,7 +120,7 @@ export class AddnilaiComponent {
   }
 
   //FILTER SEARCHING SISWA
-  filterS(enterData: any){
+  filterS(enterData: any) {
     if (!enterData) {
       // jika input kosong, tampilkan semua data
       this.filterSiswa();
@@ -136,7 +136,7 @@ export class AddnilaiComponent {
     }
   }
 
-  filterT (enterData: any) {
+  filterT(enterData: any) {
     if (!enterData) {
       // jika input kosong, tampilkan semua data
       this.filterTema();
@@ -156,8 +156,8 @@ export class AddnilaiComponent {
     this.unikMapel = Array.from(new Set(this.mapel.map((item: { mapel: string; }) => item.mapel)));
   }
 
-   //FILTER DUPLICATE SISWA
-  filterSiswa(){
+  //FILTER DUPLICATE SISWA
+  filterSiswa() {
     this.unikNis = Array.from(new Set(this.siswa.map((item: { nis: string; }) => item.nis)));
     this.unikNama = Array.from(new Set(this.siswa.map((item: { nama: string; }) => item.nama)));
   }
@@ -203,15 +203,38 @@ export class AddnilaiComponent {
   submit() {
     // Validasi form
     if (this.dataNilaiForm.invalid) {
-        // Tampilkan pesan kesalahan
-        this.toastr.error('Gagal Menambah Data!!!', 'Data Nilai');
-        return;
+      // Tampilkan pesan kesalahan
+      this.toastr.error('Gagal Menambah Data!!!', 'Data Nilai');
+      return;
     }
 
-   this.simpan(); // Lakukan simpan data
-}
-
-
+    const newData = this.dataNilaiForm.value;
+    const temaInput = newData.tema;
+    const subTemaInput = newData.sub_tema;
+    const nisInput = newData.nis;
+    this.api.getNilaiId(temaInput)
+      .subscribe(existingData => {
+        const isExisting = existingData.some(data => {
+          const temaData = data.tema;
+          const subTemaData = data.sub_tema;
+          const nisData = data.nis;
+          return (
+            encodeURIComponent(temaData) === encodeURIComponent(temaInput) &&
+            encodeURIComponent(subTemaData) === encodeURIComponent(subTemaInput) &&
+            nisData === nisInput
+          );
+        });
+        
+        if (isExisting) {
+          // Nilai dengan Tema yang sama sudah ada, tampilkan pesan kesalahan
+          this.toastr.error('Sub Tema pada Tema Mata Pelajaran sudah diberi Nilai. Data tidak dapat ditambahkan.', 'Data Nilai');
+        } else {
+          this.simpan(); // Lakukan simpan data
+        }
+      }, error => {
+        console.log(error);
+      });
+  }
 
   simpan() {
     const nilai = this.dataNilaiForm?.get('nilai')?.value ?? 0;
@@ -220,23 +243,23 @@ export class AddnilaiComponent {
     if (kkm !== 0 && nilai < kkm) {
       this.toastr.error(`Nilai yang dimasukkan (${nilai}) kurang dari KKM (${kkm})`, 'Masuk Kategori Remidial');
       this.api.tambahdataNilai(this.dataNilaiForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Nilai');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
+        .subscribe(res => {
+          this.toastr.success('Berhasil Mengupdate Data!!!', 'Data Nilai');
+          this.dialogref.close();
+          setTimeout(() => {
+            window.location.reload();
+          }, 5500);
+        })
       return;
     } else {
-        this.api.tambahdataNilai(this.dataNilaiForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data Nilai');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
+      this.api.tambahdataNilai(this.dataNilaiForm.value)
+        .subscribe(res => {
+          this.toastr.success('Berhasil Menambah Data!!!', 'Data Nilai');
+          this.dialogref.close();
+          setTimeout(() => {
+            window.location.reload();
+          }, 5500);
+        })
     }
   }
 }

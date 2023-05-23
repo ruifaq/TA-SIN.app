@@ -47,22 +47,41 @@ export class AddSiswaComponent {
   submit() {
     // Validasi form
     if (this.dataSiswaForm.invalid) {
-        // Tampilkan pesan kesalahan
-        this.toastr.error('Gagal Menambah Data!!!', 'Data Siswa');
-        return;
+      // Tampilkan pesan kesalahan
+      this.toastr.error('Gagal Menambah Data!!!', 'Data Siswa');
+      return;
     }
-
-   this.simpan(); // Lakukan simpan data
-}
-
-  simpan() {
-    this.api.tambahDataSiswa(this.dataSiswaForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data Siswa');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
+  
+    const newData = this.dataSiswaForm.value;
+    this.api.getSiswaNis(newData.nis)
+      .subscribe(existingData => {
+        if (existingData.length > 0) {
+          // NIS sudah ada, tampilkan pesan kesalahan
+          this.toastr.error('NIS sudah ada. Data tidak dapat ditambahkan.', 'Data Siswa');
+        } else {
+          // NIS belum ada, lakukan simpan data
+          this.api.tambahDataSiswa(newData)
+            .subscribe(res => {
+              this.toastr.success('Berhasil Menambah Data!!!', 'Data Siswa');
+              this.dialogref.close();
+              setTimeout(() => {
+                window.location.reload();
+              }, 5500);
+            });
+        }
+      }, error => {
+        console.log(error);
+      });
   }
+  
+  // simpan() {
+  //   this.api.tambahDataSiswa(this.dataSiswaForm.value)
+  //     .subscribe(res => {
+  //       this.toastr.success('Berhasil Menambah Data!!!', 'Data Siswa');
+  //       this.dialogref.close();
+  //       setTimeout(() => {
+  //         window.location.reload();
+  //       }, 5500);
+  //     })
+  // }
 }

@@ -154,60 +154,39 @@ export class ApiService {
     return this.http.get<GuruModule>(this.guruUrl);
   }
 
-  cekDataKelas(kelas: number): Observable<KelasModule> {
-    return this.http.get<KelasModule>(`${this.kelasUrl}/${kelas}`).pipe(
-      catchError(err => {
-        if (err.status === 404) {
-          // Endpoint tidak ditemukan, tambahkan data ke database
-          return this.addKelasData(kelas);
-        }
-        throw err;
-      })
-    );
+  getSiswaNis(nis: any) {
+    const getNis = `${this.siswaUrl}?nis=${nis}`;
+    return this.http.get<SiswaModule[]>(getNis);
+  }
+
+  getGuruNip(nip: any) {
+    const getNip = `${this.guruUrl}?nip=${nip}`;
+    return this.http.get<GuruModule[]>(getNip);
+  }
+
+  getKelasId(kelas: any) {
+    const getKelas = `${this.kelasUrl}?kelas=${kelas}`;
+    return this.http.get<KelasModule[]>(getKelas);
+  }
+
+  getMapelId(mapel: any) {
+    const getMapel = `${this.mapelUrl}?mapel=${mapel}`;
+    return this.http.get<MapelModule[]>(getMapel);
+  }
+
+  getTemaId(tema: string) {
+    const url = `${this.temaUrl}?tema=${encodeURIComponent(tema)}`;
+    return this.http.get<TemaModule[]>(url);
   }
   
-  addKelasData(kelas: number): Observable<KelasModule> {
-    return this.http.post<KelasModule>(this.kelasUrl, { kelas });
+  getNilaiId(tema: string){
+    const url = `${this.nilaiUrl}?tema=${encodeURIComponent(tema)}`;
+    return this.http.get<NilaiModule[]>(url);
   }
 
-  addKelasIfNotExists(kelas: number): Observable<KelasModule> {
-    return this.http.get<KelasModule>(`${this.kelasUrl}/${kelas}`).pipe(
-      catchError(err => {
-        if (err.status === 404) {
-          // Endpoint tidak ditemukan, tambahkan data ke database
-          return this.http.post<KelasModule>(this.kelasUrl, { kelas });
-        }
-        throw err;
-      })
-    );
+  getKkmId(tema: string) {
+    const url = `${this.kkmUrl}?tema=${encodeURIComponent(tema)}`;
+    return this.http.get<KkmModule[]>(url);
   }
-  
-  
-
-  hapusDupKelas(kelas: number): Observable<any> {
-    return this.http.delete<any>(this.kelasUrl + '/' + kelas);
-  }
-
-  cekDataSiswa(id: number){
-    return this.http.get<SiswaModule>(this.siswaUrl + '/' + id);
-  }
-
-  hapusDupSiswa(nis: string) {
-    return this.http.delete<SiswaModule>(this.siswaUrl + '/' + nis);
-  }
-
-  // cekDataGuru(nip: number): Observable<any> {
-  //   return this.http.get<GuruModule>(`${this.guruUrl}?nip=${nip}`).pipe(
-  //     catchError((error) => {
-  //       console.error(error);
-  //       return of(null);
-  //     })
-  //   );
-  // }
-
-  // hapusDupGuru(nip: number) {
-  //   return this.http.delete<GuruModule>(this.guruUrl + '/' + nip);
-  // }
-
  
 }

@@ -35,18 +35,19 @@
                 <td mat-cell *matCellDef="let element = index"> {{element + 1}} </td>
             </ng-container>
 
+             <!-- NIS Column -->
             <ng-container matColumnDef="nis">
                 <th mat-header-cell *matHeaderCellDef> NIS </th>
                 <td mat-cell *matCellDef="let element"> {{element.nis}} </td>
             </ng-container>
 
-            <!-- Weight Column -->
+            <!-- Nama Column -->
             <ng-container matColumnDef="nama">
                 <th mat-header-cell *matHeaderCellDef> Nama </th>
                 <td mat-cell *matCellDef="let element"> {{element.nama}} </td>
             </ng-container>
 
-            <!-- Symbol Column -->
+            <!-- Nilai Column -->
             <ng-container matColumnDef="nilai">
                 <th mat-header-cell *matHeaderCellDef> Nilai </th>
                 <td mat-cell *matCellDef="let element" [ngStyle]="{'color': element.nilai < 65 ? 'red' : 'black'}">{{element.nilai}}</td>

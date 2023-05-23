@@ -41,18 +41,18 @@ export class AddtemaComponent {
     this.initFromTema();
     this.getMapel();
     this.getTema();
-  
+
   }
 
   getMapel() {
     this.api.ambilDataMapel().subscribe(res => {
       this.mapel = res;
       this.filterMapel();
-      
+
     })
   }
 
-  getTema(){
+  getTema() {
     this.api.ambilDataTema().subscribe(res => {
       this.tema = res;
       this.filterTema();
@@ -89,11 +89,11 @@ export class AddtemaComponent {
   //     this.unikMapel = this.unikMapel.filter((item: string) => {
   //       return item.toLowerCase().indexOf(enterData.toLowerCase()) > -1
   //     })
-      
+
   //   }
   // }
 
-  filterT (enterData: any) {
+  filterT(enterData: any) {
     if (!enterData) {
       // jika input kosong, tampilkan semua data
       this.filterTema();
@@ -117,23 +117,49 @@ export class AddtemaComponent {
   submit() {
     // Validasi form
     if (this.dataTemaForm.invalid) {
-        // Tampilkan pesan kesalahan
-        this.toastr.error('Gagal Menambah Data!!!', 'Data Tema');
-        return;
+      // Tampilkan pesan kesalahan
+      this.toastr.error('Gagal Menambah Data!!!', 'Data Tema');
+      return;
     }
 
-   this.simpan(); // Lakukan simpan data
-}
-
-
-  simpan() {
-    this.api.tambahDataTema(this.dataTemaForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data Tema');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
+    const newData = this.dataTemaForm.value;
+    const temaInput = newData.tema;
+    const subTemaInput = newData.sub_tema;
+    this.api.getTemaId(temaInput)
+      .subscribe(existingData => {
+        const isExisting = existingData.some(data => {
+          const temaData = data.tema;
+          const subTemaData = data.sub_tema;
+          return encodeURIComponent(temaData) === encodeURIComponent(temaInput) && encodeURIComponent(subTemaData) === encodeURIComponent(subTemaInput);
+        });
+        if (isExisting) {
+          // Mata Pelajaran dengan Tema yang sama sudah ada, tampilkan pesan kesalahan
+          this.toastr.error('Mata Pelajaran dengan Tema yang sama sudah ada. Data tidak dapat ditambahkan.', 'Data Mata Pelajaran');
+        } else {
+          // Mata Pelajaran dengan Tema yang sama belum ada, lakukan simpan data
+          this.api.tambahDataTema(newData)
+            .subscribe(res => {
+              this.toastr.success('Berhasil Menambah Data!!!', 'Data Mata Pelajaran');
+              this.dialogref.close();
+              setTimeout(() => {
+                window.location.reload();
+              }, 5500);
+            });
+        }
+      }, error => {
+        console.log(error);
+      });
   }
+
+
+  // simpan() {
+  //   this.api.tambahDataTema(this.dataTemaForm.value)
+  //     .subscribe(res => {
+  //       this.toastr.success('Berhasil Menambah Data!!!', 'Data Tema');
+  //       this.dialogref.close();
+  //       setTimeout(() => {
+  //         window.location.reload();
+  //       }, 5500);
+  //     })
+  // }
 }

@@ -38,7 +38,7 @@ export class DeletetemaComponent {
     this.dataTemaForm.patchValue(this.data)
   }
 
-  hapusDataMapel() {
+  hapusDataTema() {
     this.api.hapusDataTema(this.data.id).subscribe(res => {
       this.toastr.success('Berhasil Menghapus Data!!!', 'Data Tema');
         this.dialogref.close();

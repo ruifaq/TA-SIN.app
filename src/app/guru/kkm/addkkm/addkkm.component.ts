@@ -148,23 +148,50 @@ export class AddkkmComponent {
   submit() {
     // Validasi form
     if (this.dataKkmForm.invalid) {
-        // Tampilkan pesan kesalahan
-        this.toastr.error('Gagal Menambah Data!!!', 'Data KKM');
-        return;
+      // Tampilkan pesan kesalahan
+      this.toastr.error('Gagal Menambah Data!!!', 'Data KKM');
+      return;
     }
 
-   this.simpan(); // Lakukan simpan data
-}
-
-  simpan() {
-    this.api.tambahDataKkm(this.dataKkmForm.value)
-      .subscribe(res => {
-        this.toastr.success('Berhasil Menambah Data!!!', 'Data KKM');
-        this.dialogref.close();
-        setTimeout(() => {
-          window.location.reload();
-        }, 5500);
-      })
+    const newData = this.dataKkmForm.value;
+    const temaInput = newData.tema;
+    const subTemaInput = newData.sub_tema;
+    this.api.getKkmId(temaInput)
+      .subscribe(existingData => {
+        const isExisting = existingData.some(data => {
+          const temaData = data.tema;
+          const subTemaData = data.sub_tema;
+          return encodeURIComponent(temaData) === encodeURIComponent(temaInput) && 
+          encodeURIComponent(subTemaData) === encodeURIComponent(subTemaInput);
+        });
+        if (isExisting) {
+          // Mata Pelajaran dengan Tema yang sama sudah ada, tampilkan pesan kesalahan
+          this.toastr.error('KKM pada Mata Pelajaran sudah ada. Data tidak dapat ditambahkan.', 'Data KKM');
+        } else {
+          // Mata Pelajaran dengan Tema yang sama belum ada, lakukan simpan data
+          this.api.tambahDataKkm(newData)
+            .subscribe(res => {
+              this.toastr.success('Berhasil Menambah Data!!!', 'Data KKM');
+              this.dialogref.close();
+              setTimeout(() => {
+                window.location.reload();
+              }, 5500);
+            });
+        }
+      }, error => {
+        console.log(error);
+      });
   }
+
+  // simpan() {
+  //   this.api.tambahDataKkm(this.dataKkmForm.value)
+  //     .subscribe(res => {
+  //       this.toastr.success('Berhasil Menambah Data!!!', 'Data KKM');
+  //       this.dialogref.close();
+  //       setTimeout(() => {
+  //         window.location.reload();
+  //       }, 5500);
+  //     })
+  // }
 
 }

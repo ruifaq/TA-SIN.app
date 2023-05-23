@@ -6,13 +6,6 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Masukkan Mata Pelajaran" #input>
     </mat-form-field>
 
-    <!-- <mat-form-field appearance="outline" class="field">
-        <mat-select required>
-            <mat-option  *ngFor="let siswa of kelas" [value]="siswa.nis">{{siswa.nama}}</mat-option>
-        </mat-select>
-        <mat-error>Masukkan Jabatan terlebih dahulu</mat-error>
-    </mat-form-field> -->
-
     <section>
         <div class="example-button-row">
             <button mat-raised-button color="primary" (click)="add()">Tambah Mata Pelajaran</button>

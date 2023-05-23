@@ -50,19 +50,38 @@ export class AddkelasComponent {
         return;
     }
 
-   this.simpan(); // Lakukan simpan data
+    const newData = this.dataKelasForm.value;
+    this.api.getKelasId(newData.kelas)
+      .subscribe(existingData => {
+        if (existingData.length > 0) {
+          // kelas sudah ada, tampilkan pesan kesalahan
+          this.toastr.error('Kelas sudah ada. Data tidak dapat ditambahkan.', 'Data Kelas');
+        } else {
+          // kelas belum ada, lakukan simpan data
+          this.api.tambahDataKelas(newData)
+            .subscribe(res => {
+              this.toastr.success('Berhasil Menambah Data!!!', 'Data Kelas');
+              this.dialogref.close();
+              setTimeout(() => {
+                window.location.reload();
+              }, 5500);
+            });
+        }
+      }, error => {
+        console.log(error);
+      });
 }
 
-simpan() {
-  this.api.tambahDataKelas(this.dataKelasForm.value)
-    .subscribe(res => {
-      this.toastr.success('Berhasil Menambah Data!!!', 'Data Kelas');
-      this.dialogref.close();
-      setTimeout(() => {
-        window.location.reload();
-      }, 5500);
-    })
-}
+// simpan() {
+//   this.api.tambahDataKelas(this.dataKelasForm.value)
+//     .subscribe(res => {
+//       this.toastr.success('Berhasil Menambah Data!!!', 'Data Kelas');
+//       this.dialogref.close();
+//       setTimeout(() => {
+//         window.location.reload();
+//       }, 5500);
+//     })
+// }
 
 
 
